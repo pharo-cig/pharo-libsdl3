@@ -2,6 +2,8 @@ Class {
 	#name : 'S3IOStreamInterface',
 	#superclass : 'S3Structure',
 	#classVars : [
+		'OFFSET_CLOSE',
+		'OFFSET_FLUSH',
 		'OFFSET_SEEK',
 		'OFFSET_SIZE',
 		'OFFSET_SIZE_T',
@@ -19,8 +21,42 @@ S3IOStreamInterface class >> fieldsDesc [
 	Uint32 version;
 	Sint64 size;
 	Sint64 seek;
-	int size_t
+	int size_t;
+	FFICallback flush;
+	FFICallback close
 	)
+]
+
+{ #category : 'accessing - structure variables' }
+S3IOStreamInterface >> close [
+	"This method was automatically generated"
+	^FFICallback forAddress: ((handle pointerAt: OFFSET_CLOSE) asInteger)
+]
+
+{ #category : 'accessing - structure variables' }
+S3IOStreamInterface >> close: anObject [
+	"This method was automatically generated"
+	handle 
+		pointerAt: OFFSET_CLOSE
+		put: (anObject 
+			ifNotNil: [ anObject thunk asExternalAddress ]
+			ifNil: [ ExternalAddress null ])
+]
+
+{ #category : 'accessing - structure variables' }
+S3IOStreamInterface >> flush [
+	"This method was automatically generated"
+	^FFICallback forAddress: ((handle pointerAt: OFFSET_FLUSH) asInteger)
+]
+
+{ #category : 'accessing - structure variables' }
+S3IOStreamInterface >> flush: anObject [
+	"This method was automatically generated"
+	handle 
+		pointerAt: OFFSET_FLUSH
+		put: (anObject 
+			ifNotNil: [ anObject thunk asExternalAddress ]
+			ifNil: [ ExternalAddress null ])
 ]
 
 { #category : 'accessing - structure variables' }

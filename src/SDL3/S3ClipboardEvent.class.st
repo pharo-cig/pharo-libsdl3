@@ -21,7 +21,7 @@ S3ClipboardEvent class >> fieldsDesc [
 	SDL_EventType type;
 	Uint32 reserved;
 	Uint64 timestamp;
-	int owner;
+	bool owner;
 	Sint32 num_mime_types;
 	char** mime_types
 	)
@@ -54,13 +54,13 @@ S3ClipboardEvent >> num_mime_types: anObject [
 { #category : 'accessing - structure variables' }
 S3ClipboardEvent >> owner [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_OWNER
+	^handle booleanAt: OFFSET_OWNER
 ]
 
 { #category : 'accessing - structure variables' }
 S3ClipboardEvent >> owner: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_OWNER put: anObject
+	handle booleanAt: OFFSET_OWNER put: anObject
 ]
 
 { #category : 'accessing - structure variables' }

@@ -32,21 +32,21 @@ S3KeyboardEvent class >> fieldsDesc [
 	SDL_Keycode key;
 	SDL_Keymod mod;
 	Uint16 raw;
-	int down;
-	int repeat
+	bool down;
+	bool repeat
 	)
 ]
 
 { #category : 'accessing - structure variables' }
 S3KeyboardEvent >> down [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_DOWN
+	^handle booleanAt: OFFSET_DOWN
 ]
 
 { #category : 'accessing - structure variables' }
 S3KeyboardEvent >> down: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_DOWN put: anObject
+	handle booleanAt: OFFSET_DOWN put: anObject
 ]
 
 { #category : 'accessing - structure variables' }
@@ -88,13 +88,13 @@ S3KeyboardEvent >> raw: anObject [
 { #category : 'accessing - structure variables' }
 S3KeyboardEvent >> repeat [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_REPEAT
+	^handle booleanAt: OFFSET_REPEAT
 ]
 
 { #category : 'accessing - structure variables' }
 S3KeyboardEvent >> repeat: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_REPEAT put: anObject
+	handle booleanAt: OFFSET_REPEAT put: anObject
 ]
 
 { #category : 'accessing - structure variables' }

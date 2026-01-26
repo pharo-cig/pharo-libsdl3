@@ -15,8 +15,13 @@ Class {
 		'OFFSET_PADDING',
 		'OFFSET_PADDING2',
 		'OFFSET_PRODUCT_ID',
+		'OFFSET_RUMBLE',
+		'OFFSET_RUMBLETRIGGERS',
+		'OFFSET_SENDEFFECT',
 		'OFFSET_SENSORS',
+		'OFFSET_SETLED',
 		'OFFSET_SETPLAYERINDEX',
+		'OFFSET_SETSENSORSENABLED',
 		'OFFSET_TOUCHPADS',
 		'OFFSET_TYPE',
 		'OFFSET_UPDATE',
@@ -53,6 +58,11 @@ S3VirtualJoystickDesc class >> fieldsDesc [
 	void* userdata;
 	FFICallback Update;
 	FFICallback SetPlayerIndex;
+	FFICallback Rumble;
+	FFICallback RumbleTriggers;
+	FFICallback SetLED;
+	FFICallback SendEffect;
+	FFICallback SetSensorsEnabled;
 	FFICallback Cleanup
 	)
 ]
@@ -74,6 +84,70 @@ S3VirtualJoystickDesc >> Cleanup: anObject [
 ]
 
 { #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> Rumble [
+	"This method was automatically generated"
+	^FFICallback forAddress: ((handle pointerAt: OFFSET_RUMBLE) asInteger)
+]
+
+{ #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> Rumble: anObject [
+	"This method was automatically generated"
+	handle 
+		pointerAt: OFFSET_RUMBLE
+		put: (anObject 
+			ifNotNil: [ anObject thunk asExternalAddress ]
+			ifNil: [ ExternalAddress null ])
+]
+
+{ #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> RumbleTriggers [
+	"This method was automatically generated"
+	^FFICallback forAddress: ((handle pointerAt: OFFSET_RUMBLETRIGGERS) asInteger)
+]
+
+{ #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> RumbleTriggers: anObject [
+	"This method was automatically generated"
+	handle 
+		pointerAt: OFFSET_RUMBLETRIGGERS
+		put: (anObject 
+			ifNotNil: [ anObject thunk asExternalAddress ]
+			ifNil: [ ExternalAddress null ])
+]
+
+{ #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> SendEffect [
+	"This method was automatically generated"
+	^FFICallback forAddress: ((handle pointerAt: OFFSET_SENDEFFECT) asInteger)
+]
+
+{ #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> SendEffect: anObject [
+	"This method was automatically generated"
+	handle 
+		pointerAt: OFFSET_SENDEFFECT
+		put: (anObject 
+			ifNotNil: [ anObject thunk asExternalAddress ]
+			ifNil: [ ExternalAddress null ])
+]
+
+{ #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> SetLED [
+	"This method was automatically generated"
+	^FFICallback forAddress: ((handle pointerAt: OFFSET_SETLED) asInteger)
+]
+
+{ #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> SetLED: anObject [
+	"This method was automatically generated"
+	handle 
+		pointerAt: OFFSET_SETLED
+		put: (anObject 
+			ifNotNil: [ anObject thunk asExternalAddress ]
+			ifNil: [ ExternalAddress null ])
+]
+
+{ #category : 'accessing - structure variables' }
 S3VirtualJoystickDesc >> SetPlayerIndex [
 	"This method was automatically generated"
 	^FFICallback forAddress: ((handle pointerAt: OFFSET_SETPLAYERINDEX) asInteger)
@@ -84,6 +158,22 @@ S3VirtualJoystickDesc >> SetPlayerIndex: anObject [
 	"This method was automatically generated"
 	handle 
 		pointerAt: OFFSET_SETPLAYERINDEX
+		put: (anObject 
+			ifNotNil: [ anObject thunk asExternalAddress ]
+			ifNil: [ ExternalAddress null ])
+]
+
+{ #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> SetSensorsEnabled [
+	"This method was automatically generated"
+	^FFICallback forAddress: ((handle pointerAt: OFFSET_SETSENSORSENABLED) asInteger)
+]
+
+{ #category : 'accessing - structure variables' }
+S3VirtualJoystickDesc >> SetSensorsEnabled: anObject [
+	"This method was automatically generated"
+	handle 
+		pointerAt: OFFSET_SETSENSORSENABLED
 		put: (anObject 
 			ifNotNil: [ anObject thunk asExternalAddress ]
 			ifNil: [ ExternalAddress null ])

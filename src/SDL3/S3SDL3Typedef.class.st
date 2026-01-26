@@ -77,6 +77,7 @@ Class {
 		'SDL_Environment',
 		'SDL_Event',
 		'SDL_EventAction',
+		'SDL_EventFilter',
 		'SDL_EventType',
 		'SDL_FColor',
 		'SDL_FPoint',
@@ -624,6 +625,7 @@ S3SDL3Typedef class >> initialize [
 	Uint8_128 := FFIArray ofType: Uint8 size: 128 requestor: self.
 	SDL_Event := S3Event.
 	SDL_EventAction := S3EventAction.
+	SDL_EventFilter := FFICallback.
 	SDL_Folder := S3Folder.
 	SDL_PathType := S3PathType.
 	SDL_PathInfo := S3PathInfo.

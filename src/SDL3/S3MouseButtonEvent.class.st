@@ -29,7 +29,7 @@ S3MouseButtonEvent class >> fieldsDesc [
 	SDL_WindowID windowID;
 	SDL_MouseID which;
 	Uint8 button;
-	int down;
+	bool down;
 	Uint8 clicks;
 	Uint8 padding;
 	float x;
@@ -64,13 +64,13 @@ S3MouseButtonEvent >> clicks: anObject [
 { #category : 'accessing - structure variables' }
 S3MouseButtonEvent >> down [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_DOWN
+	^handle booleanAt: OFFSET_DOWN
 ]
 
 { #category : 'accessing - structure variables' }
 S3MouseButtonEvent >> down: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_DOWN put: anObject
+	handle booleanAt: OFFSET_DOWN put: anObject
 ]
 
 { #category : 'accessing - structure variables' }

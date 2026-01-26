@@ -62,7 +62,7 @@ S3Event >> adevice [
 { #category : 'accessing - structure variables' }
 S3Event >> adevice: anObject [
 	"This method was automatically generated"
-	handle structAt: 1 put: anObject getHandle length: 32.
+	handle structAt: 1 put: anObject getHandle length: 24.
 ]
 
 { #category : 'accessing - structure variables' }
@@ -74,7 +74,7 @@ S3Event >> button [
 { #category : 'accessing - structure variables' }
 S3Event >> button: anObject [
 	"This method was automatically generated"
-	handle structAt: 1 put: anObject getHandle length: 48.
+	handle structAt: 1 put: anObject getHandle length: 40.
 ]
 
 { #category : 'accessing - structure variables' }
@@ -182,7 +182,7 @@ S3Event >> gbutton [
 { #category : 'accessing - structure variables' }
 S3Event >> gbutton: anObject [
 	"This method was automatically generated"
-	handle structAt: 1 put: anObject getHandle length: 32.
+	handle structAt: 1 put: anObject getHandle length: 24.
 ]
 
 { #category : 'accessing - structure variables' }
@@ -266,7 +266,7 @@ S3Event >> jbutton [
 { #category : 'accessing - structure variables' }
 S3Event >> jbutton: anObject [
 	"This method was automatically generated"
-	handle structAt: 1 put: anObject getHandle length: 32.
+	handle structAt: 1 put: anObject getHandle length: 24.
 ]
 
 { #category : 'accessing - structure variables' }
@@ -314,7 +314,7 @@ S3Event >> key [
 { #category : 'accessing - structure variables' }
 S3Event >> key: anObject [
 	"This method was automatically generated"
-	handle structAt: 1 put: anObject getHandle length: 48.
+	handle structAt: 1 put: anObject getHandle length: 40.
 ]
 
 { #category : 'accessing - structure variables' }
@@ -374,7 +374,7 @@ S3Event >> pbutton [
 { #category : 'accessing - structure variables' }
 S3Event >> pbutton: anObject [
 	"This method was automatically generated"
-	handle structAt: 1 put: anObject getHandle length: 48.
+	handle structAt: 1 put: anObject getHandle length: 40.
 ]
 
 { #category : 'accessing - structure variables' }
@@ -422,7 +422,7 @@ S3Event >> ptouch [
 { #category : 'accessing - structure variables' }
 S3Event >> ptouch: anObject [
 	"This method was automatically generated"
-	handle structAt: 1 put: anObject getHandle length: 48.
+	handle structAt: 1 put: anObject getHandle length: 40.
 ]
 
 { #category : 'accessing - structure variables' }

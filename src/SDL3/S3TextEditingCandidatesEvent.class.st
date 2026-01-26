@@ -30,7 +30,7 @@ S3TextEditingCandidatesEvent class >> fieldsDesc [
 	char* candidates;
 	Sint32 num_candidates;
 	Sint32 selected_candidate;
-	int horizontal;
+	bool horizontal;
 	Uint8 padding1;
 	Uint8 padding2;
 	Uint8 padding3
@@ -52,13 +52,13 @@ S3TextEditingCandidatesEvent >> candidates: anObject [
 { #category : 'accessing - structure variables' }
 S3TextEditingCandidatesEvent >> horizontal [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_HORIZONTAL
+	^handle booleanAt: OFFSET_HORIZONTAL
 ]
 
 { #category : 'accessing - structure variables' }
 S3TextEditingCandidatesEvent >> horizontal: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_HORIZONTAL put: anObject
+	handle booleanAt: OFFSET_HORIZONTAL put: anObject
 ]
 
 { #category : 'accessing - structure variables' }

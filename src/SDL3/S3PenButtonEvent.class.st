@@ -31,7 +31,7 @@ S3PenButtonEvent class >> fieldsDesc [
 	float x;
 	float y;
 	Uint8 button;
-	int down
+	bool down
 	)
 ]
 
@@ -50,13 +50,13 @@ S3PenButtonEvent >> button: anObject [
 { #category : 'accessing - structure variables' }
 S3PenButtonEvent >> down [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_DOWN
+	^handle booleanAt: OFFSET_DOWN
 ]
 
 { #category : 'accessing - structure variables' }
 S3PenButtonEvent >> down: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_DOWN put: anObject
+	handle booleanAt: OFFSET_DOWN put: anObject
 ]
 
 { #category : 'accessing - structure variables' }

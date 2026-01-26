@@ -43,7 +43,7 @@ LibSDL3 >> AcquireGPUCommandBuffer: device [
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> AcquireGPUSwapchainTextureCommand_buffer: command_buffer window: window swapchain_texture: swapchain_texture swapchain_texture_width: swapchain_texture_width swapchain_texture_height: swapchain_texture_height [
 
-	^ self ffiCall: #(int SDL_AcquireGPUSwapchainTexture(SDL_GPUCommandBuffer* command_buffer, SDL_Window* window, SDL_GPUTexture* swapchain_texture, Uint32* swapchain_texture_width, Uint32* swapchain_texture_height))
+	^ self ffiCall: #(bool SDL_AcquireGPUSwapchainTexture(SDL_GPUCommandBuffer* command_buffer, SDL_Window* window, SDL_GPUTexture* swapchain_texture, Uint32* swapchain_texture_width, Uint32* swapchain_texture_height))
 ]
 
 { #category : 'public - SDL_atomic' }
@@ -61,7 +61,7 @@ LibSDL3 >> AddAtomicU32A: a v: v [
 { #category : 'public - SDL_events' }
 LibSDL3 >> AddEventWatchFilter: filter userdata: userdata [
 
-	^ self ffiCall: #(int SDL_AddEventWatch(int filter, void* userdata))
+	^ self ffiCall: #(bool SDL_AddEventWatch(SDL_EventFilter filter, void* userdata))
 ]
 
 { #category : 'public - SDL_gamepad' }
@@ -79,19 +79,19 @@ LibSDL3 >> AddGamepadMappingsFromFile: file [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> AddGamepadMappingsFromIOSrc: src closeio: closeio [
 
-	^ self ffiCall: #(int SDL_AddGamepadMappingsFromIO(SDL_IOStream* src, int closeio))
+	^ self ffiCall: #(int SDL_AddGamepadMappingsFromIO(SDL_IOStream* src, bool closeio))
 ]
 
 { #category : 'public - SDL_hints' }
 LibSDL3 >> AddHintCallbackName: name callback: callback userdata: userdata [
 
-	^ self ffiCall: #(int SDL_AddHintCallback(const char* name, SDL_HintCallback callback, void* userdata))
+	^ self ffiCall: #(bool SDL_AddHintCallback(const char* name, SDL_HintCallback callback, void* userdata))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> AddSurfaceAlternateImageSurface: surface image: image [
 
-	^ self ffiCall: #(int SDL_AddSurfaceAlternateImage(SDL_Surface* surface, SDL_Surface* image))
+	^ self ffiCall: #(bool SDL_AddSurfaceAlternateImage(SDL_Surface* surface, SDL_Surface* image))
 ]
 
 { #category : 'public - SDL_timer' }
@@ -109,7 +109,7 @@ LibSDL3 >> AddTimerNSInterval: interval callback: callback userdata: userdata [
 { #category : 'public - SDL_render' }
 LibSDL3 >> AddVulkanRenderSemaphoresRenderer: renderer wait_stage_mask: wait_stage_mask wait_semaphore: wait_semaphore signal_semaphore: signal_semaphore [
 
-	^ self ffiCall: #(int SDL_AddVulkanRenderSemaphores(SDL_Renderer* renderer, Uint32 wait_stage_mask, Sint64 wait_semaphore, Sint64 signal_semaphore))
+	^ self ffiCall: #(bool SDL_AddVulkanRenderSemaphores(SDL_Renderer* renderer, Uint32 wait_stage_mask, Sint64 wait_semaphore, Sint64 signal_semaphore))
 ]
 
 { #category : 'public - SDL_asyncio' }
@@ -127,13 +127,13 @@ LibSDL3 >> AttachVirtualJoystick: desc [
 { #category : 'public - SDL_audio' }
 LibSDL3 >> AudioDevicePaused: devid [
 
-	^ self ffiCall: #(int SDL_AudioDevicePaused(SDL_AudioDeviceID devid))
+	^ self ffiCall: #(bool SDL_AudioDevicePaused(SDL_AudioDeviceID devid))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> AudioStreamDevicePaused: stream [
 
-	^ self ffiCall: #(int SDL_AudioStreamDevicePaused(SDL_AudioStream* stream))
+	^ self ffiCall: #(bool SDL_AudioStreamDevicePaused(SDL_AudioStream* stream))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -157,13 +157,13 @@ LibSDL3 >> BeginGPURenderPassCommand_buffer: command_buffer color_target_infos: 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> BindAudioStreamDevid: devid stream: stream [
 
-	^ self ffiCall: #(int SDL_BindAudioStream(SDL_AudioDeviceID devid, SDL_AudioStream* stream))
+	^ self ffiCall: #(bool SDL_BindAudioStream(SDL_AudioDeviceID devid, SDL_AudioStream* stream))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> BindAudioStreamsDevid: devid streams: streams num_streams: num_streams [
 
-	^ self ffiCall: #(int SDL_BindAudioStreams(SDL_AudioDeviceID devid, SDL_AudioStream* streams, int num_streams))
+	^ self ffiCall: #(bool SDL_BindAudioStreams(SDL_AudioDeviceID devid, SDL_AudioStream* streams, int num_streams))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -253,43 +253,43 @@ LibSDL3 >> BlitGPUTextureCommand_buffer: command_buffer info: info [
 { #category : 'public - SDL_surface' }
 LibSDL3 >> BlitSurface9GridSrc: src srcrect: srcrect left_width: left_width right_width: right_width top_height: top_height bottom_height: bottom_height scale: scale scaleMode: scaleMode dst: dst dstrect: dstrect [
 
-	^ self ffiCall: #(int SDL_BlitSurface9Grid(SDL_Surface* src, SDL_Rect* srcrect, int left_width, int right_width, int top_height, int bottom_height, float scale, SDL_ScaleMode scaleMode, SDL_Surface* dst, SDL_Rect* dstrect))
+	^ self ffiCall: #(bool SDL_BlitSurface9Grid(SDL_Surface* src, SDL_Rect* srcrect, int left_width, int right_width, int top_height, int bottom_height, float scale, SDL_ScaleMode scaleMode, SDL_Surface* dst, SDL_Rect* dstrect))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> BlitSurfaceScaledSrc: src srcrect: srcrect dst: dst dstrect: dstrect scaleMode: scaleMode [
 
-	^ self ffiCall: #(int SDL_BlitSurfaceScaled(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect, SDL_ScaleMode scaleMode))
+	^ self ffiCall: #(bool SDL_BlitSurfaceScaled(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect, SDL_ScaleMode scaleMode))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> BlitSurfaceSrc: src srcrect: srcrect dst: dst dstrect: dstrect [
 
-	^ self ffiCall: #(int SDL_BlitSurface(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect))
+	^ self ffiCall: #(bool SDL_BlitSurface(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> BlitSurfaceTiledSrc: src srcrect: srcrect dst: dst dstrect: dstrect [
 
-	^ self ffiCall: #(int SDL_BlitSurfaceTiled(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect))
+	^ self ffiCall: #(bool SDL_BlitSurfaceTiled(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> BlitSurfaceTiledWithScaleSrc: src srcrect: srcrect scale: scale scaleMode: scaleMode dst: dst dstrect: dstrect [
 
-	^ self ffiCall: #(int SDL_BlitSurfaceTiledWithScale(SDL_Surface* src, SDL_Rect* srcrect, float scale, SDL_ScaleMode scaleMode, SDL_Surface* dst, SDL_Rect* dstrect))
+	^ self ffiCall: #(bool SDL_BlitSurfaceTiledWithScale(SDL_Surface* src, SDL_Rect* srcrect, float scale, SDL_ScaleMode scaleMode, SDL_Surface* dst, SDL_Rect* dstrect))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> BlitSurfaceUncheckedScaledSrc: src srcrect: srcrect dst: dst dstrect: dstrect scaleMode: scaleMode [
 
-	^ self ffiCall: #(int SDL_BlitSurfaceUncheckedScaled(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect, SDL_ScaleMode scaleMode))
+	^ self ffiCall: #(bool SDL_BlitSurfaceUncheckedScaled(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect, SDL_ScaleMode scaleMode))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> BlitSurfaceUncheckedSrc: src srcrect: srcrect dst: dst dstrect: dstrect [
 
-	^ self ffiCall: #(int SDL_BlitSurfaceUnchecked(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect))
+	^ self ffiCall: #(bool SDL_BlitSurfaceUnchecked(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect))
 ]
 
 { #category : 'public - SDL_mutex' }
@@ -307,19 +307,19 @@ LibSDL3 >> CalculateGPUTextureFormatSizeFormat: format width: width height: heig
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> CancelGPUCommandBuffer: command_buffer [
 
-	^ self ffiCall: #(int SDL_CancelGPUCommandBuffer(SDL_GPUCommandBuffer* command_buffer))
+	^ self ffiCall: #(bool SDL_CancelGPUCommandBuffer(SDL_GPUCommandBuffer* command_buffer))
 ]
 
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> CaptureMouse: enabled [
 
-	^ self ffiCall: #(int SDL_CaptureMouse(int enabled))
+	^ self ffiCall: #(bool SDL_CaptureMouse(bool enabled))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> ClaimWindowForGPUDevice: device window: window [
 
-	^ self ffiCall: #(int SDL_ClaimWindowForGPUDevice(SDL_GPUDevice* device, SDL_Window* window))
+	^ self ffiCall: #(bool SDL_ClaimWindowForGPUDevice(SDL_GPUDevice* device, SDL_Window* window))
 ]
 
 { #category : 'public - SDL_thread' }
@@ -331,37 +331,37 @@ LibSDL3 >> CleanupTLS [
 { #category : 'public - SDL_audio' }
 LibSDL3 >> ClearAudioStream: stream [
 
-	^ self ffiCall: #(int SDL_ClearAudioStream(SDL_AudioStream* stream))
+	^ self ffiCall: #(bool SDL_ClearAudioStream(SDL_AudioStream* stream))
 ]
 
 { #category : 'public - SDL_clipboard' }
 LibSDL3 >> ClearClipboardData [
 
-	^ self ffiCall: #(int SDL_ClearClipboardData())
+	^ self ffiCall: #(bool SDL_ClearClipboardData())
 ]
 
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> ClearComposition: window [
 
-	^ self ffiCall: #(int SDL_ClearComposition(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_ClearComposition(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_error' }
 LibSDL3 >> ClearError [
 
-	^ self ffiCall: #(int SDL_ClearError())
+	^ self ffiCall: #(bool SDL_ClearError())
 ]
 
 { #category : 'public - SDL_properties' }
 LibSDL3 >> ClearPropertyProps: props name: name [
 
-	^ self ffiCall: #(int SDL_ClearProperty(SDL_PropertiesID props, const char* name))
+	^ self ffiCall: #(bool SDL_ClearProperty(SDL_PropertiesID props, const char* name))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> ClearSurface: surface r: r g: g b: b a: a [
 
-	^ self ffiCall: #(int SDL_ClearSurface(SDL_Surface* surface, float r, float g, float b, float a))
+	^ self ffiCall: #(bool SDL_ClearSurface(SDL_Surface* surface, float r, float g, float b, float a))
 ]
 
 { #category : 'public - SDL_tray' }
@@ -373,7 +373,7 @@ LibSDL3 >> ClickTrayEntry: entry [
 { #category : 'public - SDL_asyncio' }
 LibSDL3 >> CloseAsyncIO: asyncio flush: flush queue: queue userdata: userdata [
 
-	^ self ffiCall: #(int SDL_CloseAsyncIO(SDL_AsyncIO* asyncio, int flush, SDL_AsyncIOQueue* queue, void* userdata))
+	^ self ffiCall: #(bool SDL_CloseAsyncIO(SDL_AsyncIO* asyncio, bool flush, SDL_AsyncIOQueue* queue, void* userdata))
 ]
 
 { #category : 'public - SDL_audio' }
@@ -403,7 +403,7 @@ LibSDL3 >> CloseHaptic: haptic [
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> CloseIO: context [
 
-	^ self ffiCall: #(int SDL_CloseIO(SDL_IOStream* context))
+	^ self ffiCall: #(bool SDL_CloseIO(SDL_IOStream* context))
 ]
 
 { #category : 'public - SDL_joystick' }
@@ -421,25 +421,25 @@ LibSDL3 >> CloseSensor: sensor [
 { #category : 'public - SDL_storage' }
 LibSDL3 >> CloseStorage: storage [
 
-	^ self ffiCall: #(int SDL_CloseStorage(SDL_Storage* storage))
+	^ self ffiCall: #(bool SDL_CloseStorage(SDL_Storage* storage))
 ]
 
 { #category : 'public - SDL_atomic' }
 LibSDL3 >> CompareAndSwapAtomicIntA: a oldval: oldval newval: newval [
 
-	^ self ffiCall: #(int SDL_CompareAndSwapAtomicInt(SDL_AtomicInt* a, int oldval, int newval))
+	^ self ffiCall: #(bool SDL_CompareAndSwapAtomicInt(SDL_AtomicInt* a, int oldval, int newval))
 ]
 
 { #category : 'public - SDL_atomic' }
 LibSDL3 >> CompareAndSwapAtomicPointerA: a oldval: oldval newval: newval [
 
-	^ self ffiCall: #(int SDL_CompareAndSwapAtomicPointer(void** a, void* oldval, void* newval))
+	^ self ffiCall: #(bool SDL_CompareAndSwapAtomicPointer(void** a, void* oldval, void* newval))
 ]
 
 { #category : 'public - SDL_atomic' }
 LibSDL3 >> CompareAndSwapAtomicU32A: a oldval: oldval newval: newval [
 
-	^ self ffiCall: #(int SDL_CompareAndSwapAtomicU32(SDL_AtomicU32* a, Uint32 oldval, Uint32 newval))
+	^ self ffiCall: #(bool SDL_CompareAndSwapAtomicU32(SDL_AtomicU32* a, Uint32 oldval, Uint32 newval))
 ]
 
 { #category : 'public - SDL_blendmode' }
@@ -451,25 +451,25 @@ LibSDL3 >> ComposeCustomBlendModeSrcColorFactor: srcColorFactor dstColorFactor: 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> ConvertAudioSamplesSrc_spec: src_spec src_data: src_data src_len: src_len dst_spec: dst_spec dst_data: dst_data dst_len: dst_len [
 
-	^ self ffiCall: #(int SDL_ConvertAudioSamples(SDL_AudioSpec* src_spec, const Uint8* src_data, int src_len, SDL_AudioSpec* dst_spec, Uint8** dst_data, int* dst_len))
+	^ self ffiCall: #(bool SDL_ConvertAudioSamples(SDL_AudioSpec* src_spec, const Uint8* src_data, int src_len, SDL_AudioSpec* dst_spec, Uint8** dst_data, int* dst_len))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> ConvertEventToRenderCoordinatesRenderer: renderer event: event [
 
-	^ self ffiCall: #(int SDL_ConvertEventToRenderCoordinates(SDL_Renderer* renderer, SDL_Event* event))
+	^ self ffiCall: #(bool SDL_ConvertEventToRenderCoordinates(SDL_Renderer* renderer, SDL_Event* event))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> ConvertPixelsAndColorspaceWidth: width height: height src_format: src_format src_colorspace: src_colorspace src_properties: src_properties src: src src_pitch: src_pitch dst_format: dst_format dst_colorspace: dst_colorspace dst_properties: dst_properties dst: dst dst_pitch: dst_pitch [
 
-	^ self ffiCall: #(int SDL_ConvertPixelsAndColorspace(int width, int height, SDL_PixelFormat src_format, SDL_Colorspace src_colorspace, SDL_PropertiesID src_properties, const void* src, int src_pitch, SDL_PixelFormat dst_format, SDL_Colorspace dst_colorspace, SDL_PropertiesID dst_properties, void* dst, int dst_pitch))
+	^ self ffiCall: #(bool SDL_ConvertPixelsAndColorspace(int width, int height, SDL_PixelFormat src_format, SDL_Colorspace src_colorspace, SDL_PropertiesID src_properties, const void* src, int src_pitch, SDL_PixelFormat dst_format, SDL_Colorspace dst_colorspace, SDL_PropertiesID dst_properties, void* dst, int dst_pitch))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> ConvertPixelsWidth: width height: height src_format: src_format src: src src_pitch: src_pitch dst_format: dst_format dst: dst dst_pitch: dst_pitch [
 
-	^ self ffiCall: #(int SDL_ConvertPixels(int width, int height, SDL_PixelFormat src_format, const void* src, int src_pitch, SDL_PixelFormat dst_format, void* dst, int dst_pitch))
+	^ self ffiCall: #(bool SDL_ConvertPixels(int width, int height, SDL_PixelFormat src_format, const void* src, int src_pitch, SDL_PixelFormat dst_format, void* dst, int dst_pitch))
 ]
 
 { #category : 'public - SDL_surface' }
@@ -487,7 +487,7 @@ LibSDL3 >> ConvertSurfaceAndColorspaceSurface: surface format: format palette: p
 { #category : 'public - SDL_filesystem' }
 LibSDL3 >> CopyFileOldpath: oldpath newpath: newpath [
 
-	^ self ffiCall: #(int SDL_CopyFile(const char* oldpath, const char* newpath))
+	^ self ffiCall: #(bool SDL_CopyFile(const char* oldpath, const char* newpath))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -505,13 +505,13 @@ LibSDL3 >> CopyGPUTextureToTextureCopy_pass: copy_pass source: source destinatio
 { #category : 'public - SDL_properties' }
 LibSDL3 >> CopyPropertiesSrc: src dst: dst [
 
-	^ self ffiCall: #(int SDL_CopyProperties(SDL_PropertiesID src, SDL_PropertiesID dst))
+	^ self ffiCall: #(bool SDL_CopyProperties(SDL_PropertiesID src, SDL_PropertiesID dst))
 ]
 
 { #category : 'public - SDL_storage' }
 LibSDL3 >> CopyStorageFileStorage: storage oldpath: oldpath newpath: newpath [
 
-	^ self ffiCall: #(int SDL_CopyStorageFile(SDL_Storage* storage, const char* oldpath, const char* newpath))
+	^ self ffiCall: #(bool SDL_CopyStorageFile(SDL_Storage* storage, const char* oldpath, const char* newpath))
 ]
 
 { #category : 'public - SDL_mouse' }
@@ -553,13 +553,13 @@ LibSDL3 >> CreateCursorData: data mask: mask w: w h: h hot_x: hot_x hot_y: hot_y
 { #category : 'public - SDL_filesystem' }
 LibSDL3 >> CreateDirectory: path [
 
-	^ self ffiCall: #(int SDL_CreateDirectory(const char* path))
+	^ self ffiCall: #(bool SDL_CreateDirectory(const char* path))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> CreateEnvironment: populated [
 
-	^ self ffiCall: #(SDL_Environment* SDL_CreateEnvironment(int populated))
+	^ self ffiCall: #(SDL_Environment* SDL_CreateEnvironment(bool populated))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -703,7 +703,7 @@ LibSDL3 >> CreateSoftwareRenderer: surface [
 { #category : 'public - SDL_storage' }
 LibSDL3 >> CreateStorageDirectoryStorage: storage path: path [
 
-	^ self ffiCall: #(int SDL_CreateStorageDirectory(SDL_Storage* storage, const char* path))
+	^ self ffiCall: #(bool SDL_CreateStorageDirectory(SDL_Storage* storage, const char* path))
 ]
 
 { #category : 'public - SDL_surface' }
@@ -781,7 +781,7 @@ LibSDL3 >> CreateTraySubmenu: entry [
 { #category : 'public - SDL_render' }
 LibSDL3 >> CreateWindowAndRendererTitle: title width: width height: height window_flags: window_flags window: window renderer: renderer [
 
-	^ self ffiCall: #(int SDL_CreateWindowAndRenderer(const char* title, int width, int height, SDL_WindowFlags window_flags, SDL_Window* window, SDL_Renderer* renderer))
+	^ self ffiCall: #(bool SDL_CreateWindowAndRenderer(const char* title, int width, int height, SDL_WindowFlags window_flags, SDL_Window* window, SDL_Renderer* renderer))
 ]
 
 { #category : 'public - SDL_video' }
@@ -799,13 +799,13 @@ LibSDL3 >> CreateWindowWithProperties: props [
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> CursorVisible [
 
-	^ self ffiCall: #(int SDL_CursorVisible())
+	^ self ffiCall: #(bool SDL_CursorVisible())
 ]
 
 { #category : 'public - SDL_time' }
 LibSDL3 >> DateTimeToTimeDt: dt ticks: ticks [
 
-	^ self ffiCall: #(int SDL_DateTimeToTime(SDL_DateTime* dt, SDL_Time* ticks))
+	^ self ffiCall: #(bool SDL_DateTimeToTime(SDL_DateTime* dt, SDL_Time* ticks))
 ]
 
 { #category : 'public - SDL_timer' }
@@ -943,7 +943,7 @@ LibSDL3 >> DestroyWindow: window [
 { #category : 'public - SDL_video' }
 LibSDL3 >> DestroyWindowSurface: window [
 
-	^ self ffiCall: #(int SDL_DestroyWindowSurface(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_DestroyWindowSurface(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_thread' }
@@ -955,13 +955,13 @@ LibSDL3 >> DetachThread: thread [
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> DetachVirtualJoystick: instance_id [
 
-	^ self ffiCall: #(int SDL_DetachVirtualJoystick(SDL_JoystickID instance_id))
+	^ self ffiCall: #(bool SDL_DetachVirtualJoystick(SDL_JoystickID instance_id))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> DisableScreenSaver [
 
-	^ self ffiCall: #(int SDL_DisableScreenSaver())
+	^ self ffiCall: #(bool SDL_DisableScreenSaver())
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -1051,7 +1051,7 @@ LibSDL3 >> EGL_SetAttributeCallbacksPlatformAttribCallback: platformAttribCallba
 { #category : 'public - SDL_video' }
 LibSDL3 >> EnableScreenSaver [
 
-	^ self ffiCall: #(int SDL_EnableScreenSaver())
+	^ self ffiCall: #(bool SDL_EnableScreenSaver())
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -1075,61 +1075,61 @@ LibSDL3 >> EndGPURenderPass: render_pass [
 { #category : 'public - SDL_filesystem' }
 LibSDL3 >> EnumerateDirectoryPath: path callback: callback userdata: userdata [
 
-	^ self ffiCall: #(int SDL_EnumerateDirectory(const char* path, SDL_EnumerateDirectoryCallback callback, void* userdata))
+	^ self ffiCall: #(bool SDL_EnumerateDirectory(const char* path, SDL_EnumerateDirectoryCallback callback, void* userdata))
 ]
 
 { #category : 'public - SDL_properties' }
 LibSDL3 >> EnumeratePropertiesProps: props callback: callback userdata: userdata [
 
-	^ self ffiCall: #(int SDL_EnumerateProperties(SDL_PropertiesID props, SDL_EnumeratePropertiesCallback callback, void* userdata))
+	^ self ffiCall: #(bool SDL_EnumerateProperties(SDL_PropertiesID props, SDL_EnumeratePropertiesCallback callback, void* userdata))
 ]
 
 { #category : 'public - SDL_storage' }
 LibSDL3 >> EnumerateStorageDirectoryStorage: storage path: path callback: callback userdata: userdata [
 
-	^ self ffiCall: #(int SDL_EnumerateStorageDirectory(SDL_Storage* storage, const char* path, SDL_EnumerateDirectoryCallback callback, void* userdata))
+	^ self ffiCall: #(bool SDL_EnumerateStorageDirectory(SDL_Storage* storage, const char* path, SDL_EnumerateDirectoryCallback callback, void* userdata))
 ]
 
 { #category : 'public - SDL_events' }
 LibSDL3 >> EventEnabled: type [
 
-	^ self ffiCall: #(int SDL_EventEnabled(Uint32 type))
+	^ self ffiCall: #(bool SDL_EventEnabled(Uint32 type))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> FillSurfaceRectDst: dst rect: rect color: color [
 
-	^ self ffiCall: #(int SDL_FillSurfaceRect(SDL_Surface* dst, SDL_Rect* rect, Uint32 color))
+	^ self ffiCall: #(bool SDL_FillSurfaceRect(SDL_Surface* dst, SDL_Rect* rect, Uint32 color))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> FillSurfaceRectsDst: dst rects: rects count: count color: color [
 
-	^ self ffiCall: #(int SDL_FillSurfaceRects(SDL_Surface* dst, SDL_Rect* rects, int count, Uint32 color))
+	^ self ffiCall: #(bool SDL_FillSurfaceRects(SDL_Surface* dst, SDL_Rect* rects, int count, Uint32 color))
 ]
 
 { #category : 'public - SDL_events' }
 LibSDL3 >> FilterEventsFilter: filter userdata: userdata [
 
-	self ffiCall: #(void SDL_FilterEvents(int filter, void* userdata))
+	self ffiCall: #(void SDL_FilterEvents(SDL_EventFilter filter, void* userdata))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> FlashWindow: window operation: operation [
 
-	^ self ffiCall: #(int SDL_FlashWindow(SDL_Window* window, SDL_FlashOperation operation))
+	^ self ffiCall: #(bool SDL_FlashWindow(SDL_Window* window, SDL_FlashOperation operation))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> FlipSurface: surface flip: flip [
 
-	^ self ffiCall: #(int SDL_FlipSurface(SDL_Surface* surface, SDL_FlipMode flip))
+	^ self ffiCall: #(bool SDL_FlipSurface(SDL_Surface* surface, SDL_FlipMode flip))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> FlushAudioStream: stream [
 
-	^ self ffiCall: #(int SDL_FlushAudioStream(SDL_AudioStream* stream))
+	^ self ffiCall: #(bool SDL_FlushAudioStream(SDL_AudioStream* stream))
 ]
 
 { #category : 'public - SDL_events' }
@@ -1147,13 +1147,13 @@ LibSDL3 >> FlushEventsMinType: minType maxType: maxType [
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> FlushIO: context [
 
-	^ self ffiCall: #(int SDL_FlushIO(SDL_IOStream* context))
+	^ self ffiCall: #(bool SDL_FlushIO(SDL_IOStream* context))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> FlushRenderer: renderer [
 
-	^ self ffiCall: #(int SDL_FlushRenderer(SDL_Renderer* renderer))
+	^ self ffiCall: #(bool SDL_FlushRenderer(SDL_Renderer* renderer))
 ]
 
 { #category : 'public - SDL_video' }
@@ -1165,19 +1165,19 @@ LibSDL3 >> GL_CreateContext: window [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GL_DestroyContext: context [
 
-	^ self ffiCall: #(int SDL_GL_DestroyContext(SDL_GLContext context))
+	^ self ffiCall: #(bool SDL_GL_DestroyContext(SDL_GLContext context))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GL_ExtensionSupported: extension [
 
-	^ self ffiCall: #(int SDL_GL_ExtensionSupported(const char* extension))
+	^ self ffiCall: #(bool SDL_GL_ExtensionSupported(const char* extension))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GL_GetAttributeAttr: attr value: value [
 
-	^ self ffiCall: #(int SDL_GL_GetAttribute(SDL_GLAttr attr, int* value))
+	^ self ffiCall: #(bool SDL_GL_GetAttribute(SDL_GLAttr attr, int* value))
 ]
 
 { #category : 'public - SDL_video' }
@@ -1201,19 +1201,19 @@ LibSDL3 >> GL_GetProcAddress: proc [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GL_GetSwapInterval: interval [
 
-	^ self ffiCall: #(int SDL_GL_GetSwapInterval(int* interval))
+	^ self ffiCall: #(bool SDL_GL_GetSwapInterval(int* interval))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GL_LoadLibrary: path [
 
-	^ self ffiCall: #(int SDL_GL_LoadLibrary(const char* path))
+	^ self ffiCall: #(bool SDL_GL_LoadLibrary(const char* path))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GL_MakeCurrentWindow: window context: context [
 
-	^ self ffiCall: #(int SDL_GL_MakeCurrent(SDL_Window* window, SDL_GLContext context))
+	^ self ffiCall: #(bool SDL_GL_MakeCurrent(SDL_Window* window, SDL_GLContext context))
 ]
 
 { #category : 'public - SDL_video' }
@@ -1225,19 +1225,19 @@ LibSDL3 >> GL_ResetAttributes [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GL_SetAttributeAttr: attr value: value [
 
-	^ self ffiCall: #(int SDL_GL_SetAttribute(SDL_GLAttr attr, int value))
+	^ self ffiCall: #(bool SDL_GL_SetAttribute(SDL_GLAttr attr, int value))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GL_SetSwapInterval: interval [
 
-	^ self ffiCall: #(int SDL_GL_SetSwapInterval(int interval))
+	^ self ffiCall: #(bool SDL_GL_SetSwapInterval(int interval))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GL_SwapWindow: window [
 
-	^ self ffiCall: #(int SDL_GL_SwapWindow(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_GL_SwapWindow(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_video' }
@@ -1249,13 +1249,13 @@ LibSDL3 >> GL_UnloadLibrary [
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> GPUSupportsProperties: props [
 
-	^ self ffiCall: #(int SDL_GPUSupportsProperties(SDL_PropertiesID props))
+	^ self ffiCall: #(bool SDL_GPUSupportsProperties(SDL_PropertiesID props))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> GPUSupportsShaderFormatsFormat_flags: format_flags name: name [
 
-	^ self ffiCall: #(int SDL_GPUSupportsShaderFormats(SDL_GPUShaderFormat format_flags, const char* name))
+	^ self ffiCall: #(bool SDL_GPUSupportsShaderFormats(SDL_GPUShaderFormat format_flags, const char* name))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -1267,13 +1267,13 @@ LibSDL3 >> GPUTextureFormatTexelBlockSize: format [
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> GPUTextureSupportsFormatDevice: device format: format type: type usage: usage [
 
-	^ self ffiCall: #(int SDL_GPUTextureSupportsFormat(SDL_GPUDevice* device, SDL_GPUTextureFormat format, SDL_GPUTextureType type, SDL_GPUTextureUsageFlags usage))
+	^ self ffiCall: #(bool SDL_GPUTextureSupportsFormat(SDL_GPUDevice* device, SDL_GPUTextureFormat format, SDL_GPUTextureType type, SDL_GPUTextureUsageFlags usage))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> GPUTextureSupportsSampleCountDevice: device format: format sample_count: sample_count [
 
-	^ self ffiCall: #(int SDL_GPUTextureSupportsSampleCount(SDL_GPUDevice* device, SDL_GPUTextureFormat format, SDL_GPUSampleCount sample_count))
+	^ self ffiCall: #(bool SDL_GPUTextureSupportsSampleCount(SDL_GPUDevice* device, SDL_GPUTextureFormat format, SDL_GPUSampleCount sample_count))
 ]
 
 { #category : 'public - SDL_guid' }
@@ -1285,37 +1285,37 @@ LibSDL3 >> GUIDToStringGuid: guid pszGUID: pszGUID cbGUID: cbGUID [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GamepadConnected: gamepad [
 
-	^ self ffiCall: #(int SDL_GamepadConnected(SDL_Gamepad* gamepad))
+	^ self ffiCall: #(bool SDL_GamepadConnected(SDL_Gamepad* gamepad))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GamepadEventsEnabled [
 
-	^ self ffiCall: #(int SDL_GamepadEventsEnabled())
+	^ self ffiCall: #(bool SDL_GamepadEventsEnabled())
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GamepadHasAxisGamepad: gamepad axis: axis [
 
-	^ self ffiCall: #(int SDL_GamepadHasAxis(SDL_Gamepad* gamepad, SDL_GamepadAxis axis))
+	^ self ffiCall: #(bool SDL_GamepadHasAxis(SDL_Gamepad* gamepad, SDL_GamepadAxis axis))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GamepadHasButtonGamepad: gamepad button: button [
 
-	^ self ffiCall: #(int SDL_GamepadHasButton(SDL_Gamepad* gamepad, SDL_GamepadButton button))
+	^ self ffiCall: #(bool SDL_GamepadHasButton(SDL_Gamepad* gamepad, SDL_GamepadButton button))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GamepadHasSensorGamepad: gamepad type: type [
 
-	^ self ffiCall: #(int SDL_GamepadHasSensor(SDL_Gamepad* gamepad, SDL_SensorType type))
+	^ self ffiCall: #(bool SDL_GamepadHasSensor(SDL_Gamepad* gamepad, SDL_SensorType type))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GamepadSensorEnabledGamepad: gamepad type: type [
 
-	^ self ffiCall: #(int SDL_GamepadSensorEnabled(SDL_Gamepad* gamepad, SDL_SensorType type))
+	^ self ffiCall: #(bool SDL_GamepadSensorEnabled(SDL_Gamepad* gamepad, SDL_SensorType type))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -1345,7 +1345,7 @@ LibSDL3 >> GetAssertionReport [
 { #category : 'public - SDL_asyncio' }
 LibSDL3 >> GetAsyncIOResultQueue: queue outcome: outcome [
 
-	^ self ffiCall: #(int SDL_GetAsyncIOResult(SDL_AsyncIOQueue* queue, SDL_AsyncIOOutcome* outcome))
+	^ self ffiCall: #(bool SDL_GetAsyncIOResult(SDL_AsyncIOQueue* queue, SDL_AsyncIOOutcome* outcome))
 ]
 
 { #category : 'public - SDL_asyncio' }
@@ -1381,7 +1381,7 @@ LibSDL3 >> GetAudioDeviceChannelMapDevid: devid count: count [
 { #category : 'public - SDL_audio' }
 LibSDL3 >> GetAudioDeviceFormatDevid: devid spec: spec sample_frames: sample_frames [
 
-	^ self ffiCall: #(int SDL_GetAudioDeviceFormat(SDL_AudioDeviceID devid, SDL_AudioSpec* spec, int* sample_frames))
+	^ self ffiCall: #(bool SDL_GetAudioDeviceFormat(SDL_AudioDeviceID devid, SDL_AudioSpec* spec, int* sample_frames))
 ]
 
 { #category : 'public - SDL_audio' }
@@ -1441,7 +1441,7 @@ LibSDL3 >> GetAudioStreamDevice: stream [
 { #category : 'public - SDL_audio' }
 LibSDL3 >> GetAudioStreamFormatStream: stream src_spec: src_spec dst_spec: dst_spec [
 
-	^ self ffiCall: #(int SDL_GetAudioStreamFormat(SDL_AudioStream* stream, SDL_AudioSpec* src_spec, SDL_AudioSpec* dst_spec))
+	^ self ffiCall: #(bool SDL_GetAudioStreamFormat(SDL_AudioStream* stream, SDL_AudioSpec* src_spec, SDL_AudioSpec* dst_spec))
 ]
 
 { #category : 'public - SDL_audio' }
@@ -1489,7 +1489,7 @@ LibSDL3 >> GetBasePath [
 { #category : 'public - SDL_properties' }
 LibSDL3 >> GetBooleanPropertyProps: props name: name default_value: default_value [
 
-	^ self ffiCall: #(int SDL_GetBooleanProperty(SDL_PropertiesID props, const char* name, int default_value))
+	^ self ffiCall: #(bool SDL_GetBooleanProperty(SDL_PropertiesID props, const char* name, bool default_value))
 ]
 
 { #category : 'public - SDL_cpuinfo' }
@@ -1507,7 +1507,7 @@ LibSDL3 >> GetCameraDriver: index [
 { #category : 'public - SDL_camera' }
 LibSDL3 >> GetCameraFormatCamera: camera spec: spec [
 
-	^ self ffiCall: #(int SDL_GetCameraFormat(SDL_Camera* camera, SDL_CameraSpec* spec))
+	^ self ffiCall: #(bool SDL_GetCameraFormat(SDL_Camera* camera, SDL_CameraSpec* spec))
 ]
 
 { #category : 'public - SDL_camera' }
@@ -1573,7 +1573,7 @@ LibSDL3 >> GetClipboardText [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetClosestFullscreenDisplayModeDisplayID: displayID w: w h: h refresh_rate: refresh_rate include_high_density_modes: include_high_density_modes closest: closest [
 
-	^ self ffiCall: #(int SDL_GetClosestFullscreenDisplayMode(SDL_DisplayID displayID, int w, int h, float refresh_rate, int include_high_density_modes, SDL_DisplayMode* closest))
+	^ self ffiCall: #(bool SDL_GetClosestFullscreenDisplayMode(SDL_DisplayID displayID, int w, int h, float refresh_rate, bool include_high_density_modes, SDL_DisplayMode* closest))
 ]
 
 { #category : 'public - SDL_audio' }
@@ -1609,7 +1609,7 @@ LibSDL3 >> GetCurrentDisplayOrientation: displayID [
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetCurrentRenderOutputSizeRenderer: renderer w: w h: h [
 
-	^ self ffiCall: #(int SDL_GetCurrentRenderOutputSize(SDL_Renderer* renderer, int* w, int* h))
+	^ self ffiCall: #(bool SDL_GetCurrentRenderOutputSize(SDL_Renderer* renderer, int* w, int* h))
 ]
 
 { #category : 'public - SDL_thread' }
@@ -1621,7 +1621,7 @@ LibSDL3 >> GetCurrentThreadID [
 { #category : 'public - SDL_time' }
 LibSDL3 >> GetCurrentTime: ticks [
 
-	^ self ffiCall: #(int SDL_GetCurrentTime(SDL_Time* ticks))
+	^ self ffiCall: #(bool SDL_GetCurrentTime(SDL_Time* ticks))
 ]
 
 { #category : 'public - SDL_video' }
@@ -1639,7 +1639,7 @@ LibSDL3 >> GetCursor [
 { #category : 'public - SDL_time' }
 LibSDL3 >> GetDateTimeLocalePreferencesDateFormat: dateFormat timeFormat: timeFormat [
 
-	^ self ffiCall: #(int SDL_GetDateTimeLocalePreferences(SDL_DateFormat dateFormat, SDL_TimeFormat timeFormat))
+	^ self ffiCall: #(bool SDL_GetDateTimeLocalePreferences(SDL_DateFormat dateFormat, SDL_TimeFormat timeFormat))
 ]
 
 { #category : 'public - SDL_time' }
@@ -1681,7 +1681,7 @@ LibSDL3 >> GetDefaultLogOutputFunction [
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetDefaultTextureScaleModeRenderer: renderer scale_mode: scale_mode [
 
-	^ self ffiCall: #(int SDL_GetDefaultTextureScaleMode(SDL_Renderer* renderer, SDL_ScaleMode scale_mode))
+	^ self ffiCall: #(bool SDL_GetDefaultTextureScaleMode(SDL_Renderer* renderer, SDL_ScaleMode scale_mode))
 ]
 
 { #category : 'public - SDL_video' }
@@ -1693,7 +1693,7 @@ LibSDL3 >> GetDesktopDisplayMode: displayID [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetDisplayBoundsDisplayID: displayID rect: rect [
 
-	^ self ffiCall: #(int SDL_GetDisplayBounds(SDL_DisplayID displayID, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_GetDisplayBounds(SDL_DisplayID displayID, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_video' }
@@ -1735,7 +1735,7 @@ LibSDL3 >> GetDisplayProperties: displayID [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetDisplayUsableBoundsDisplayID: displayID rect: rect [
 
-	^ self ffiCall: #(int SDL_GetDisplayUsableBounds(SDL_DisplayID displayID, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_GetDisplayUsableBounds(SDL_DisplayID displayID, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_video' }
@@ -1777,7 +1777,7 @@ LibSDL3 >> GetEventDescriptionEvent: event buf: buf buflen: buflen [
 { #category : 'public - SDL_events' }
 LibSDL3 >> GetEventFilter: filter userdata: userdata [
 
-	^ self ffiCall: #(int SDL_GetEventFilter(int* filter, void** userdata))
+	^ self ffiCall: #(bool SDL_GetEventFilter(SDL_EventFilter* filter, void** userdata))
 ]
 
 { #category : 'public - SDL_properties' }
@@ -1873,7 +1873,7 @@ LibSDL3 >> GetGamepadButtonFromString: str [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GetGamepadButtonGamepad: gamepad button: button [
 
-	^ self ffiCall: #(int SDL_GetGamepadButton(SDL_Gamepad* gamepad, SDL_GamepadButton button))
+	^ self ffiCall: #(bool SDL_GetGamepadButton(SDL_Gamepad* gamepad, SDL_GamepadButton button))
 ]
 
 { #category : 'public - SDL_gamepad' }
@@ -2029,7 +2029,7 @@ LibSDL3 >> GetGamepadProperties: gamepad [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GetGamepadSensorDataGamepad: gamepad type: type data: data num_values: num_values [
 
-	^ self ffiCall: #(int SDL_GetGamepadSensorData(SDL_Gamepad* gamepad, SDL_SensorType type, float* data, int num_values))
+	^ self ffiCall: #(bool SDL_GetGamepadSensorData(SDL_Gamepad* gamepad, SDL_SensorType type, float* data, int num_values))
 ]
 
 { #category : 'public - SDL_gamepad' }
@@ -2071,7 +2071,7 @@ LibSDL3 >> GetGamepadStringForType: type [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GetGamepadTouchpadFingerGamepad: gamepad touchpad: touchpad finger: finger down: down x: x y: y pressure: pressure [
 
-	^ self ffiCall: #(int SDL_GetGamepadTouchpadFinger(SDL_Gamepad* gamepad, int touchpad, int finger, int* down, float* x, float* y, float* pressure))
+	^ self ffiCall: #(bool SDL_GetGamepadTouchpadFinger(SDL_Gamepad* gamepad, int touchpad, int finger, bool* down, float* x, float* y, float* pressure))
 ]
 
 { #category : 'public - SDL_gamepad' }
@@ -2131,7 +2131,7 @@ LibSDL3 >> GetGrabbedWindow [
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> GetHapticEffectStatusHaptic: haptic effect: effect [
 
-	^ self ffiCall: #(int SDL_GetHapticEffectStatus(SDL_Haptic* haptic, SDL_HapticEffectID effect))
+	^ self ffiCall: #(bool SDL_GetHapticEffectStatus(SDL_Haptic* haptic, SDL_HapticEffectID effect))
 ]
 
 { #category : 'public - SDL_haptic' }
@@ -2179,7 +2179,7 @@ LibSDL3 >> GetHint: name [
 { #category : 'public - SDL_hints' }
 LibSDL3 >> GetHintBooleanName: name default_value: default_value [
 
-	^ self ffiCall: #(int SDL_GetHintBoolean(const char* name, bool default_value))
+	^ self ffiCall: #(bool SDL_GetHintBoolean(const char* name, bool default_value))
 ]
 
 { #category : 'public - SDL_iostream' }
@@ -2203,7 +2203,7 @@ LibSDL3 >> GetIOStatus: context [
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> GetJoystickAxisInitialStateJoystick: joystick axis: axis state: state [
 
-	^ self ffiCall: #(int SDL_GetJoystickAxisInitialState(SDL_Joystick* joystick, int axis, Sint16* state))
+	^ self ffiCall: #(bool SDL_GetJoystickAxisInitialState(SDL_Joystick* joystick, int axis, Sint16* state))
 ]
 
 { #category : 'public - SDL_joystick' }
@@ -2215,13 +2215,13 @@ LibSDL3 >> GetJoystickAxisJoystick: joystick axis: axis [
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> GetJoystickBallJoystick: joystick ball: ball dx: dx dy: dy [
 
-	^ self ffiCall: #(int SDL_GetJoystickBall(SDL_Joystick* joystick, int ball, int* dx, int* dy))
+	^ self ffiCall: #(bool SDL_GetJoystickBall(SDL_Joystick* joystick, int ball, int* dx, int* dy))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> GetJoystickButtonJoystick: joystick button: button [
 
-	^ self ffiCall: #(int SDL_GetJoystickButton(SDL_Joystick* joystick, int button))
+	^ self ffiCall: #(bool SDL_GetJoystickButton(SDL_Joystick* joystick, int button))
 ]
 
 { #category : 'public - SDL_joystick' }
@@ -2395,7 +2395,7 @@ LibSDL3 >> GetKeyFromName: name [
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> GetKeyFromScancode: scancode modstate: modstate key_event: key_event [
 
-	^ self ffiCall: #(SDL_Keycode SDL_GetKeyFromScancode(SDL_Scancode scancode, SDL_Keymod modstate, int key_event))
+	^ self ffiCall: #(SDL_Keycode SDL_GetKeyFromScancode(SDL_Scancode scancode, SDL_Keymod modstate, bool key_event))
 ]
 
 { #category : 'public - SDL_keyboard' }
@@ -2419,7 +2419,7 @@ LibSDL3 >> GetKeyboardNameForID: instance_id [
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> GetKeyboardState: numkeys [
 
-	^ self ffiCall: #(const int* SDL_GetKeyboardState(int* numkeys))
+	^ self ffiCall: #(const bool* SDL_GetKeyboardState(int* numkeys))
 ]
 
 { #category : 'public - SDL_keyboard' }
@@ -2443,7 +2443,7 @@ LibSDL3 >> GetLogPriority: category [
 { #category : 'public - SDL_pixels' }
 LibSDL3 >> GetMasksForPixelFormat: format bpp: bpp Rmask: Rmask Gmask: Gmask Bmask: Bmask Amask: Amask [
 
-	^ self ffiCall: #(int SDL_GetMasksForPixelFormat(SDL_PixelFormat format, int* bpp, Uint32* Rmask, Uint32* Gmask, Uint32* Bmask, Uint32* Amask))
+	^ self ffiCall: #(bool SDL_GetMasksForPixelFormat(SDL_PixelFormat format, int* bpp, Uint32* Rmask, Uint32* Gmask, Uint32* Bmask, Uint32* Amask))
 ]
 
 { #category : 'public - SDL_haptic' }
@@ -2599,7 +2599,7 @@ LibSDL3 >> GetOriginalMemoryFunctionsMalloc_func: malloc_func calloc_func: callo
 { #category : 'public - SDL_filesystem' }
 LibSDL3 >> GetPathInfoPath: path info: info [
 
-	^ self ffiCall: #(int SDL_GetPathInfo(const char* path, SDL_PathInfo* info))
+	^ self ffiCall: #(bool SDL_GetPathInfo(const char* path, SDL_PathInfo* info))
 ]
 
 { #category : 'public - SDL_pen' }
@@ -2737,49 +2737,49 @@ LibSDL3 >> GetRealGamepadTypeForID: instance_id [
 { #category : 'public - SDL_rect' }
 LibSDL3 >> GetRectAndLineIntersectionFloatRect: rect X1: X1 Y1: Y1 X2: X2 Y2: Y2 [
 
-	^ self ffiCall: #(int SDL_GetRectAndLineIntersectionFloat(SDL_FRect* rect, float* X1, float* Y1, float* X2, float* Y2))
+	^ self ffiCall: #(bool SDL_GetRectAndLineIntersectionFloat(SDL_FRect* rect, float* X1, float* Y1, float* X2, float* Y2))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> GetRectAndLineIntersectionRect: rect X1: X1 Y1: Y1 X2: X2 Y2: Y2 [
 
-	^ self ffiCall: #(int SDL_GetRectAndLineIntersection(SDL_Rect* rect, int* X1, int* Y1, int* X2, int* Y2))
+	^ self ffiCall: #(bool SDL_GetRectAndLineIntersection(SDL_Rect* rect, int* X1, int* Y1, int* X2, int* Y2))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> GetRectEnclosingPoints: points count: count clip: clip result: result [
 
-	^ self ffiCall: #(int SDL_GetRectEnclosingPoints(SDL_Point* points, int count, SDL_Rect* clip, SDL_Rect* result))
+	^ self ffiCall: #(bool SDL_GetRectEnclosingPoints(SDL_Point* points, int count, SDL_Rect* clip, SDL_Rect* result))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> GetRectEnclosingPointsFloatPoints: points count: count clip: clip result: result [
 
-	^ self ffiCall: #(int SDL_GetRectEnclosingPointsFloat(SDL_FPoint* points, int count, SDL_FRect* clip, SDL_FRect* result))
+	^ self ffiCall: #(bool SDL_GetRectEnclosingPointsFloat(SDL_FPoint* points, int count, SDL_FRect* clip, SDL_FRect* result))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> GetRectIntersectionA: A B: B result: result [
 
-	^ self ffiCall: #(int SDL_GetRectIntersection(SDL_Rect* A, SDL_Rect* B, SDL_Rect* result))
+	^ self ffiCall: #(bool SDL_GetRectIntersection(SDL_Rect* A, SDL_Rect* B, SDL_Rect* result))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> GetRectIntersectionFloatA: A B: B result: result [
 
-	^ self ffiCall: #(int SDL_GetRectIntersectionFloat(SDL_FRect* A, SDL_FRect* B, SDL_FRect* result))
+	^ self ffiCall: #(bool SDL_GetRectIntersectionFloat(SDL_FRect* A, SDL_FRect* B, SDL_FRect* result))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> GetRectUnionA: A B: B result: result [
 
-	^ self ffiCall: #(int SDL_GetRectUnion(SDL_Rect* A, SDL_Rect* B, SDL_Rect* result))
+	^ self ffiCall: #(bool SDL_GetRectUnion(SDL_Rect* A, SDL_Rect* B, SDL_Rect* result))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> GetRectUnionFloatA: A B: B result: result [
 
-	^ self ffiCall: #(int SDL_GetRectUnionFloat(SDL_FRect* A, SDL_FRect* B, SDL_FRect* result))
+	^ self ffiCall: #(bool SDL_GetRectUnionFloat(SDL_FRect* A, SDL_FRect* B, SDL_FRect* result))
 ]
 
 { #category : 'public - SDL_mouse' }
@@ -2791,31 +2791,31 @@ LibSDL3 >> GetRelativeMouseStateX: x y: y [
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderClipRectRenderer: renderer rect: rect [
 
-	^ self ffiCall: #(int SDL_GetRenderClipRect(SDL_Renderer* renderer, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_GetRenderClipRect(SDL_Renderer* renderer, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderColorScaleRenderer: renderer scale: scale [
 
-	^ self ffiCall: #(int SDL_GetRenderColorScale(SDL_Renderer* renderer, float* scale))
+	^ self ffiCall: #(bool SDL_GetRenderColorScale(SDL_Renderer* renderer, float* scale))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderDrawBlendModeRenderer: renderer blendMode: blendMode [
 
-	^ self ffiCall: #(int SDL_GetRenderDrawBlendMode(SDL_Renderer* renderer, SDL_BlendMode* blendMode))
+	^ self ffiCall: #(bool SDL_GetRenderDrawBlendMode(SDL_Renderer* renderer, SDL_BlendMode* blendMode))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderDrawColorFloatRenderer: renderer r: r g: g b: b a: a [
 
-	^ self ffiCall: #(int SDL_GetRenderDrawColorFloat(SDL_Renderer* renderer, float* r, float* g, float* b, float* a))
+	^ self ffiCall: #(bool SDL_GetRenderDrawColorFloat(SDL_Renderer* renderer, float* r, float* g, float* b, float* a))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderDrawColorRenderer: renderer r: r g: g b: b a: a [
 
-	^ self ffiCall: #(int SDL_GetRenderDrawColor(SDL_Renderer* renderer, Uint8* r, Uint8* g, Uint8* b, Uint8* a))
+	^ self ffiCall: #(bool SDL_GetRenderDrawColor(SDL_Renderer* renderer, Uint8* r, Uint8* g, Uint8* b, Uint8* a))
 ]
 
 { #category : 'public - SDL_render' }
@@ -2827,13 +2827,13 @@ LibSDL3 >> GetRenderDriver: index [
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderLogicalPresentationRectRenderer: renderer rect: rect [
 
-	^ self ffiCall: #(int SDL_GetRenderLogicalPresentationRect(SDL_Renderer* renderer, SDL_FRect* rect))
+	^ self ffiCall: #(bool SDL_GetRenderLogicalPresentationRect(SDL_Renderer* renderer, SDL_FRect* rect))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderLogicalPresentationRenderer: renderer w: w h: h mode: mode [
 
-	^ self ffiCall: #(int SDL_GetRenderLogicalPresentation(SDL_Renderer* renderer, int* w, int* h, SDL_RendererLogicalPresentation mode))
+	^ self ffiCall: #(bool SDL_GetRenderLogicalPresentation(SDL_Renderer* renderer, int* w, int* h, SDL_RendererLogicalPresentation mode))
 ]
 
 { #category : 'public - SDL_render' }
@@ -2851,19 +2851,19 @@ LibSDL3 >> GetRenderMetalLayer: renderer [
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderOutputSizeRenderer: renderer w: w h: h [
 
-	^ self ffiCall: #(int SDL_GetRenderOutputSize(SDL_Renderer* renderer, int* w, int* h))
+	^ self ffiCall: #(bool SDL_GetRenderOutputSize(SDL_Renderer* renderer, int* w, int* h))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderSafeAreaRenderer: renderer rect: rect [
 
-	^ self ffiCall: #(int SDL_GetRenderSafeArea(SDL_Renderer* renderer, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_GetRenderSafeArea(SDL_Renderer* renderer, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderScaleRenderer: renderer scaleX: scaleX scaleY: scaleY [
 
-	^ self ffiCall: #(int SDL_GetRenderScale(SDL_Renderer* renderer, float* scaleX, float* scaleY))
+	^ self ffiCall: #(bool SDL_GetRenderScale(SDL_Renderer* renderer, float* scaleX, float* scaleY))
 ]
 
 { #category : 'public - SDL_render' }
@@ -2875,19 +2875,19 @@ LibSDL3 >> GetRenderTarget: renderer [
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderTextureAddressModeRenderer: renderer u_mode: u_mode v_mode: v_mode [
 
-	^ self ffiCall: #(int SDL_GetRenderTextureAddressMode(SDL_Renderer* renderer, SDL_TextureAddressMode u_mode, SDL_TextureAddressMode v_mode))
+	^ self ffiCall: #(bool SDL_GetRenderTextureAddressMode(SDL_Renderer* renderer, SDL_TextureAddressMode u_mode, SDL_TextureAddressMode v_mode))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderVSyncRenderer: renderer vsync: vsync [
 
-	^ self ffiCall: #(int SDL_GetRenderVSync(SDL_Renderer* renderer, int* vsync))
+	^ self ffiCall: #(bool SDL_GetRenderVSync(SDL_Renderer* renderer, int* vsync))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetRenderViewportRenderer: renderer rect: rect [
 
-	^ self ffiCall: #(int SDL_GetRenderViewport(SDL_Renderer* renderer, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_GetRenderViewport(SDL_Renderer* renderer, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_render' }
@@ -2965,7 +2965,7 @@ LibSDL3 >> GetSemaphoreValue: sem [
 { #category : 'public - SDL_sensor' }
 LibSDL3 >> GetSensorDataSensor: sensor data: data num_values: num_values [
 
-	^ self ffiCall: #(int SDL_GetSensorData(SDL_Sensor* sensor, float* data, int num_values))
+	^ self ffiCall: #(bool SDL_GetSensorData(SDL_Sensor* sensor, float* data, int num_values))
 ]
 
 { #category : 'public - SDL_sensor' }
@@ -3037,13 +3037,13 @@ LibSDL3 >> GetSilenceValueForFormat: format [
 { #category : 'public - SDL_storage' }
 LibSDL3 >> GetStorageFileSizeStorage: storage path: path length: length [
 
-	^ self ffiCall: #(int SDL_GetStorageFileSize(SDL_Storage* storage, const char* path, Uint64* length))
+	^ self ffiCall: #(bool SDL_GetStorageFileSize(SDL_Storage* storage, const char* path, Uint64* length))
 ]
 
 { #category : 'public - SDL_storage' }
 LibSDL3 >> GetStoragePathInfoStorage: storage path: path info: info [
 
-	^ self ffiCall: #(int SDL_GetStoragePathInfo(SDL_Storage* storage, const char* path, SDL_PathInfo* info))
+	^ self ffiCall: #(bool SDL_GetStoragePathInfo(SDL_Storage* storage, const char* path, SDL_PathInfo* info))
 ]
 
 { #category : 'public - SDL_storage' }
@@ -3061,31 +3061,31 @@ LibSDL3 >> GetStringPropertyProps: props name: name default_value: default_value
 { #category : 'public - SDL_surface' }
 LibSDL3 >> GetSurfaceAlphaModSurface: surface alpha: alpha [
 
-	^ self ffiCall: #(int SDL_GetSurfaceAlphaMod(SDL_Surface* surface, Uint8* alpha))
+	^ self ffiCall: #(bool SDL_GetSurfaceAlphaMod(SDL_Surface* surface, Uint8* alpha))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> GetSurfaceBlendModeSurface: surface blendMode: blendMode [
 
-	^ self ffiCall: #(int SDL_GetSurfaceBlendMode(SDL_Surface* surface, SDL_BlendMode* blendMode))
+	^ self ffiCall: #(bool SDL_GetSurfaceBlendMode(SDL_Surface* surface, SDL_BlendMode* blendMode))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> GetSurfaceClipRectSurface: surface rect: rect [
 
-	^ self ffiCall: #(int SDL_GetSurfaceClipRect(SDL_Surface* surface, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_GetSurfaceClipRect(SDL_Surface* surface, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> GetSurfaceColorKeySurface: surface key: key [
 
-	^ self ffiCall: #(int SDL_GetSurfaceColorKey(SDL_Surface* surface, Uint32* key))
+	^ self ffiCall: #(bool SDL_GetSurfaceColorKey(SDL_Surface* surface, Uint32* key))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> GetSurfaceColorModSurface: surface r: r g: g b: b [
 
-	^ self ffiCall: #(int SDL_GetSurfaceColorMod(SDL_Surface* surface, Uint8* r, Uint8* g, Uint8* b))
+	^ self ffiCall: #(bool SDL_GetSurfaceColorMod(SDL_Surface* surface, Uint8* r, Uint8* g, Uint8* b))
 ]
 
 { #category : 'public - SDL_surface' }
@@ -3139,37 +3139,37 @@ LibSDL3 >> GetTLS: id [
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> GetTextInputAreaWindow: window rect: rect cursor: cursor [
 
-	^ self ffiCall: #(int SDL_GetTextInputArea(SDL_Window* window, SDL_Rect* rect, int* cursor))
+	^ self ffiCall: #(bool SDL_GetTextInputArea(SDL_Window* window, SDL_Rect* rect, int* cursor))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetTextureAlphaModFloatTexture: texture alpha: alpha [
 
-	^ self ffiCall: #(int SDL_GetTextureAlphaModFloat(SDL_Texture* texture, float* alpha))
+	^ self ffiCall: #(bool SDL_GetTextureAlphaModFloat(SDL_Texture* texture, float* alpha))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetTextureAlphaModTexture: texture alpha: alpha [
 
-	^ self ffiCall: #(int SDL_GetTextureAlphaMod(SDL_Texture* texture, Uint8* alpha))
+	^ self ffiCall: #(bool SDL_GetTextureAlphaMod(SDL_Texture* texture, Uint8* alpha))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetTextureBlendModeTexture: texture blendMode: blendMode [
 
-	^ self ffiCall: #(int SDL_GetTextureBlendMode(SDL_Texture* texture, SDL_BlendMode* blendMode))
+	^ self ffiCall: #(bool SDL_GetTextureBlendMode(SDL_Texture* texture, SDL_BlendMode* blendMode))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetTextureColorModFloatTexture: texture r: r g: g b: b [
 
-	^ self ffiCall: #(int SDL_GetTextureColorModFloat(SDL_Texture* texture, float* r, float* g, float* b))
+	^ self ffiCall: #(bool SDL_GetTextureColorModFloat(SDL_Texture* texture, float* r, float* g, float* b))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetTextureColorModTexture: texture r: r g: g b: b [
 
-	^ self ffiCall: #(int SDL_GetTextureColorMod(SDL_Texture* texture, Uint8* r, Uint8* g, Uint8* b))
+	^ self ffiCall: #(bool SDL_GetTextureColorMod(SDL_Texture* texture, Uint8* r, Uint8* g, Uint8* b))
 ]
 
 { #category : 'public - SDL_render' }
@@ -3187,13 +3187,13 @@ LibSDL3 >> GetTextureProperties: texture [
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetTextureScaleModeTexture: texture scaleMode: scaleMode [
 
-	^ self ffiCall: #(int SDL_GetTextureScaleMode(SDL_Texture* texture, SDL_ScaleMode scaleMode))
+	^ self ffiCall: #(bool SDL_GetTextureScaleMode(SDL_Texture* texture, SDL_ScaleMode scaleMode))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> GetTextureSizeTexture: texture w: w h: h [
 
-	^ self ffiCall: #(int SDL_GetTextureSize(SDL_Texture* texture, float* w, float* h))
+	^ self ffiCall: #(bool SDL_GetTextureSize(SDL_Texture* texture, float* w, float* h))
 ]
 
 { #category : 'public - SDL_thread' }
@@ -3259,13 +3259,13 @@ LibSDL3 >> GetTrayEntriesMenu: menu count: count [
 { #category : 'public - SDL_tray' }
 LibSDL3 >> GetTrayEntryChecked: entry [
 
-	^ self ffiCall: #(int SDL_GetTrayEntryChecked(SDL_TrayEntry* entry))
+	^ self ffiCall: #(bool SDL_GetTrayEntryChecked(SDL_TrayEntry* entry))
 ]
 
 { #category : 'public - SDL_tray' }
 LibSDL3 >> GetTrayEntryEnabled: entry [
 
-	^ self ffiCall: #(int SDL_GetTrayEntryEnabled(SDL_TrayEntry* entry))
+	^ self ffiCall: #(bool SDL_GetTrayEntryEnabled(SDL_TrayEntry* entry))
 ]
 
 { #category : 'public - SDL_tray' }
@@ -3325,13 +3325,13 @@ LibSDL3 >> GetVideoDriver: index [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowAspectRatioWindow: window min_aspect: min_aspect max_aspect: max_aspect [
 
-	^ self ffiCall: #(int SDL_GetWindowAspectRatio(SDL_Window* window, float* min_aspect, float* max_aspect))
+	^ self ffiCall: #(bool SDL_GetWindowAspectRatio(SDL_Window* window, float* min_aspect, float* max_aspect))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowBordersSizeWindow: window top: top left: left bottom: bottom right: right [
 
-	^ self ffiCall: #(int SDL_GetWindowBordersSize(SDL_Window* window, int* top, int* left, int* bottom, int* right))
+	^ self ffiCall: #(bool SDL_GetWindowBordersSize(SDL_Window* window, int* top, int* left, int* bottom, int* right))
 ]
 
 { #category : 'public - SDL_video' }
@@ -3379,25 +3379,25 @@ LibSDL3 >> GetWindowID: window [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowKeyboardGrab: window [
 
-	^ self ffiCall: #(int SDL_GetWindowKeyboardGrab(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_GetWindowKeyboardGrab(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowMaximumSizeWindow: window w: w h: h [
 
-	^ self ffiCall: #(int SDL_GetWindowMaximumSize(SDL_Window* window, int* w, int* h))
+	^ self ffiCall: #(bool SDL_GetWindowMaximumSize(SDL_Window* window, int* w, int* h))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowMinimumSizeWindow: window w: w h: h [
 
-	^ self ffiCall: #(int SDL_GetWindowMinimumSize(SDL_Window* window, int* w, int* h))
+	^ self ffiCall: #(bool SDL_GetWindowMinimumSize(SDL_Window* window, int* w, int* h))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowMouseGrab: window [
 
-	^ self ffiCall: #(int SDL_GetWindowMouseGrab(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_GetWindowMouseGrab(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_video' }
@@ -3433,7 +3433,7 @@ LibSDL3 >> GetWindowPixelFormat: window [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowPositionWindow: window x: x y: y [
 
-	^ self ffiCall: #(int SDL_GetWindowPosition(SDL_Window* window, int* x, int* y))
+	^ self ffiCall: #(bool SDL_GetWindowPosition(SDL_Window* window, int* x, int* y))
 ]
 
 { #category : 'public - SDL_video' }
@@ -3457,25 +3457,25 @@ LibSDL3 >> GetWindowProperties: window [
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> GetWindowRelativeMouseMode: window [
 
-	^ self ffiCall: #(int SDL_GetWindowRelativeMouseMode(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_GetWindowRelativeMouseMode(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowSafeAreaWindow: window rect: rect [
 
-	^ self ffiCall: #(int SDL_GetWindowSafeArea(SDL_Window* window, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_GetWindowSafeArea(SDL_Window* window, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowSizeInPixelsWindow: window w: w h: h [
 
-	^ self ffiCall: #(int SDL_GetWindowSizeInPixels(SDL_Window* window, int* w, int* h))
+	^ self ffiCall: #(bool SDL_GetWindowSizeInPixels(SDL_Window* window, int* w, int* h))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowSizeWindow: window w: w h: h [
 
-	^ self ffiCall: #(int SDL_GetWindowSize(SDL_Window* window, int* w, int* h))
+	^ self ffiCall: #(bool SDL_GetWindowSize(SDL_Window* window, int* w, int* h))
 ]
 
 { #category : 'public - SDL_video' }
@@ -3487,7 +3487,7 @@ LibSDL3 >> GetWindowSurface: window [
 { #category : 'public - SDL_video' }
 LibSDL3 >> GetWindowSurfaceVSyncWindow: window vsync: vsync [
 
-	^ self ffiCall: #(int SDL_GetWindowSurfaceVSync(SDL_Window* window, int* vsync))
+	^ self ffiCall: #(bool SDL_GetWindowSurfaceVSync(SDL_Window* window, int* vsync))
 ]
 
 { #category : 'public - SDL_video' }
@@ -3517,193 +3517,193 @@ LibSDL3 >> GlobStorageDirectoryStorage: storage path: path pattern: pattern flag
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> HapticEffectSupportedHaptic: haptic effect: effect [
 
-	^ self ffiCall: #(int SDL_HapticEffectSupported(SDL_Haptic* haptic, SDL_HapticEffect* effect))
+	^ self ffiCall: #(bool SDL_HapticEffectSupported(SDL_Haptic* haptic, SDL_HapticEffect* effect))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> HapticRumbleSupported: haptic [
 
-	^ self ffiCall: #(int SDL_HapticRumbleSupported(SDL_Haptic* haptic))
+	^ self ffiCall: #(bool SDL_HapticRumbleSupported(SDL_Haptic* haptic))
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasARMSIMD [
 
-	^ self ffiCall: #(int SDL_HasARMSIMD())
+	^ self ffiCall: #(bool SDL_HasARMSIMD())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasAVX [
 
-	^ self ffiCall: #(int SDL_HasAVX())
+	^ self ffiCall: #(bool SDL_HasAVX())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasAVX2 [
 
-	^ self ffiCall: #(int SDL_HasAVX2())
+	^ self ffiCall: #(bool SDL_HasAVX2())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasAVX512F [
 
-	^ self ffiCall: #(int SDL_HasAVX512F())
+	^ self ffiCall: #(bool SDL_HasAVX512F())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasAltiVec [
 
-	^ self ffiCall: #(int SDL_HasAltiVec())
+	^ self ffiCall: #(bool SDL_HasAltiVec())
 ]
 
 { #category : 'public - SDL_clipboard' }
 LibSDL3 >> HasClipboardData: mime_type [
 
-	^ self ffiCall: #(int SDL_HasClipboardData(const char* mime_type))
+	^ self ffiCall: #(bool SDL_HasClipboardData(const char* mime_type))
 ]
 
 { #category : 'public - SDL_clipboard' }
 LibSDL3 >> HasClipboardText [
 
-	^ self ffiCall: #(int SDL_HasClipboardText())
+	^ self ffiCall: #(bool SDL_HasClipboardText())
 ]
 
 { #category : 'public - SDL_events' }
 LibSDL3 >> HasEvent: type [
 
-	^ self ffiCall: #(int SDL_HasEvent(Uint32 type))
+	^ self ffiCall: #(bool SDL_HasEvent(Uint32 type))
 ]
 
 { #category : 'public - SDL_events' }
 LibSDL3 >> HasEventsMinType: minType maxType: maxType [
 
-	^ self ffiCall: #(int SDL_HasEvents(Uint32 minType, Uint32 maxType))
+	^ self ffiCall: #(bool SDL_HasEvents(Uint32 minType, Uint32 maxType))
 ]
 
 { #category : 'public - SDL_bits' }
 LibSDL3 >> HasExactlyOneBitSet32: x [
 
-	^ self ffiCall: #(int SDL_HasExactlyOneBitSet32(Uint32 x))
+	^ self ffiCall: #(bool SDL_HasExactlyOneBitSet32(Uint32 x))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> HasGamepad [
 
-	^ self ffiCall: #(int SDL_HasGamepad())
+	^ self ffiCall: #(bool SDL_HasGamepad())
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> HasJoystick [
 
-	^ self ffiCall: #(int SDL_HasJoystick())
+	^ self ffiCall: #(bool SDL_HasJoystick())
 ]
 
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> HasKeyboard [
 
-	^ self ffiCall: #(int SDL_HasKeyboard())
+	^ self ffiCall: #(bool SDL_HasKeyboard())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasLASX [
 
-	^ self ffiCall: #(int SDL_HasLASX())
+	^ self ffiCall: #(bool SDL_HasLASX())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasLSX [
 
-	^ self ffiCall: #(int SDL_HasLSX())
+	^ self ffiCall: #(bool SDL_HasLSX())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasMMX [
 
-	^ self ffiCall: #(int SDL_HasMMX())
+	^ self ffiCall: #(bool SDL_HasMMX())
 ]
 
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> HasMouse [
 
-	^ self ffiCall: #(int SDL_HasMouse())
+	^ self ffiCall: #(bool SDL_HasMouse())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasNEON [
 
-	^ self ffiCall: #(int SDL_HasNEON())
+	^ self ffiCall: #(bool SDL_HasNEON())
 ]
 
 { #category : 'public - SDL_clipboard' }
 LibSDL3 >> HasPrimarySelectionText [
 
-	^ self ffiCall: #(int SDL_HasPrimarySelectionText())
+	^ self ffiCall: #(bool SDL_HasPrimarySelectionText())
 ]
 
 { #category : 'public - SDL_properties' }
 LibSDL3 >> HasPropertyProps: props name: name [
 
-	^ self ffiCall: #(int SDL_HasProperty(SDL_PropertiesID props, const char* name))
+	^ self ffiCall: #(bool SDL_HasProperty(SDL_PropertiesID props, const char* name))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> HasRectIntersectionA: A B: B [
 
-	^ self ffiCall: #(int SDL_HasRectIntersection(SDL_Rect* A, SDL_Rect* B))
+	^ self ffiCall: #(bool SDL_HasRectIntersection(SDL_Rect* A, SDL_Rect* B))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> HasRectIntersectionFloatA: A B: B [
 
-	^ self ffiCall: #(int SDL_HasRectIntersectionFloat(SDL_FRect* A, SDL_FRect* B))
+	^ self ffiCall: #(bool SDL_HasRectIntersectionFloat(SDL_FRect* A, SDL_FRect* B))
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasSSE [
 
-	^ self ffiCall: #(int SDL_HasSSE())
+	^ self ffiCall: #(bool SDL_HasSSE())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasSSE2 [
 
-	^ self ffiCall: #(int SDL_HasSSE2())
+	^ self ffiCall: #(bool SDL_HasSSE2())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasSSE3 [
 
-	^ self ffiCall: #(int SDL_HasSSE3())
+	^ self ffiCall: #(bool SDL_HasSSE3())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasSSE41 [
 
-	^ self ffiCall: #(int SDL_HasSSE41())
+	^ self ffiCall: #(bool SDL_HasSSE41())
 ]
 
 { #category : 'public - SDL_cpuinfo' }
 LibSDL3 >> HasSSE42 [
 
-	^ self ffiCall: #(int SDL_HasSSE42())
+	^ self ffiCall: #(bool SDL_HasSSE42())
 ]
 
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> HasScreenKeyboardSupport [
 
-	^ self ffiCall: #(int SDL_HasScreenKeyboardSupport())
+	^ self ffiCall: #(bool SDL_HasScreenKeyboardSupport())
 ]
 
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> HideCursor [
 
-	^ self ffiCall: #(int SDL_HideCursor())
+	^ self ffiCall: #(bool SDL_HideCursor())
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> HideWindow: window [
 
-	^ self ffiCall: #(int SDL_HideWindow(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_HideWindow(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_iostream' }
@@ -3733,19 +3733,19 @@ LibSDL3 >> IOFromMem: mem size: size [
 { #category : 'public - SDL_init' }
 LibSDL3 >> Init: flags [
 
-	^ self ffiCall: #(int SDL_Init(SDL_InitFlags flags))
+	^ self ffiCall: #(bool SDL_Init(SDL_InitFlags flags))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> InitHapticRumble: haptic [
 
-	^ self ffiCall: #(int SDL_InitHapticRumble(SDL_Haptic* haptic))
+	^ self ffiCall: #(bool SDL_InitHapticRumble(SDL_Haptic* haptic))
 ]
 
 { #category : 'public - SDL_init' }
 LibSDL3 >> InitSubSystem: flags [
 
-	^ self ffiCall: #(int SDL_InitSubSystem(SDL_InitFlags flags))
+	^ self ffiCall: #(bool SDL_InitSubSystem(SDL_InitFlags flags))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -3763,73 +3763,73 @@ LibSDL3 >> InsertTrayEntryAtMenu: menu pos: pos label: label flags: flags [
 { #category : 'public - SDL_audio' }
 LibSDL3 >> IsAudioDevicePhysical: devid [
 
-	^ self ffiCall: #(int SDL_IsAudioDevicePhysical(SDL_AudioDeviceID devid))
+	^ self ffiCall: #(bool SDL_IsAudioDevicePhysical(SDL_AudioDeviceID devid))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> IsAudioDevicePlayback: devid [
 
-	^ self ffiCall: #(int SDL_IsAudioDevicePlayback(SDL_AudioDeviceID devid))
+	^ self ffiCall: #(bool SDL_IsAudioDevicePlayback(SDL_AudioDeviceID devid))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> IsGamepad: instance_id [
 
-	^ self ffiCall: #(int SDL_IsGamepad(SDL_JoystickID instance_id))
+	^ self ffiCall: #(bool SDL_IsGamepad(SDL_JoystickID instance_id))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> IsJoystickHaptic: joystick [
 
-	^ self ffiCall: #(int SDL_IsJoystickHaptic(SDL_Joystick* joystick))
+	^ self ffiCall: #(bool SDL_IsJoystickHaptic(SDL_Joystick* joystick))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> IsJoystickVirtual: instance_id [
 
-	^ self ffiCall: #(int SDL_IsJoystickVirtual(SDL_JoystickID instance_id))
+	^ self ffiCall: #(bool SDL_IsJoystickVirtual(SDL_JoystickID instance_id))
 ]
 
 { #category : 'public - SDL_init' }
 LibSDL3 >> IsMainThread [
 
-	^ self ffiCall: #(int SDL_IsMainThread())
+	^ self ffiCall: #(bool SDL_IsMainThread())
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> IsMouseHaptic [
 
-	^ self ffiCall: #(int SDL_IsMouseHaptic())
+	^ self ffiCall: #(bool SDL_IsMouseHaptic())
 ]
 
 { #category : 'public - SDL_system' }
 LibSDL3 >> IsTV [
 
-	^ self ffiCall: #(int SDL_IsTV())
+	^ self ffiCall: #(bool SDL_IsTV())
 ]
 
 { #category : 'public - SDL_system' }
 LibSDL3 >> IsTablet [
 
-	^ self ffiCall: #(int SDL_IsTablet())
+	^ self ffiCall: #(bool SDL_IsTablet())
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> JoystickConnected: joystick [
 
-	^ self ffiCall: #(int SDL_JoystickConnected(SDL_Joystick* joystick))
+	^ self ffiCall: #(bool SDL_JoystickConnected(SDL_Joystick* joystick))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> JoystickEventsEnabled [
 
-	^ self ffiCall: #(int SDL_JoystickEventsEnabled())
+	^ self ffiCall: #(bool SDL_JoystickEventsEnabled())
 ]
 
 { #category : 'public - SDL_process' }
 LibSDL3 >> KillProcess: process force: force [
 
-	^ self ffiCall: #(int SDL_KillProcess(SDL_Process* process, bool force))
+	^ self ffiCall: #(bool SDL_KillProcess(SDL_Process* process, bool force))
 ]
 
 { #category : 'public - SDL_surface' }
@@ -3841,7 +3841,7 @@ LibSDL3 >> LoadBMP: file [
 { #category : 'public - SDL_surface' }
 LibSDL3 >> LoadBMP_IOSrc: src closeio: closeio [
 
-	^ self ffiCall: #(SDL_Surface* SDL_LoadBMP_IO(SDL_IOStream* src, int closeio))
+	^ self ffiCall: #(SDL_Surface* SDL_LoadBMP_IO(SDL_IOStream* src, bool closeio))
 ]
 
 { #category : 'public - SDL_iostream' }
@@ -3853,13 +3853,13 @@ LibSDL3 >> LoadFile: file datasize: datasize [
 { #category : 'public - SDL_asyncio' }
 LibSDL3 >> LoadFileAsyncFile: file queue: queue userdata: userdata [
 
-	^ self ffiCall: #(int SDL_LoadFileAsync(const char* file, SDL_AsyncIOQueue* queue, void* userdata))
+	^ self ffiCall: #(bool SDL_LoadFileAsync(const char* file, SDL_AsyncIOQueue* queue, void* userdata))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> LoadFile_IOSrc: src datasize: datasize closeio: closeio [
 
-	^ self ffiCall: #(void* SDL_LoadFile_IO(SDL_IOStream* src, size_t* datasize, int closeio))
+	^ self ffiCall: #(void* SDL_LoadFile_IO(SDL_IOStream* src, size_t* datasize, bool closeio))
 ]
 
 { #category : 'public - SDL_loadso' }
@@ -3883,7 +3883,7 @@ LibSDL3 >> LoadPNG: file [
 { #category : 'public - SDL_surface' }
 LibSDL3 >> LoadPNG_IOSrc: src closeio: closeio [
 
-	^ self ffiCall: #(SDL_Surface* SDL_LoadPNG_IO(SDL_IOStream* src, int closeio))
+	^ self ffiCall: #(SDL_Surface* SDL_LoadPNG_IO(SDL_IOStream* src, bool closeio))
 ]
 
 { #category : 'public - SDL_surface' }
@@ -3895,25 +3895,25 @@ LibSDL3 >> LoadSurface: file [
 { #category : 'public - SDL_surface' }
 LibSDL3 >> LoadSurface_IOSrc: src closeio: closeio [
 
-	^ self ffiCall: #(SDL_Surface* SDL_LoadSurface_IO(SDL_IOStream* src, int closeio))
+	^ self ffiCall: #(SDL_Surface* SDL_LoadSurface_IO(SDL_IOStream* src, bool closeio))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> LoadWAVPath: path spec: spec audio_buf: audio_buf audio_len: audio_len [
 
-	^ self ffiCall: #(int SDL_LoadWAV(const char* path, SDL_AudioSpec* spec, Uint8** audio_buf, Uint32* audio_len))
+	^ self ffiCall: #(bool SDL_LoadWAV(const char* path, SDL_AudioSpec* spec, Uint8** audio_buf, Uint32* audio_len))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> LoadWAV_IOSrc: src closeio: closeio spec: spec audio_buf: audio_buf audio_len: audio_len [
 
-	^ self ffiCall: #(int SDL_LoadWAV_IO(SDL_IOStream* src, int closeio, SDL_AudioSpec* spec, Uint8** audio_buf, Uint32* audio_len))
+	^ self ffiCall: #(bool SDL_LoadWAV_IO(SDL_IOStream* src, bool closeio, SDL_AudioSpec* spec, Uint8** audio_buf, Uint32* audio_len))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> LockAudioStream: stream [
 
-	^ self ffiCall: #(int SDL_LockAudioStream(SDL_AudioStream* stream))
+	^ self ffiCall: #(bool SDL_LockAudioStream(SDL_AudioStream* stream))
 ]
 
 { #category : 'public - SDL_joystick' }
@@ -3931,7 +3931,7 @@ LibSDL3 >> LockMutex: mutex [
 { #category : 'public - SDL_properties' }
 LibSDL3 >> LockProperties: props [
 
-	^ self ffiCall: #(int SDL_LockProperties(SDL_PropertiesID props))
+	^ self ffiCall: #(bool SDL_LockProperties(SDL_PropertiesID props))
 ]
 
 { #category : 'public - SDL_mutex' }
@@ -3955,19 +3955,19 @@ LibSDL3 >> LockSpinlock: lock [
 { #category : 'public - SDL_surface' }
 LibSDL3 >> LockSurface: surface [
 
-	^ self ffiCall: #(int SDL_LockSurface(SDL_Surface* surface))
+	^ self ffiCall: #(bool SDL_LockSurface(SDL_Surface* surface))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> LockTexture: texture rect: rect pixels: pixels pitch: pitch [
 
-	^ self ffiCall: #(int SDL_LockTexture(SDL_Texture* texture, SDL_Rect* rect, void** pixels, int* pitch))
+	^ self ffiCall: #(bool SDL_LockTexture(SDL_Texture* texture, SDL_Rect* rect, void** pixels, int* pitch))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> LockTextureToSurfaceTexture: texture rect: rect surface: surface [
 
-	^ self ffiCall: #(int SDL_LockTextureToSurface(SDL_Texture* texture, SDL_Rect* rect, SDL_Surface** surface))
+	^ self ffiCall: #(bool SDL_LockTextureToSurface(SDL_Texture* texture, SDL_Rect* rect, SDL_Surface** surface))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -4003,7 +4003,7 @@ LibSDL3 >> MapSurfaceRGBSurface: surface r: r g: g b: b [
 { #category : 'public - SDL_video' }
 LibSDL3 >> MaximizeWindow: window [
 
-	^ self ffiCall: #(int SDL_MaximizeWindow(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_MaximizeWindow(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_atomic' }
@@ -4039,13 +4039,13 @@ LibSDL3 >> Metal_GetLayer: view [
 { #category : 'public - SDL_video' }
 LibSDL3 >> MinimizeWindow: window [
 
-	^ self ffiCall: #(int SDL_MinimizeWindow(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_MinimizeWindow(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> MixAudioDst: dst src: src format: format len: len volume: volume [
 
-	^ self ffiCall: #(int SDL_MixAudio(Uint8* dst, const Uint8* src, SDL_AudioFormat format, Uint32 len, float volume))
+	^ self ffiCall: #(bool SDL_MixAudio(Uint8* dst, const Uint8* src, SDL_AudioFormat format, Uint32 len, float volume))
 ]
 
 { #category : 'public - SDL_bits' }
@@ -4171,7 +4171,7 @@ LibSDL3 >> OpenTitleStorageOverride: override props: props [
 { #category : 'public - SDL_misc' }
 LibSDL3 >> OpenURL: url [
 
-	^ self ffiCall: #(int SDL_OpenURL(const char* url))
+	^ self ffiCall: #(bool SDL_OpenURL(const char* url))
 ]
 
 { #category : 'public - SDL_storage' }
@@ -4183,25 +4183,25 @@ LibSDL3 >> OpenUserStorageOrg: org app: app props: props [
 { #category : 'public - SDL_error' }
 LibSDL3 >> OutOfMemory [
 
-	^ self ffiCall: #(int SDL_OutOfMemory())
+	^ self ffiCall: #(bool SDL_OutOfMemory())
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> PauseAudioDevice: devid [
 
-	^ self ffiCall: #(int SDL_PauseAudioDevice(SDL_AudioDeviceID devid))
+	^ self ffiCall: #(bool SDL_PauseAudioDevice(SDL_AudioDeviceID devid))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> PauseAudioStreamDevice: stream [
 
-	^ self ffiCall: #(int SDL_PauseAudioStreamDevice(SDL_AudioStream* stream))
+	^ self ffiCall: #(bool SDL_PauseAudioStreamDevice(SDL_AudioStream* stream))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> PauseHaptic: haptic [
 
-	^ self ffiCall: #(int SDL_PauseHaptic(SDL_Haptic* haptic))
+	^ self ffiCall: #(bool SDL_PauseHaptic(SDL_Haptic* haptic))
 ]
 
 { #category : 'public - SDL_events' }
@@ -4213,25 +4213,25 @@ LibSDL3 >> PeepEvents: events numevents: numevents action: action minType: minTy
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> PlayHapticRumbleHaptic: haptic strength: strength length: length [
 
-	^ self ffiCall: #(int SDL_PlayHapticRumble(SDL_Haptic* haptic, float strength, Uint32 length))
+	^ self ffiCall: #(bool SDL_PlayHapticRumble(SDL_Haptic* haptic, float strength, Uint32 length))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> PointInRectFloatP: p r: r [
 
-	^ self ffiCall: #(int SDL_PointInRectFloat(SDL_FPoint* p, SDL_FRect* r))
+	^ self ffiCall: #(bool SDL_PointInRectFloat(SDL_FPoint* p, SDL_FRect* r))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> PointInRectP: p r: r [
 
-	^ self ffiCall: #(int SDL_PointInRect(SDL_Point* p, SDL_Rect* r))
+	^ self ffiCall: #(bool SDL_PointInRect(SDL_Point* p, SDL_Rect* r))
 ]
 
 { #category : 'public - SDL_events' }
 LibSDL3 >> PollEvent: event [
 
-	^ self ffiCall: #(int SDL_PollEvent(SDL_Event* event))
+	^ self ffiCall: #(bool SDL_PollEvent(SDL_Event* event))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -4243,13 +4243,13 @@ LibSDL3 >> PopGPUDebugGroup: command_buffer [
 { #category : 'public - SDL_surface' }
 LibSDL3 >> PremultiplyAlphaWidth: width height: height src_format: src_format src: src src_pitch: src_pitch dst_format: dst_format dst: dst dst_pitch: dst_pitch linear: linear [
 
-	^ self ffiCall: #(int SDL_PremultiplyAlpha(int width, int height, SDL_PixelFormat src_format, const void* src, int src_pitch, SDL_PixelFormat dst_format, void* dst, int dst_pitch, int linear))
+	^ self ffiCall: #(bool SDL_PremultiplyAlpha(int width, int height, SDL_PixelFormat src_format, const void* src, int src_pitch, SDL_PixelFormat dst_format, void* dst, int dst_pitch, bool linear))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> PremultiplySurfaceAlphaSurface: surface linear: linear [
 
-	^ self ffiCall: #(int SDL_PremultiplySurfaceAlpha(SDL_Surface* surface, int linear))
+	^ self ffiCall: #(bool SDL_PremultiplySurfaceAlpha(SDL_Surface* surface, bool linear))
 ]
 
 { #category : 'public - SDL_events' }
@@ -4261,7 +4261,7 @@ LibSDL3 >> PumpEvents [
 { #category : 'public - SDL_events' }
 LibSDL3 >> PushEvent: event [
 
-	^ self ffiCall: #(int SDL_PushEvent(SDL_Event* event))
+	^ self ffiCall: #(bool SDL_PushEvent(SDL_Event* event))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -4291,25 +4291,25 @@ LibSDL3 >> PushGPUVertexUniformDataCommand_buffer: command_buffer slot_index: sl
 { #category : 'public - SDL_audio' }
 LibSDL3 >> PutAudioStreamDataNoCopyStream: stream buf: buf len: len callback: callback userdata: userdata [
 
-	^ self ffiCall: #(int SDL_PutAudioStreamDataNoCopy(SDL_AudioStream* stream, const void* buf, int len, SDL_AudioStreamDataCompleteCallback callback, void* userdata))
+	^ self ffiCall: #(bool SDL_PutAudioStreamDataNoCopy(SDL_AudioStream* stream, const void* buf, int len, SDL_AudioStreamDataCompleteCallback callback, void* userdata))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> PutAudioStreamDataStream: stream buf: buf len: len [
 
-	^ self ffiCall: #(int SDL_PutAudioStreamData(SDL_AudioStream* stream, const void* buf, int len))
+	^ self ffiCall: #(bool SDL_PutAudioStreamData(SDL_AudioStream* stream, const void* buf, int len))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> PutAudioStreamPlanarDataStream: stream channel_buffers: channel_buffers num_channels: num_channels num_samples: num_samples [
 
-	^ self ffiCall: #(int SDL_PutAudioStreamPlanarData(SDL_AudioStream* stream, const void* channel_buffers, int num_channels, int num_samples))
+	^ self ffiCall: #(bool SDL_PutAudioStreamPlanarData(SDL_AudioStream* stream, const void* channel_buffers, int num_channels, int num_samples))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> QueryGPUFenceDevice: device fence: fence [
 
-	^ self ffiCall: #(int SDL_QueryGPUFence(SDL_GPUDevice* device, SDL_GPUFence* fence))
+	^ self ffiCall: #(bool SDL_QueryGPUFence(SDL_GPUDevice* device, SDL_GPUFence* fence))
 ]
 
 { #category : 'public - SDL_init' }
@@ -4327,13 +4327,13 @@ LibSDL3 >> QuitSubSystem: flags [
 { #category : 'public - SDL_video' }
 LibSDL3 >> RaiseWindow: window [
 
-	^ self ffiCall: #(int SDL_RaiseWindow(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_RaiseWindow(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_asyncio' }
 LibSDL3 >> ReadAsyncIO: asyncio ptr: ptr offset: offset size: size queue: queue userdata: userdata [
 
-	^ self ffiCall: #(int SDL_ReadAsyncIO(SDL_AsyncIO* asyncio, void* ptr, Uint64 offset, Uint64 size, SDL_AsyncIOQueue* queue, void* userdata))
+	^ self ffiCall: #(bool SDL_ReadAsyncIO(SDL_AsyncIO* asyncio, void* ptr, Uint64 offset, Uint64 size, SDL_AsyncIOQueue* queue, void* userdata))
 ]
 
 { #category : 'public - SDL_iostream' }
@@ -4351,115 +4351,115 @@ LibSDL3 >> ReadProcess: process datasize: datasize exitcode: exitcode [
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadS16BESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadS16BE(SDL_IOStream* src, Sint16* value))
+	^ self ffiCall: #(bool SDL_ReadS16BE(SDL_IOStream* src, Sint16* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadS16LESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadS16LE(SDL_IOStream* src, Sint16* value))
+	^ self ffiCall: #(bool SDL_ReadS16LE(SDL_IOStream* src, Sint16* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadS32BESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadS32BE(SDL_IOStream* src, Sint32* value))
+	^ self ffiCall: #(bool SDL_ReadS32BE(SDL_IOStream* src, Sint32* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadS32LESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadS32LE(SDL_IOStream* src, Sint32* value))
+	^ self ffiCall: #(bool SDL_ReadS32LE(SDL_IOStream* src, Sint32* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadS64BESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadS64BE(SDL_IOStream* src, Sint64* value))
+	^ self ffiCall: #(bool SDL_ReadS64BE(SDL_IOStream* src, Sint64* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadS64LESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadS64LE(SDL_IOStream* src, Sint64* value))
+	^ self ffiCall: #(bool SDL_ReadS64LE(SDL_IOStream* src, Sint64* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadS8Src: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadS8(SDL_IOStream* src, Sint8* value))
+	^ self ffiCall: #(bool SDL_ReadS8(SDL_IOStream* src, Sint8* value))
 ]
 
 { #category : 'public - SDL_storage' }
 LibSDL3 >> ReadStorageFileStorage: storage path: path destination: destination length: length [
 
-	^ self ffiCall: #(int SDL_ReadStorageFile(SDL_Storage* storage, const char* path, void* destination, Uint64 length))
+	^ self ffiCall: #(bool SDL_ReadStorageFile(SDL_Storage* storage, const char* path, void* destination, Uint64 length))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> ReadSurfacePixelFloatSurface: surface x: x y: y r: r g: g b: b a: a [
 
-	^ self ffiCall: #(int SDL_ReadSurfacePixelFloat(SDL_Surface* surface, int x, int y, float* r, float* g, float* b, float* a))
+	^ self ffiCall: #(bool SDL_ReadSurfacePixelFloat(SDL_Surface* surface, int x, int y, float* r, float* g, float* b, float* a))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> ReadSurfacePixelSurface: surface x: x y: y r: r g: g b: b a: a [
 
-	^ self ffiCall: #(int SDL_ReadSurfacePixel(SDL_Surface* surface, int x, int y, Uint8* r, Uint8* g, Uint8* b, Uint8* a))
+	^ self ffiCall: #(bool SDL_ReadSurfacePixel(SDL_Surface* surface, int x, int y, Uint8* r, Uint8* g, Uint8* b, Uint8* a))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadU16BESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadU16BE(SDL_IOStream* src, Uint16* value))
+	^ self ffiCall: #(bool SDL_ReadU16BE(SDL_IOStream* src, Uint16* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadU16LESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadU16LE(SDL_IOStream* src, Uint16* value))
+	^ self ffiCall: #(bool SDL_ReadU16LE(SDL_IOStream* src, Uint16* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadU32BESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadU32BE(SDL_IOStream* src, Uint32* value))
+	^ self ffiCall: #(bool SDL_ReadU32BE(SDL_IOStream* src, Uint32* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadU32LESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadU32LE(SDL_IOStream* src, Uint32* value))
+	^ self ffiCall: #(bool SDL_ReadU32LE(SDL_IOStream* src, Uint32* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadU64BESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadU64BE(SDL_IOStream* src, Uint64* value))
+	^ self ffiCall: #(bool SDL_ReadU64BE(SDL_IOStream* src, Uint64* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadU64LESrc: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadU64LE(SDL_IOStream* src, Uint64* value))
+	^ self ffiCall: #(bool SDL_ReadU64LE(SDL_IOStream* src, Uint64* value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> ReadU8Src: src value: value [
 
-	^ self ffiCall: #(int SDL_ReadU8(SDL_IOStream* src, Uint8* value))
+	^ self ffiCall: #(bool SDL_ReadU8(SDL_IOStream* src, Uint8* value))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> RectEmpty: r [
 
-	^ self ffiCall: #(int SDL_RectEmpty(SDL_Rect* r))
+	^ self ffiCall: #(bool SDL_RectEmpty(SDL_Rect* r))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> RectEmptyFloat: r [
 
-	^ self ffiCall: #(int SDL_RectEmptyFloat(SDL_FRect* r))
+	^ self ffiCall: #(bool SDL_RectEmptyFloat(SDL_FRect* r))
 ]
 
 { #category : 'public - SDL_rect' }
@@ -4471,19 +4471,19 @@ LibSDL3 >> RectToFRect: rect frect: frect [
 { #category : 'public - SDL_rect' }
 LibSDL3 >> RectsEqualA: a b: b [
 
-	^ self ffiCall: #(int SDL_RectsEqual(SDL_Rect* a, SDL_Rect* b))
+	^ self ffiCall: #(bool SDL_RectsEqual(SDL_Rect* a, SDL_Rect* b))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> RectsEqualEpsilonA: a b: b epsilon: epsilon [
 
-	^ self ffiCall: #(int SDL_RectsEqualEpsilon(SDL_FRect* a, SDL_FRect* b, float epsilon))
+	^ self ffiCall: #(bool SDL_RectsEqualEpsilon(SDL_FRect* a, SDL_FRect* b, float epsilon))
 ]
 
 { #category : 'public - SDL_rect' }
 LibSDL3 >> RectsEqualFloatA: a b: b [
 
-	^ self ffiCall: #(int SDL_RectsEqualFloat(SDL_FRect* a, SDL_FRect* b))
+	^ self ffiCall: #(bool SDL_RectsEqualFloat(SDL_FRect* a, SDL_FRect* b))
 ]
 
 { #category : 'public - SDL_events' }
@@ -4555,13 +4555,13 @@ LibSDL3 >> ReleaseWindowFromGPUDevice: device window: window [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> ReloadGamepadMappings [
 
-	^ self ffiCall: #(int SDL_ReloadGamepadMappings())
+	^ self ffiCall: #(bool SDL_ReloadGamepadMappings())
 ]
 
 { #category : 'public - SDL_events' }
 LibSDL3 >> RemoveEventWatchFilter: filter userdata: userdata [
 
-	self ffiCall: #(void SDL_RemoveEventWatch(int filter, void* userdata))
+	self ffiCall: #(void SDL_RemoveEventWatch(SDL_EventFilter filter, void* userdata))
 ]
 
 { #category : 'public - SDL_hints' }
@@ -4573,13 +4573,13 @@ LibSDL3 >> RemoveHintCallbackName: name callback: callback userdata: userdata [
 { #category : 'public - SDL_filesystem' }
 LibSDL3 >> RemovePath: path [
 
-	^ self ffiCall: #(int SDL_RemovePath(const char* path))
+	^ self ffiCall: #(bool SDL_RemovePath(const char* path))
 ]
 
 { #category : 'public - SDL_storage' }
 LibSDL3 >> RemoveStoragePathStorage: storage path: path [
 
-	^ self ffiCall: #(int SDL_RemoveStoragePath(SDL_Storage* storage, const char* path))
+	^ self ffiCall: #(bool SDL_RemoveStoragePath(SDL_Storage* storage, const char* path))
 ]
 
 { #category : 'public - SDL_surface' }
@@ -4591,7 +4591,7 @@ LibSDL3 >> RemoveSurfaceAlternateImages: surface [
 { #category : 'public - SDL_timer' }
 LibSDL3 >> RemoveTimer: id [
 
-	^ self ffiCall: #(int SDL_RemoveTimer(SDL_TimerID id))
+	^ self ffiCall: #(bool SDL_RemoveTimer(SDL_TimerID id))
 ]
 
 { #category : 'public - SDL_tray' }
@@ -4603,97 +4603,97 @@ LibSDL3 >> RemoveTrayEntry: entry [
 { #category : 'public - SDL_filesystem' }
 LibSDL3 >> RenamePathOldpath: oldpath newpath: newpath [
 
-	^ self ffiCall: #(int SDL_RenamePath(const char* oldpath, const char* newpath))
+	^ self ffiCall: #(bool SDL_RenamePath(const char* oldpath, const char* newpath))
 ]
 
 { #category : 'public - SDL_storage' }
 LibSDL3 >> RenameStoragePathStorage: storage oldpath: oldpath newpath: newpath [
 
-	^ self ffiCall: #(int SDL_RenameStoragePath(SDL_Storage* storage, const char* oldpath, const char* newpath))
+	^ self ffiCall: #(bool SDL_RenameStoragePath(SDL_Storage* storage, const char* oldpath, const char* newpath))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderClear: renderer [
 
-	^ self ffiCall: #(int SDL_RenderClear(SDL_Renderer* renderer))
+	^ self ffiCall: #(bool SDL_RenderClear(SDL_Renderer* renderer))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderClipEnabled: renderer [
 
-	^ self ffiCall: #(int SDL_RenderClipEnabled(SDL_Renderer* renderer))
+	^ self ffiCall: #(bool SDL_RenderClipEnabled(SDL_Renderer* renderer))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderCoordinatesFromWindowRenderer: renderer window_x: window_x window_y: window_y x: x y: y [
 
-	^ self ffiCall: #(int SDL_RenderCoordinatesFromWindow(SDL_Renderer* renderer, float window_x, float window_y, float* x, float* y))
+	^ self ffiCall: #(bool SDL_RenderCoordinatesFromWindow(SDL_Renderer* renderer, float window_x, float window_y, float* x, float* y))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderCoordinatesToWindowRenderer: renderer x: x y: y window_x: window_x window_y: window_y [
 
-	^ self ffiCall: #(int SDL_RenderCoordinatesToWindow(SDL_Renderer* renderer, float x, float y, float* window_x, float* window_y))
+	^ self ffiCall: #(bool SDL_RenderCoordinatesToWindow(SDL_Renderer* renderer, float x, float y, float* window_x, float* window_y))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderDebugTextRenderer: renderer x: x y: y str: str [
 
-	^ self ffiCall: #(int SDL_RenderDebugText(SDL_Renderer* renderer, float x, float y, const char* str))
+	^ self ffiCall: #(bool SDL_RenderDebugText(SDL_Renderer* renderer, float x, float y, const char* str))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderFillRectRenderer: renderer rect: rect [
 
-	^ self ffiCall: #(int SDL_RenderFillRect(SDL_Renderer* renderer, SDL_FRect* rect))
+	^ self ffiCall: #(bool SDL_RenderFillRect(SDL_Renderer* renderer, SDL_FRect* rect))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderFillRectsRenderer: renderer rects: rects count: count [
 
-	^ self ffiCall: #(int SDL_RenderFillRects(SDL_Renderer* renderer, SDL_FRect* rects, int count))
+	^ self ffiCall: #(bool SDL_RenderFillRects(SDL_Renderer* renderer, SDL_FRect* rects, int count))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderGeometryRawRenderer: renderer texture: texture xy: xy xy_stride: xy_stride color: color color_stride: color_stride uv: uv uv_stride: uv_stride num_vertices: num_vertices indices: indices num_indices: num_indices size_indices: size_indices [
 
-	^ self ffiCall: #(int SDL_RenderGeometryRaw(SDL_Renderer* renderer, SDL_Texture* texture, const float* xy, int xy_stride, SDL_FColor* color, int color_stride, const float* uv, int uv_stride, int num_vertices, const void* indices, int num_indices, int size_indices))
+	^ self ffiCall: #(bool SDL_RenderGeometryRaw(SDL_Renderer* renderer, SDL_Texture* texture, const float* xy, int xy_stride, SDL_FColor* color, int color_stride, const float* uv, int uv_stride, int num_vertices, const void* indices, int num_indices, int size_indices))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderGeometryRenderer: renderer texture: texture vertices: vertices num_vertices: num_vertices indices: indices num_indices: num_indices [
 
-	^ self ffiCall: #(int SDL_RenderGeometry(SDL_Renderer* renderer, SDL_Texture* texture, SDL_Vertex* vertices, int num_vertices, const int* indices, int num_indices))
+	^ self ffiCall: #(bool SDL_RenderGeometry(SDL_Renderer* renderer, SDL_Texture* texture, SDL_Vertex* vertices, int num_vertices, const int* indices, int num_indices))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderLineRenderer: renderer x1: x1 y1: y1 x2: x2 y2: y2 [
 
-	^ self ffiCall: #(int SDL_RenderLine(SDL_Renderer* renderer, float x1, float y1, float x2, float y2))
+	^ self ffiCall: #(bool SDL_RenderLine(SDL_Renderer* renderer, float x1, float y1, float x2, float y2))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderLinesRenderer: renderer points: points count: count [
 
-	^ self ffiCall: #(int SDL_RenderLines(SDL_Renderer* renderer, SDL_FPoint* points, int count))
+	^ self ffiCall: #(bool SDL_RenderLines(SDL_Renderer* renderer, SDL_FPoint* points, int count))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderPointRenderer: renderer x: x y: y [
 
-	^ self ffiCall: #(int SDL_RenderPoint(SDL_Renderer* renderer, float x, float y))
+	^ self ffiCall: #(bool SDL_RenderPoint(SDL_Renderer* renderer, float x, float y))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderPointsRenderer: renderer points: points count: count [
 
-	^ self ffiCall: #(int SDL_RenderPoints(SDL_Renderer* renderer, SDL_FPoint* points, int count))
+	^ self ffiCall: #(bool SDL_RenderPoints(SDL_Renderer* renderer, SDL_FPoint* points, int count))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderPresent: renderer [
 
-	^ self ffiCall: #(int SDL_RenderPresent(SDL_Renderer* renderer))
+	^ self ffiCall: #(bool SDL_RenderPresent(SDL_Renderer* renderer))
 ]
 
 { #category : 'public - SDL_render' }
@@ -4705,55 +4705,55 @@ LibSDL3 >> RenderReadPixelsRenderer: renderer rect: rect [
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderRectRenderer: renderer rect: rect [
 
-	^ self ffiCall: #(int SDL_RenderRect(SDL_Renderer* renderer, SDL_FRect* rect))
+	^ self ffiCall: #(bool SDL_RenderRect(SDL_Renderer* renderer, SDL_FRect* rect))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderRectsRenderer: renderer rects: rects count: count [
 
-	^ self ffiCall: #(int SDL_RenderRects(SDL_Renderer* renderer, SDL_FRect* rects, int count))
+	^ self ffiCall: #(bool SDL_RenderRects(SDL_Renderer* renderer, SDL_FRect* rects, int count))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderTexture9GridRenderer: renderer texture: texture srcrect: srcrect left_width: left_width right_width: right_width top_height: top_height bottom_height: bottom_height scale: scale dstrect: dstrect [
 
-	^ self ffiCall: #(int SDL_RenderTexture9Grid(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, float left_width, float right_width, float top_height, float bottom_height, float scale, SDL_FRect* dstrect))
+	^ self ffiCall: #(bool SDL_RenderTexture9Grid(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, float left_width, float right_width, float top_height, float bottom_height, float scale, SDL_FRect* dstrect))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderTexture9GridTiledRenderer: renderer texture: texture srcrect: srcrect left_width: left_width right_width: right_width top_height: top_height bottom_height: bottom_height scale: scale dstrect: dstrect tileScale: tileScale [
 
-	^ self ffiCall: #(int SDL_RenderTexture9GridTiled(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, float left_width, float right_width, float top_height, float bottom_height, float scale, SDL_FRect* dstrect, float tileScale))
+	^ self ffiCall: #(bool SDL_RenderTexture9GridTiled(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, float left_width, float right_width, float top_height, float bottom_height, float scale, SDL_FRect* dstrect, float tileScale))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderTextureAffineRenderer: renderer texture: texture srcrect: srcrect origin: origin right: right down: down [
 
-	^ self ffiCall: #(int SDL_RenderTextureAffine(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, SDL_FPoint* origin, SDL_FPoint* right, SDL_FPoint* down))
+	^ self ffiCall: #(bool SDL_RenderTextureAffine(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, SDL_FPoint* origin, SDL_FPoint* right, SDL_FPoint* down))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderTextureRenderer: renderer texture: texture srcrect: srcrect dstrect: dstrect [
 
-	^ self ffiCall: #(int SDL_RenderTexture(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, SDL_FRect* dstrect))
+	^ self ffiCall: #(bool SDL_RenderTexture(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, SDL_FRect* dstrect))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderTextureRotatedRenderer: renderer texture: texture srcrect: srcrect dstrect: dstrect angle: angle center: center flip: flip [
 
-	^ self ffiCall: #(int SDL_RenderTextureRotated(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, SDL_FRect* dstrect, double angle, SDL_FPoint* center, SDL_FlipMode flip))
+	^ self ffiCall: #(bool SDL_RenderTextureRotated(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, SDL_FRect* dstrect, double angle, SDL_FPoint* center, SDL_FlipMode flip))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderTextureTiledRenderer: renderer texture: texture srcrect: srcrect scale: scale dstrect: dstrect [
 
-	^ self ffiCall: #(int SDL_RenderTextureTiled(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, float scale, SDL_FRect* dstrect))
+	^ self ffiCall: #(bool SDL_RenderTextureTiled(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect* srcrect, float scale, SDL_FRect* dstrect))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> RenderViewportSet: renderer [
 
-	^ self ffiCall: #(int SDL_RenderViewportSet(SDL_Renderer* renderer))
+	^ self ffiCall: #(bool SDL_RenderViewportSet(SDL_Renderer* renderer))
 ]
 
 { #category : 'public - SDL_assert' }
@@ -4771,7 +4771,7 @@ LibSDL3 >> ResetAssertionReport [
 { #category : 'public - SDL_hints' }
 LibSDL3 >> ResetHint: name [
 
-	^ self ffiCall: #(int SDL_ResetHint(const char* name))
+	^ self ffiCall: #(bool SDL_ResetHint(const char* name))
 ]
 
 { #category : 'public - SDL_hints' }
@@ -4795,25 +4795,25 @@ LibSDL3 >> ResetLogPriorities [
 { #category : 'public - SDL_video' }
 LibSDL3 >> RestoreWindow: window [
 
-	^ self ffiCall: #(int SDL_RestoreWindow(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_RestoreWindow(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> ResumeAudioDevice: devid [
 
-	^ self ffiCall: #(int SDL_ResumeAudioDevice(SDL_AudioDeviceID devid))
+	^ self ffiCall: #(bool SDL_ResumeAudioDevice(SDL_AudioDeviceID devid))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> ResumeAudioStreamDevice: stream [
 
-	^ self ffiCall: #(int SDL_ResumeAudioStreamDevice(SDL_AudioStream* stream))
+	^ self ffiCall: #(bool SDL_ResumeAudioStreamDevice(SDL_AudioStream* stream))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> ResumeHaptic: haptic [
 
-	^ self ffiCall: #(int SDL_ResumeHaptic(SDL_Haptic* haptic))
+	^ self ffiCall: #(bool SDL_ResumeHaptic(SDL_Haptic* haptic))
 ]
 
 { #category : 'public - SDL_surface' }
@@ -4825,73 +4825,73 @@ LibSDL3 >> RotateSurface: surface angle: angle [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> RumbleGamepad: gamepad low_frequency_rumble: low_frequency_rumble high_frequency_rumble: high_frequency_rumble duration_ms: duration_ms [
 
-	^ self ffiCall: #(int SDL_RumbleGamepad(SDL_Gamepad* gamepad, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms))
+	^ self ffiCall: #(bool SDL_RumbleGamepad(SDL_Gamepad* gamepad, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> RumbleGamepadTriggersGamepad: gamepad left_rumble: left_rumble right_rumble: right_rumble duration_ms: duration_ms [
 
-	^ self ffiCall: #(int SDL_RumbleGamepadTriggers(SDL_Gamepad* gamepad, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms))
+	^ self ffiCall: #(bool SDL_RumbleGamepadTriggers(SDL_Gamepad* gamepad, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> RumbleJoystick: joystick low_frequency_rumble: low_frequency_rumble high_frequency_rumble: high_frequency_rumble duration_ms: duration_ms [
 
-	^ self ffiCall: #(int SDL_RumbleJoystick(SDL_Joystick* joystick, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms))
+	^ self ffiCall: #(bool SDL_RumbleJoystick(SDL_Joystick* joystick, Uint16 low_frequency_rumble, Uint16 high_frequency_rumble, Uint32 duration_ms))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> RumbleJoystickTriggersJoystick: joystick left_rumble: left_rumble right_rumble: right_rumble duration_ms: duration_ms [
 
-	^ self ffiCall: #(int SDL_RumbleJoystickTriggers(SDL_Joystick* joystick, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms))
+	^ self ffiCall: #(bool SDL_RumbleJoystickTriggers(SDL_Joystick* joystick, Uint16 left_rumble, Uint16 right_rumble, Uint32 duration_ms))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> RunHapticEffectHaptic: haptic effect: effect iterations: iterations [
 
-	^ self ffiCall: #(int SDL_RunHapticEffect(SDL_Haptic* haptic, SDL_HapticEffectID effect, Uint32 iterations))
+	^ self ffiCall: #(bool SDL_RunHapticEffect(SDL_Haptic* haptic, SDL_HapticEffectID effect, Uint32 iterations))
 ]
 
 { #category : 'public - SDL_init' }
 LibSDL3 >> RunOnMainThreadCallback: callback userdata: userdata wait_complete: wait_complete [
 
-	^ self ffiCall: #(int SDL_RunOnMainThread(SDL_MainThreadCallback callback, void* userdata, bool wait_complete))
+	^ self ffiCall: #(bool SDL_RunOnMainThread(SDL_MainThreadCallback callback, void* userdata, bool wait_complete))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SaveBMPSurface: surface file: file [
 
-	^ self ffiCall: #(int SDL_SaveBMP(SDL_Surface* surface, const char* file))
+	^ self ffiCall: #(bool SDL_SaveBMP(SDL_Surface* surface, const char* file))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SaveBMP_IOSurface: surface dst: dst closeio: closeio [
 
-	^ self ffiCall: #(int SDL_SaveBMP_IO(SDL_Surface* surface, SDL_IOStream* dst, int closeio))
+	^ self ffiCall: #(bool SDL_SaveBMP_IO(SDL_Surface* surface, SDL_IOStream* dst, bool closeio))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> SaveFile: file data: data datasize: datasize [
 
-	^ self ffiCall: #(int SDL_SaveFile(const char* file, const void* data, size_t datasize))
+	^ self ffiCall: #(bool SDL_SaveFile(const char* file, const void* data, size_t datasize))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> SaveFile_IOSrc: src data: data datasize: datasize closeio: closeio [
 
-	^ self ffiCall: #(int SDL_SaveFile_IO(SDL_IOStream* src, const void* data, size_t datasize, int closeio))
+	^ self ffiCall: #(bool SDL_SaveFile_IO(SDL_IOStream* src, const void* data, size_t datasize, bool closeio))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SavePNGSurface: surface file: file [
 
-	^ self ffiCall: #(int SDL_SavePNG(SDL_Surface* surface, const char* file))
+	^ self ffiCall: #(bool SDL_SavePNG(SDL_Surface* surface, const char* file))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SavePNG_IOSurface: surface dst: dst closeio: closeio [
 
-	^ self ffiCall: #(int SDL_SavePNG_IO(SDL_Surface* surface, SDL_IOStream* dst, int closeio))
+	^ self ffiCall: #(bool SDL_SavePNG_IO(SDL_Surface* surface, SDL_IOStream* dst, bool closeio))
 ]
 
 { #category : 'public - SDL_surface' }
@@ -4903,13 +4903,13 @@ LibSDL3 >> ScaleSurface: surface width: width height: height scaleMode: scaleMod
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> ScreenKeyboardShown: window [
 
-	^ self ffiCall: #(int SDL_ScreenKeyboardShown(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_ScreenKeyboardShown(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> ScreenSaverEnabled [
 
-	^ self ffiCall: #(int SDL_ScreenSaverEnabled())
+	^ self ffiCall: #(bool SDL_ScreenSaverEnabled())
 ]
 
 { #category : 'public - SDL_iostream' }
@@ -4921,31 +4921,31 @@ LibSDL3 >> SeekIOContext: context offset: offset whence: whence [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> SendGamepadEffectGamepad: gamepad data: data size: size [
 
-	^ self ffiCall: #(int SDL_SendGamepadEffect(SDL_Gamepad* gamepad, const void* data, int size))
+	^ self ffiCall: #(bool SDL_SendGamepadEffect(SDL_Gamepad* gamepad, const void* data, int size))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SendJoystickEffectJoystick: joystick data: data size: size [
 
-	^ self ffiCall: #(int SDL_SendJoystickEffect(SDL_Joystick* joystick, const void* data, int size))
+	^ self ffiCall: #(bool SDL_SendJoystickEffect(SDL_Joystick* joystick, const void* data, int size))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SendJoystickVirtualSensorDataJoystick: joystick type: type sensor_timestamp: sensor_timestamp data: data num_values: num_values [
 
-	^ self ffiCall: #(int SDL_SendJoystickVirtualSensorData(SDL_Joystick* joystick, SDL_SensorType type, Uint64 sensor_timestamp, const float* data, int num_values))
+	^ self ffiCall: #(bool SDL_SendJoystickVirtualSensorData(SDL_Joystick* joystick, SDL_SensorType type, Uint64 sensor_timestamp, const float* data, int num_values))
 ]
 
 { #category : 'public - SDL_init' }
 LibSDL3 >> SetAppMetadataAppname: appname appversion: appversion appidentifier: appidentifier [
 
-	^ self ffiCall: #(int SDL_SetAppMetadata(const char* appname, const char* appversion, const char* appidentifier))
+	^ self ffiCall: #(bool SDL_SetAppMetadata(const char* appname, const char* appversion, const char* appidentifier))
 ]
 
 { #category : 'public - SDL_init' }
 LibSDL3 >> SetAppMetadataPropertyName: name value: value [
 
-	^ self ffiCall: #(int SDL_SetAppMetadataProperty(const char* name, const char* value))
+	^ self ffiCall: #(bool SDL_SetAppMetadataProperty(const char* name, const char* value))
 ]
 
 { #category : 'public - SDL_assert' }
@@ -4975,97 +4975,97 @@ LibSDL3 >> SetAtomicU32A: a v: v [
 { #category : 'public - SDL_audio' }
 LibSDL3 >> SetAudioDeviceGainDevid: devid gain: gain [
 
-	^ self ffiCall: #(int SDL_SetAudioDeviceGain(SDL_AudioDeviceID devid, float gain))
+	^ self ffiCall: #(bool SDL_SetAudioDeviceGain(SDL_AudioDeviceID devid, float gain))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> SetAudioPostmixCallbackDevid: devid callback: callback userdata: userdata [
 
-	^ self ffiCall: #(int SDL_SetAudioPostmixCallback(SDL_AudioDeviceID devid, SDL_AudioPostmixCallback callback, void* userdata))
+	^ self ffiCall: #(bool SDL_SetAudioPostmixCallback(SDL_AudioDeviceID devid, SDL_AudioPostmixCallback callback, void* userdata))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> SetAudioStreamFormatStream: stream src_spec: src_spec dst_spec: dst_spec [
 
-	^ self ffiCall: #(int SDL_SetAudioStreamFormat(SDL_AudioStream* stream, SDL_AudioSpec* src_spec, SDL_AudioSpec* dst_spec))
+	^ self ffiCall: #(bool SDL_SetAudioStreamFormat(SDL_AudioStream* stream, SDL_AudioSpec* src_spec, SDL_AudioSpec* dst_spec))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> SetAudioStreamFrequencyRatioStream: stream ratio: ratio [
 
-	^ self ffiCall: #(int SDL_SetAudioStreamFrequencyRatio(SDL_AudioStream* stream, float ratio))
+	^ self ffiCall: #(bool SDL_SetAudioStreamFrequencyRatio(SDL_AudioStream* stream, float ratio))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> SetAudioStreamGainStream: stream gain: gain [
 
-	^ self ffiCall: #(int SDL_SetAudioStreamGain(SDL_AudioStream* stream, float gain))
+	^ self ffiCall: #(bool SDL_SetAudioStreamGain(SDL_AudioStream* stream, float gain))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> SetAudioStreamGetCallbackStream: stream callback: callback userdata: userdata [
 
-	^ self ffiCall: #(int SDL_SetAudioStreamGetCallback(SDL_AudioStream* stream, SDL_AudioStreamCallback callback, void* userdata))
+	^ self ffiCall: #(bool SDL_SetAudioStreamGetCallback(SDL_AudioStream* stream, SDL_AudioStreamCallback callback, void* userdata))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> SetAudioStreamInputChannelMapStream: stream chmap: chmap count: count [
 
-	^ self ffiCall: #(int SDL_SetAudioStreamInputChannelMap(SDL_AudioStream* stream, const int* chmap, int count))
+	^ self ffiCall: #(bool SDL_SetAudioStreamInputChannelMap(SDL_AudioStream* stream, const int* chmap, int count))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> SetAudioStreamOutputChannelMapStream: stream chmap: chmap count: count [
 
-	^ self ffiCall: #(int SDL_SetAudioStreamOutputChannelMap(SDL_AudioStream* stream, const int* chmap, int count))
+	^ self ffiCall: #(bool SDL_SetAudioStreamOutputChannelMap(SDL_AudioStream* stream, const int* chmap, int count))
 ]
 
 { #category : 'public - SDL_audio' }
 LibSDL3 >> SetAudioStreamPutCallbackStream: stream callback: callback userdata: userdata [
 
-	^ self ffiCall: #(int SDL_SetAudioStreamPutCallback(SDL_AudioStream* stream, SDL_AudioStreamCallback callback, void* userdata))
+	^ self ffiCall: #(bool SDL_SetAudioStreamPutCallback(SDL_AudioStream* stream, SDL_AudioStreamCallback callback, void* userdata))
 ]
 
 { #category : 'public - SDL_properties' }
 LibSDL3 >> SetBooleanPropertyProps: props name: name value: value [
 
-	^ self ffiCall: #(int SDL_SetBooleanProperty(SDL_PropertiesID props, const char* name, int value))
+	^ self ffiCall: #(bool SDL_SetBooleanProperty(SDL_PropertiesID props, const char* name, bool value))
 ]
 
 { #category : 'public - SDL_clipboard' }
 LibSDL3 >> SetClipboardDataCallback: callback cleanup: cleanup userdata: userdata mime_types: mime_types num_mime_types: num_mime_types [
 
-	^ self ffiCall: #(int SDL_SetClipboardData(SDL_ClipboardDataCallback callback, SDL_ClipboardCleanupCallback cleanup, void* userdata, const char** mime_types, size_t num_mime_types))
+	^ self ffiCall: #(bool SDL_SetClipboardData(SDL_ClipboardDataCallback callback, SDL_ClipboardCleanupCallback cleanup, void* userdata, const char** mime_types, size_t num_mime_types))
 ]
 
 { #category : 'public - SDL_clipboard' }
 LibSDL3 >> SetClipboardText: text [
 
-	^ self ffiCall: #(int SDL_SetClipboardText(const char* text))
+	^ self ffiCall: #(bool SDL_SetClipboardText(const char* text))
 ]
 
 { #category : 'public - SDL_thread' }
 LibSDL3 >> SetCurrentThreadPriority: priority [
 
-	^ self ffiCall: #(int SDL_SetCurrentThreadPriority(SDL_ThreadPriority priority))
+	^ self ffiCall: #(bool SDL_SetCurrentThreadPriority(SDL_ThreadPriority priority))
 ]
 
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> SetCursor: cursor [
 
-	^ self ffiCall: #(int SDL_SetCursor(SDL_Cursor* cursor))
+	^ self ffiCall: #(bool SDL_SetCursor(SDL_Cursor* cursor))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetDefaultTextureScaleModeRenderer: renderer scale_mode: scale_mode [
 
-	^ self ffiCall: #(int SDL_SetDefaultTextureScaleMode(SDL_Renderer* renderer, SDL_ScaleMode scale_mode))
+	^ self ffiCall: #(bool SDL_SetDefaultTextureScaleMode(SDL_Renderer* renderer, SDL_ScaleMode scale_mode))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> SetEnvironmentVariableEnv: env name: name value: value overwrite: overwrite [
 
-	^ self ffiCall: #(int SDL_SetEnvironmentVariable(SDL_Environment* env, const char* name, const char* value, int overwrite))
+	^ self ffiCall: #(bool SDL_SetEnvironmentVariable(SDL_Environment* env, const char* name, const char* value, bool overwrite))
 ]
 
 { #category : 'public - SDL_events' }
@@ -5077,19 +5077,19 @@ LibSDL3 >> SetEventEnabledType: type enabled: enabled [
 { #category : 'public - SDL_events' }
 LibSDL3 >> SetEventFilter: filter userdata: userdata [
 
-	self ffiCall: #(void SDL_SetEventFilter(int filter, void* userdata))
+	self ffiCall: #(void SDL_SetEventFilter(SDL_EventFilter filter, void* userdata))
 ]
 
 { #category : 'public - SDL_properties' }
 LibSDL3 >> SetFloatPropertyProps: props name: name value: value [
 
-	^ self ffiCall: #(int SDL_SetFloatProperty(SDL_PropertiesID props, const char* name, float value))
+	^ self ffiCall: #(bool SDL_SetFloatProperty(SDL_PropertiesID props, const char* name, float value))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> SetGPUAllowedFramesInFlightDevice: device allowed_frames_in_flight: allowed_frames_in_flight [
 
-	^ self ffiCall: #(int SDL_SetGPUAllowedFramesInFlight(SDL_GPUDevice* device, Uint32 allowed_frames_in_flight))
+	^ self ffiCall: #(bool SDL_SetGPUAllowedFramesInFlight(SDL_GPUDevice* device, Uint32 allowed_frames_in_flight))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -5107,13 +5107,13 @@ LibSDL3 >> SetGPUBufferNameDevice: device buffer: buffer text: text [
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetGPURenderStateFragmentUniformsState: state slot_index: slot_index data: data length: length [
 
-	^ self ffiCall: #(int SDL_SetGPURenderStateFragmentUniforms(SDL_GPURenderState* state, Uint32 slot_index, const void* data, Uint32 length))
+	^ self ffiCall: #(bool SDL_SetGPURenderStateFragmentUniforms(SDL_GPURenderState* state, Uint32 slot_index, const void* data, Uint32 length))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetGPURenderStateRenderer: renderer state: state [
 
-	^ self ffiCall: #(int SDL_SetGPURenderState(SDL_Renderer* renderer, SDL_GPURenderState* state))
+	^ self ffiCall: #(bool SDL_SetGPURenderState(SDL_Renderer* renderer, SDL_GPURenderState* state))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -5131,7 +5131,7 @@ LibSDL3 >> SetGPUStencilReferenceRender_pass: render_pass reference: reference [
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> SetGPUSwapchainParametersDevice: device window: window swapchain_composition: swapchain_composition present_mode: present_mode [
 
-	^ self ffiCall: #(int SDL_SetGPUSwapchainParameters(SDL_GPUDevice* device, SDL_Window* window, SDL_GPUSwapchainComposition swapchain_composition, SDL_GPUPresentMode present_mode))
+	^ self ffiCall: #(bool SDL_SetGPUSwapchainParameters(SDL_GPUDevice* device, SDL_Window* window, SDL_GPUSwapchainComposition swapchain_composition, SDL_GPUPresentMode present_mode))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -5149,121 +5149,121 @@ LibSDL3 >> SetGPUViewportRender_pass: render_pass viewport: viewport [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> SetGamepadEventsEnabled: enabled [
 
-	self ffiCall: #(void SDL_SetGamepadEventsEnabled(int enabled))
+	self ffiCall: #(void SDL_SetGamepadEventsEnabled(bool enabled))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> SetGamepadLEDGamepad: gamepad red: red green: green blue: blue [
 
-	^ self ffiCall: #(int SDL_SetGamepadLED(SDL_Gamepad* gamepad, Uint8 red, Uint8 green, Uint8 blue))
+	^ self ffiCall: #(bool SDL_SetGamepadLED(SDL_Gamepad* gamepad, Uint8 red, Uint8 green, Uint8 blue))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> SetGamepadMappingInstance_id: instance_id mapping: mapping [
 
-	^ self ffiCall: #(int SDL_SetGamepadMapping(SDL_JoystickID instance_id, const char* mapping))
+	^ self ffiCall: #(bool SDL_SetGamepadMapping(SDL_JoystickID instance_id, const char* mapping))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> SetGamepadPlayerIndexGamepad: gamepad player_index: player_index [
 
-	^ self ffiCall: #(int SDL_SetGamepadPlayerIndex(SDL_Gamepad* gamepad, int player_index))
+	^ self ffiCall: #(bool SDL_SetGamepadPlayerIndex(SDL_Gamepad* gamepad, int player_index))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> SetGamepadSensorEnabledGamepad: gamepad type: type enabled: enabled [
 
-	^ self ffiCall: #(int SDL_SetGamepadSensorEnabled(SDL_Gamepad* gamepad, SDL_SensorType type, int enabled))
+	^ self ffiCall: #(bool SDL_SetGamepadSensorEnabled(SDL_Gamepad* gamepad, SDL_SensorType type, bool enabled))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> SetHapticAutocenterHaptic: haptic autocenter: autocenter [
 
-	^ self ffiCall: #(int SDL_SetHapticAutocenter(SDL_Haptic* haptic, int autocenter))
+	^ self ffiCall: #(bool SDL_SetHapticAutocenter(SDL_Haptic* haptic, int autocenter))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> SetHapticGainHaptic: haptic gain: gain [
 
-	^ self ffiCall: #(int SDL_SetHapticGain(SDL_Haptic* haptic, int gain))
+	^ self ffiCall: #(bool SDL_SetHapticGain(SDL_Haptic* haptic, int gain))
 ]
 
 { #category : 'public - SDL_hints' }
 LibSDL3 >> SetHintName: name value: value [
 
-	^ self ffiCall: #(int SDL_SetHint(const char* name, const char* value))
+	^ self ffiCall: #(bool SDL_SetHint(const char* name, const char* value))
 ]
 
 { #category : 'public - SDL_hints' }
 LibSDL3 >> SetHintWithPriorityName: name value: value priority: priority [
 
-	^ self ffiCall: #(int SDL_SetHintWithPriority(const char* name, const char* value, SDL_HintPriority priority))
+	^ self ffiCall: #(bool SDL_SetHintWithPriority(const char* name, const char* value, SDL_HintPriority priority))
 ]
 
 { #category : 'public - SDL_mutex' }
 LibSDL3 >> SetInitializedState: state initialized: initialized [
 
-	self ffiCall: #(void SDL_SetInitialized(SDL_InitState* state, int initialized))
+	self ffiCall: #(void SDL_SetInitialized(SDL_InitState* state, bool initialized))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SetJoystickEventsEnabled: enabled [
 
-	self ffiCall: #(void SDL_SetJoystickEventsEnabled(int enabled))
+	self ffiCall: #(void SDL_SetJoystickEventsEnabled(bool enabled))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SetJoystickLEDJoystick: joystick red: red green: green blue: blue [
 
-	^ self ffiCall: #(int SDL_SetJoystickLED(SDL_Joystick* joystick, Uint8 red, Uint8 green, Uint8 blue))
+	^ self ffiCall: #(bool SDL_SetJoystickLED(SDL_Joystick* joystick, Uint8 red, Uint8 green, Uint8 blue))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SetJoystickPlayerIndexJoystick: joystick player_index: player_index [
 
-	^ self ffiCall: #(int SDL_SetJoystickPlayerIndex(SDL_Joystick* joystick, int player_index))
+	^ self ffiCall: #(bool SDL_SetJoystickPlayerIndex(SDL_Joystick* joystick, int player_index))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SetJoystickVirtualAxisJoystick: joystick axis: axis value: value [
 
-	^ self ffiCall: #(int SDL_SetJoystickVirtualAxis(SDL_Joystick* joystick, int axis, Sint16 value))
+	^ self ffiCall: #(bool SDL_SetJoystickVirtualAxis(SDL_Joystick* joystick, int axis, Sint16 value))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SetJoystickVirtualBallJoystick: joystick ball: ball xrel: xrel yrel: yrel [
 
-	^ self ffiCall: #(int SDL_SetJoystickVirtualBall(SDL_Joystick* joystick, int ball, Sint16 xrel, Sint16 yrel))
+	^ self ffiCall: #(bool SDL_SetJoystickVirtualBall(SDL_Joystick* joystick, int ball, Sint16 xrel, Sint16 yrel))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SetJoystickVirtualButtonJoystick: joystick button: button down: down [
 
-	^ self ffiCall: #(int SDL_SetJoystickVirtualButton(SDL_Joystick* joystick, int button, int down))
+	^ self ffiCall: #(bool SDL_SetJoystickVirtualButton(SDL_Joystick* joystick, int button, bool down))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SetJoystickVirtualHatJoystick: joystick hat: hat value: value [
 
-	^ self ffiCall: #(int SDL_SetJoystickVirtualHat(SDL_Joystick* joystick, int hat, Uint8 value))
+	^ self ffiCall: #(bool SDL_SetJoystickVirtualHat(SDL_Joystick* joystick, int hat, Uint8 value))
 ]
 
 { #category : 'public - SDL_joystick' }
 LibSDL3 >> SetJoystickVirtualTouchpadJoystick: joystick touchpad: touchpad finger: finger down: down x: x y: y pressure: pressure [
 
-	^ self ffiCall: #(int SDL_SetJoystickVirtualTouchpad(SDL_Joystick* joystick, int touchpad, int finger, int down, float x, float y, float pressure))
+	^ self ffiCall: #(bool SDL_SetJoystickVirtualTouchpad(SDL_Joystick* joystick, int touchpad, int finger, bool down, float x, float y, float pressure))
 ]
 
 { #category : 'public - SDL_system' }
 LibSDL3 >> SetLinuxThreadPriorityAndPolicyThreadID: threadID sdlPriority: sdlPriority schedPolicy: schedPolicy [
 
-	^ self ffiCall: #(int SDL_SetLinuxThreadPriorityAndPolicy(Sint64 threadID, int sdlPriority, int schedPolicy))
+	^ self ffiCall: #(bool SDL_SetLinuxThreadPriorityAndPolicy(Sint64 threadID, int sdlPriority, int schedPolicy))
 ]
 
 { #category : 'public - SDL_system' }
 LibSDL3 >> SetLinuxThreadPriorityThreadID: threadID priority: priority [
 
-	^ self ffiCall: #(int SDL_SetLinuxThreadPriority(Sint64 threadID, int priority))
+	^ self ffiCall: #(bool SDL_SetLinuxThreadPriority(Sint64 threadID, int priority))
 ]
 
 { #category : 'public - SDL_log' }
@@ -5287,13 +5287,13 @@ LibSDL3 >> SetLogPriorityCategory: category priority: priority [
 { #category : 'public - SDL_log' }
 LibSDL3 >> SetLogPriorityPrefixPriority: priority prefix: prefix [
 
-	^ self ffiCall: #(int SDL_SetLogPriorityPrefix(SDL_LogPriority priority, const char* prefix))
+	^ self ffiCall: #(bool SDL_SetLogPriorityPrefix(SDL_LogPriority priority, const char* prefix))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> SetMemoryFunctionsMalloc_func: malloc_func calloc_func: calloc_func realloc_func: realloc_func free_func: free_func [
 
-	^ self ffiCall: #(int SDL_SetMemoryFunctions(SDL_malloc_func malloc_func, SDL_calloc_func calloc_func, SDL_realloc_func realloc_func, SDL_free_func free_func))
+	^ self ffiCall: #(bool SDL_SetMemoryFunctions(SDL_malloc_func malloc_func, SDL_calloc_func calloc_func, SDL_realloc_func realloc_func, SDL_free_func free_func))
 ]
 
 { #category : 'public - SDL_keyboard' }
@@ -5305,217 +5305,217 @@ LibSDL3 >> SetModState: modstate [
 { #category : 'public - SDL_properties' }
 LibSDL3 >> SetNumberPropertyProps: props name: name value: value [
 
-	^ self ffiCall: #(int SDL_SetNumberProperty(SDL_PropertiesID props, const char* name, Sint64 value))
+	^ self ffiCall: #(bool SDL_SetNumberProperty(SDL_PropertiesID props, const char* name, Sint64 value))
 ]
 
 { #category : 'public - SDL_pixels' }
 LibSDL3 >> SetPaletteColorsPalette: palette colors: colors firstcolor: firstcolor ncolors: ncolors [
 
-	^ self ffiCall: #(int SDL_SetPaletteColors(SDL_Palette* palette, SDL_Color* colors, int firstcolor, int ncolors))
+	^ self ffiCall: #(bool SDL_SetPaletteColors(SDL_Palette* palette, SDL_Color* colors, int firstcolor, int ncolors))
 ]
 
 { #category : 'public - SDL_properties' }
 LibSDL3 >> SetPointerPropertyProps: props name: name value: value [
 
-	^ self ffiCall: #(int SDL_SetPointerProperty(SDL_PropertiesID props, const char* name, void* value))
+	^ self ffiCall: #(bool SDL_SetPointerProperty(SDL_PropertiesID props, const char* name, void* value))
 ]
 
 { #category : 'public - SDL_properties' }
 LibSDL3 >> SetPointerPropertyWithCleanupProps: props name: name value: value cleanup: cleanup userdata: userdata [
 
-	^ self ffiCall: #(int SDL_SetPointerPropertyWithCleanup(SDL_PropertiesID props, const char* name, void* value, SDL_CleanupPropertyCallback cleanup, void* userdata))
+	^ self ffiCall: #(bool SDL_SetPointerPropertyWithCleanup(SDL_PropertiesID props, const char* name, void* value, SDL_CleanupPropertyCallback cleanup, void* userdata))
 ]
 
 { #category : 'public - SDL_clipboard' }
 LibSDL3 >> SetPrimarySelectionText: text [
 
-	^ self ffiCall: #(int SDL_SetPrimarySelectionText(const char* text))
+	^ self ffiCall: #(bool SDL_SetPrimarySelectionText(const char* text))
 ]
 
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> SetRelativeMouseTransformCallback: callback userdata: userdata [
 
-	^ self ffiCall: #(int SDL_SetRelativeMouseTransform(SDL_MouseMotionTransformCallback callback, void* userdata))
+	^ self ffiCall: #(bool SDL_SetRelativeMouseTransform(SDL_MouseMotionTransformCallback callback, void* userdata))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderClipRectRenderer: renderer rect: rect [
 
-	^ self ffiCall: #(int SDL_SetRenderClipRect(SDL_Renderer* renderer, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_SetRenderClipRect(SDL_Renderer* renderer, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderColorScaleRenderer: renderer scale: scale [
 
-	^ self ffiCall: #(int SDL_SetRenderColorScale(SDL_Renderer* renderer, float scale))
+	^ self ffiCall: #(bool SDL_SetRenderColorScale(SDL_Renderer* renderer, float scale))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderDrawBlendModeRenderer: renderer blendMode: blendMode [
 
-	^ self ffiCall: #(int SDL_SetRenderDrawBlendMode(SDL_Renderer* renderer, SDL_BlendMode blendMode))
+	^ self ffiCall: #(bool SDL_SetRenderDrawBlendMode(SDL_Renderer* renderer, SDL_BlendMode blendMode))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderDrawColorFloatRenderer: renderer r: r g: g b: b a: a [
 
-	^ self ffiCall: #(int SDL_SetRenderDrawColorFloat(SDL_Renderer* renderer, float r, float g, float b, float a))
+	^ self ffiCall: #(bool SDL_SetRenderDrawColorFloat(SDL_Renderer* renderer, float r, float g, float b, float a))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderDrawColorRenderer: renderer r: r g: g b: b a: a [
 
-	^ self ffiCall: #(int SDL_SetRenderDrawColor(SDL_Renderer* renderer, Uint8 r, Uint8 g, Uint8 b, Uint8 a))
+	^ self ffiCall: #(bool SDL_SetRenderDrawColor(SDL_Renderer* renderer, Uint8 r, Uint8 g, Uint8 b, Uint8 a))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderLogicalPresentationRenderer: renderer w: w h: h mode: mode [
 
-	^ self ffiCall: #(int SDL_SetRenderLogicalPresentation(SDL_Renderer* renderer, int w, int h, SDL_RendererLogicalPresentation mode))
+	^ self ffiCall: #(bool SDL_SetRenderLogicalPresentation(SDL_Renderer* renderer, int w, int h, SDL_RendererLogicalPresentation mode))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderScaleRenderer: renderer scaleX: scaleX scaleY: scaleY [
 
-	^ self ffiCall: #(int SDL_SetRenderScale(SDL_Renderer* renderer, float scaleX, float scaleY))
+	^ self ffiCall: #(bool SDL_SetRenderScale(SDL_Renderer* renderer, float scaleX, float scaleY))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderTargetRenderer: renderer texture: texture [
 
-	^ self ffiCall: #(int SDL_SetRenderTarget(SDL_Renderer* renderer, SDL_Texture* texture))
+	^ self ffiCall: #(bool SDL_SetRenderTarget(SDL_Renderer* renderer, SDL_Texture* texture))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderTextureAddressModeRenderer: renderer u_mode: u_mode v_mode: v_mode [
 
-	^ self ffiCall: #(int SDL_SetRenderTextureAddressMode(SDL_Renderer* renderer, SDL_TextureAddressMode u_mode, SDL_TextureAddressMode v_mode))
+	^ self ffiCall: #(bool SDL_SetRenderTextureAddressMode(SDL_Renderer* renderer, SDL_TextureAddressMode u_mode, SDL_TextureAddressMode v_mode))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderVSyncRenderer: renderer vsync: vsync [
 
-	^ self ffiCall: #(int SDL_SetRenderVSync(SDL_Renderer* renderer, int vsync))
+	^ self ffiCall: #(bool SDL_SetRenderVSync(SDL_Renderer* renderer, int vsync))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetRenderViewportRenderer: renderer rect: rect [
 
-	^ self ffiCall: #(int SDL_SetRenderViewport(SDL_Renderer* renderer, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_SetRenderViewport(SDL_Renderer* renderer, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> SetScancodeNameScancode: scancode name: name [
 
-	^ self ffiCall: #(int SDL_SetScancodeName(SDL_Scancode scancode, const char* name))
+	^ self ffiCall: #(bool SDL_SetScancodeName(SDL_Scancode scancode, const char* name))
 ]
 
 { #category : 'public - SDL_properties' }
 LibSDL3 >> SetStringPropertyProps: props name: name value: value [
 
-	^ self ffiCall: #(int SDL_SetStringProperty(SDL_PropertiesID props, const char* name, const char* value))
+	^ self ffiCall: #(bool SDL_SetStringProperty(SDL_PropertiesID props, const char* name, const char* value))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SetSurfaceAlphaModSurface: surface alpha: alpha [
 
-	^ self ffiCall: #(int SDL_SetSurfaceAlphaMod(SDL_Surface* surface, Uint8 alpha))
+	^ self ffiCall: #(bool SDL_SetSurfaceAlphaMod(SDL_Surface* surface, Uint8 alpha))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SetSurfaceBlendModeSurface: surface blendMode: blendMode [
 
-	^ self ffiCall: #(int SDL_SetSurfaceBlendMode(SDL_Surface* surface, SDL_BlendMode blendMode))
+	^ self ffiCall: #(bool SDL_SetSurfaceBlendMode(SDL_Surface* surface, SDL_BlendMode blendMode))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SetSurfaceClipRectSurface: surface rect: rect [
 
-	^ self ffiCall: #(int SDL_SetSurfaceClipRect(SDL_Surface* surface, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_SetSurfaceClipRect(SDL_Surface* surface, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SetSurfaceColorKeySurface: surface enabled: enabled key: key [
 
-	^ self ffiCall: #(int SDL_SetSurfaceColorKey(SDL_Surface* surface, int enabled, Uint32 key))
+	^ self ffiCall: #(bool SDL_SetSurfaceColorKey(SDL_Surface* surface, bool enabled, Uint32 key))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SetSurfaceColorModSurface: surface r: r g: g b: b [
 
-	^ self ffiCall: #(int SDL_SetSurfaceColorMod(SDL_Surface* surface, Uint8 r, Uint8 g, Uint8 b))
+	^ self ffiCall: #(bool SDL_SetSurfaceColorMod(SDL_Surface* surface, Uint8 r, Uint8 g, Uint8 b))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SetSurfaceColorspaceSurface: surface colorspace: colorspace [
 
-	^ self ffiCall: #(int SDL_SetSurfaceColorspace(SDL_Surface* surface, SDL_Colorspace colorspace))
+	^ self ffiCall: #(bool SDL_SetSurfaceColorspace(SDL_Surface* surface, SDL_Colorspace colorspace))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SetSurfacePaletteSurface: surface palette: palette [
 
-	^ self ffiCall: #(int SDL_SetSurfacePalette(SDL_Surface* surface, SDL_Palette* palette))
+	^ self ffiCall: #(bool SDL_SetSurfacePalette(SDL_Surface* surface, SDL_Palette* palette))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SetSurfaceRLESurface: surface enabled: enabled [
 
-	^ self ffiCall: #(int SDL_SetSurfaceRLE(SDL_Surface* surface, int enabled))
+	^ self ffiCall: #(bool SDL_SetSurfaceRLE(SDL_Surface* surface, bool enabled))
 ]
 
 { #category : 'public - SDL_thread' }
 LibSDL3 >> SetTLSId: id value: value destructor: destructor [
 
-	^ self ffiCall: #(int SDL_SetTLS(SDL_TLSID* id, const void* value, SDL_TLSDestructorCallback destructor))
+	^ self ffiCall: #(bool SDL_SetTLS(SDL_TLSID* id, const void* value, SDL_TLSDestructorCallback destructor))
 ]
 
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> SetTextInputAreaWindow: window rect: rect cursor: cursor [
 
-	^ self ffiCall: #(int SDL_SetTextInputArea(SDL_Window* window, SDL_Rect* rect, int cursor))
+	^ self ffiCall: #(bool SDL_SetTextInputArea(SDL_Window* window, SDL_Rect* rect, int cursor))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetTextureAlphaModFloatTexture: texture alpha: alpha [
 
-	^ self ffiCall: #(int SDL_SetTextureAlphaModFloat(SDL_Texture* texture, float alpha))
+	^ self ffiCall: #(bool SDL_SetTextureAlphaModFloat(SDL_Texture* texture, float alpha))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetTextureAlphaModTexture: texture alpha: alpha [
 
-	^ self ffiCall: #(int SDL_SetTextureAlphaMod(SDL_Texture* texture, Uint8 alpha))
+	^ self ffiCall: #(bool SDL_SetTextureAlphaMod(SDL_Texture* texture, Uint8 alpha))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetTextureBlendModeTexture: texture blendMode: blendMode [
 
-	^ self ffiCall: #(int SDL_SetTextureBlendMode(SDL_Texture* texture, SDL_BlendMode blendMode))
+	^ self ffiCall: #(bool SDL_SetTextureBlendMode(SDL_Texture* texture, SDL_BlendMode blendMode))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetTextureColorModFloatTexture: texture r: r g: g b: b [
 
-	^ self ffiCall: #(int SDL_SetTextureColorModFloat(SDL_Texture* texture, float r, float g, float b))
+	^ self ffiCall: #(bool SDL_SetTextureColorModFloat(SDL_Texture* texture, float r, float g, float b))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetTextureColorModTexture: texture r: r g: g b: b [
 
-	^ self ffiCall: #(int SDL_SetTextureColorMod(SDL_Texture* texture, Uint8 r, Uint8 g, Uint8 b))
+	^ self ffiCall: #(bool SDL_SetTextureColorMod(SDL_Texture* texture, Uint8 r, Uint8 g, Uint8 b))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetTexturePaletteTexture: texture palette: palette [
 
-	^ self ffiCall: #(int SDL_SetTexturePalette(SDL_Texture* texture, SDL_Palette* palette))
+	^ self ffiCall: #(bool SDL_SetTexturePalette(SDL_Texture* texture, SDL_Palette* palette))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> SetTextureScaleModeTexture: texture scaleMode: scaleMode [
 
-	^ self ffiCall: #(int SDL_SetTextureScaleMode(SDL_Texture* texture, SDL_ScaleMode scaleMode))
+	^ self ffiCall: #(bool SDL_SetTextureScaleMode(SDL_Texture* texture, SDL_ScaleMode scaleMode))
 ]
 
 { #category : 'public - SDL_tray' }
@@ -5557,157 +5557,157 @@ LibSDL3 >> SetTrayTooltipTray: tray tooltip: tooltip [
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowAlwaysOnTopWindow: window on_top: on_top [
 
-	^ self ffiCall: #(int SDL_SetWindowAlwaysOnTop(SDL_Window* window, int on_top))
+	^ self ffiCall: #(bool SDL_SetWindowAlwaysOnTop(SDL_Window* window, bool on_top))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowAspectRatioWindow: window min_aspect: min_aspect max_aspect: max_aspect [
 
-	^ self ffiCall: #(int SDL_SetWindowAspectRatio(SDL_Window* window, float min_aspect, float max_aspect))
+	^ self ffiCall: #(bool SDL_SetWindowAspectRatio(SDL_Window* window, float min_aspect, float max_aspect))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowBorderedWindow: window bordered: bordered [
 
-	^ self ffiCall: #(int SDL_SetWindowBordered(SDL_Window* window, int bordered))
+	^ self ffiCall: #(bool SDL_SetWindowBordered(SDL_Window* window, bool bordered))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowFillDocumentWindow: window fill: fill [
 
-	^ self ffiCall: #(int SDL_SetWindowFillDocument(SDL_Window* window, int fill))
+	^ self ffiCall: #(bool SDL_SetWindowFillDocument(SDL_Window* window, bool fill))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowFocusableWindow: window focusable: focusable [
 
-	^ self ffiCall: #(int SDL_SetWindowFocusable(SDL_Window* window, int focusable))
+	^ self ffiCall: #(bool SDL_SetWindowFocusable(SDL_Window* window, bool focusable))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowFullscreenModeWindow: window mode: mode [
 
-	^ self ffiCall: #(int SDL_SetWindowFullscreenMode(SDL_Window* window, SDL_DisplayMode* mode))
+	^ self ffiCall: #(bool SDL_SetWindowFullscreenMode(SDL_Window* window, SDL_DisplayMode* mode))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowFullscreenWindow: window fullscreen: fullscreen [
 
-	^ self ffiCall: #(int SDL_SetWindowFullscreen(SDL_Window* window, int fullscreen))
+	^ self ffiCall: #(bool SDL_SetWindowFullscreen(SDL_Window* window, bool fullscreen))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowHitTestWindow: window callback: callback callback_data: callback_data [
 
-	^ self ffiCall: #(int SDL_SetWindowHitTest(SDL_Window* window, SDL_HitTest callback, void* callback_data))
+	^ self ffiCall: #(bool SDL_SetWindowHitTest(SDL_Window* window, SDL_HitTest callback, void* callback_data))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowIconWindow: window icon: icon [
 
-	^ self ffiCall: #(int SDL_SetWindowIcon(SDL_Window* window, SDL_Surface* icon))
+	^ self ffiCall: #(bool SDL_SetWindowIcon(SDL_Window* window, SDL_Surface* icon))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowKeyboardGrabWindow: window grabbed: grabbed [
 
-	^ self ffiCall: #(int SDL_SetWindowKeyboardGrab(SDL_Window* window, int grabbed))
+	^ self ffiCall: #(bool SDL_SetWindowKeyboardGrab(SDL_Window* window, bool grabbed))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowMaximumSizeWindow: window max_w: max_w max_h: max_h [
 
-	^ self ffiCall: #(int SDL_SetWindowMaximumSize(SDL_Window* window, int max_w, int max_h))
+	^ self ffiCall: #(bool SDL_SetWindowMaximumSize(SDL_Window* window, int max_w, int max_h))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowMinimumSizeWindow: window min_w: min_w min_h: min_h [
 
-	^ self ffiCall: #(int SDL_SetWindowMinimumSize(SDL_Window* window, int min_w, int min_h))
+	^ self ffiCall: #(bool SDL_SetWindowMinimumSize(SDL_Window* window, int min_w, int min_h))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowModalWindow: window modal: modal [
 
-	^ self ffiCall: #(int SDL_SetWindowModal(SDL_Window* window, int modal))
+	^ self ffiCall: #(bool SDL_SetWindowModal(SDL_Window* window, bool modal))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowMouseGrabWindow: window grabbed: grabbed [
 
-	^ self ffiCall: #(int SDL_SetWindowMouseGrab(SDL_Window* window, int grabbed))
+	^ self ffiCall: #(bool SDL_SetWindowMouseGrab(SDL_Window* window, bool grabbed))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowMouseRectWindow: window rect: rect [
 
-	^ self ffiCall: #(int SDL_SetWindowMouseRect(SDL_Window* window, SDL_Rect* rect))
+	^ self ffiCall: #(bool SDL_SetWindowMouseRect(SDL_Window* window, SDL_Rect* rect))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowOpacityWindow: window opacity: opacity [
 
-	^ self ffiCall: #(int SDL_SetWindowOpacity(SDL_Window* window, float opacity))
+	^ self ffiCall: #(bool SDL_SetWindowOpacity(SDL_Window* window, float opacity))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowParentWindow: window parent: parent [
 
-	^ self ffiCall: #(int SDL_SetWindowParent(SDL_Window* window, SDL_Window* parent))
+	^ self ffiCall: #(bool SDL_SetWindowParent(SDL_Window* window, SDL_Window* parent))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowPositionWindow: window x: x y: y [
 
-	^ self ffiCall: #(int SDL_SetWindowPosition(SDL_Window* window, int x, int y))
+	^ self ffiCall: #(bool SDL_SetWindowPosition(SDL_Window* window, int x, int y))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowProgressStateWindow: window state: state [
 
-	^ self ffiCall: #(int SDL_SetWindowProgressState(SDL_Window* window, SDL_ProgressState state))
+	^ self ffiCall: #(bool SDL_SetWindowProgressState(SDL_Window* window, SDL_ProgressState state))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowProgressValueWindow: window value: value [
 
-	^ self ffiCall: #(int SDL_SetWindowProgressValue(SDL_Window* window, float value))
+	^ self ffiCall: #(bool SDL_SetWindowProgressValue(SDL_Window* window, float value))
 ]
 
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> SetWindowRelativeMouseModeWindow: window enabled: enabled [
 
-	^ self ffiCall: #(int SDL_SetWindowRelativeMouseMode(SDL_Window* window, int enabled))
+	^ self ffiCall: #(bool SDL_SetWindowRelativeMouseMode(SDL_Window* window, bool enabled))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowResizableWindow: window resizable: resizable [
 
-	^ self ffiCall: #(int SDL_SetWindowResizable(SDL_Window* window, int resizable))
+	^ self ffiCall: #(bool SDL_SetWindowResizable(SDL_Window* window, bool resizable))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowShapeWindow: window shape: shape [
 
-	^ self ffiCall: #(int SDL_SetWindowShape(SDL_Window* window, SDL_Surface* shape))
+	^ self ffiCall: #(bool SDL_SetWindowShape(SDL_Window* window, SDL_Surface* shape))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowSizeWindow: window w: w h: h [
 
-	^ self ffiCall: #(int SDL_SetWindowSize(SDL_Window* window, int w, int h))
+	^ self ffiCall: #(bool SDL_SetWindowSize(SDL_Window* window, int w, int h))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowSurfaceVSyncWindow: window vsync: vsync [
 
-	^ self ffiCall: #(int SDL_SetWindowSurfaceVSync(SDL_Window* window, int vsync))
+	^ self ffiCall: #(bool SDL_SetWindowSurfaceVSync(SDL_Window* window, int vsync))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> SetWindowTitleWindow: window title: title [
 
-	^ self ffiCall: #(int SDL_SetWindowTitle(SDL_Window* window, const char* title))
+	^ self ffiCall: #(bool SDL_SetWindowTitle(SDL_Window* window, const char* title))
 ]
 
 { #category : 'public - SDL_system' }
@@ -5719,19 +5719,19 @@ LibSDL3 >> SetX11EventHookCallback: callback userdata: userdata [
 { #category : 'public - SDL_mutex' }
 LibSDL3 >> ShouldInit: state [
 
-	^ self ffiCall: #(int SDL_ShouldInit(SDL_InitState* state))
+	^ self ffiCall: #(bool SDL_ShouldInit(SDL_InitState* state))
 ]
 
 { #category : 'public - SDL_mutex' }
 LibSDL3 >> ShouldQuit: state [
 
-	^ self ffiCall: #(int SDL_ShouldQuit(SDL_InitState* state))
+	^ self ffiCall: #(bool SDL_ShouldQuit(SDL_InitState* state))
 ]
 
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> ShowCursor [
 
-	^ self ffiCall: #(int SDL_ShowCursor())
+	^ self ffiCall: #(bool SDL_ShowCursor())
 ]
 
 { #category : 'public - SDL_dialog' }
@@ -5743,19 +5743,19 @@ LibSDL3 >> ShowFileDialogWithPropertiesType: type callback: callback userdata: u
 { #category : 'public - SDL_messagebox' }
 LibSDL3 >> ShowMessageBoxMessageboxdata: messageboxdata buttonid: buttonid [
 
-	^ self ffiCall: #(int SDL_ShowMessageBox(SDL_MessageBoxData* messageboxdata, int* buttonid))
+	^ self ffiCall: #(bool SDL_ShowMessageBox(SDL_MessageBoxData* messageboxdata, int* buttonid))
 ]
 
 { #category : 'public - SDL_dialog' }
 LibSDL3 >> ShowOpenFileDialogCallback: callback userdata: userdata window: window filters: filters nfilters: nfilters default_location: default_location allow_many: allow_many [
 
-	self ffiCall: #(void SDL_ShowOpenFileDialog(SDL_DialogFileCallback callback, void* userdata, SDL_Window* window, SDL_DialogFileFilter* filters, int nfilters, const char* default_location, int allow_many))
+	self ffiCall: #(void SDL_ShowOpenFileDialog(SDL_DialogFileCallback callback, void* userdata, SDL_Window* window, SDL_DialogFileFilter* filters, int nfilters, const char* default_location, bool allow_many))
 ]
 
 { #category : 'public - SDL_dialog' }
 LibSDL3 >> ShowOpenFolderDialogCallback: callback userdata: userdata window: window default_location: default_location allow_many: allow_many [
 
-	self ffiCall: #(void SDL_ShowOpenFolderDialog(SDL_DialogFileCallback callback, void* userdata, SDL_Window* window, const char* default_location, int allow_many))
+	self ffiCall: #(void SDL_ShowOpenFolderDialog(SDL_DialogFileCallback callback, void* userdata, SDL_Window* window, const char* default_location, bool allow_many))
 ]
 
 { #category : 'public - SDL_dialog' }
@@ -5767,19 +5767,19 @@ LibSDL3 >> ShowSaveFileDialogCallback: callback userdata: userdata window: windo
 { #category : 'public - SDL_messagebox' }
 LibSDL3 >> ShowSimpleMessageBoxFlags: flags title: title message: message window: window [
 
-	^ self ffiCall: #(int SDL_ShowSimpleMessageBox(SDL_MessageBoxFlags flags, const char* title, const char* message, SDL_Window* window))
+	^ self ffiCall: #(bool SDL_ShowSimpleMessageBox(SDL_MessageBoxFlags flags, const char* title, const char* message, SDL_Window* window))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> ShowWindow: window [
 
-	^ self ffiCall: #(int SDL_ShowWindow(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_ShowWindow(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> ShowWindowSystemMenuWindow: window x: x y: y [
 
-	^ self ffiCall: #(int SDL_ShowWindowSystemMenu(SDL_Window* window, int x, int y))
+	^ self ffiCall: #(bool SDL_ShowWindowSystemMenu(SDL_Window* window, int x, int y))
 ]
 
 { #category : 'public - SDL_asyncio' }
@@ -5803,13 +5803,13 @@ LibSDL3 >> SignalSemaphore: sem [
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> StartTextInput: window [
 
-	^ self ffiCall: #(int SDL_StartTextInput(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_StartTextInput(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> StartTextInputWithPropertiesWindow: window props: props [
 
-	^ self ffiCall: #(int SDL_StartTextInputWithProperties(SDL_Window* window, SDL_PropertiesID props))
+	^ self ffiCall: #(bool SDL_StartTextInputWithProperties(SDL_Window* window, SDL_PropertiesID props))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -5827,37 +5827,37 @@ LibSDL3 >> StepUTF8Pstr: pstr pslen: pslen [
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> StopHapticEffectHaptic: haptic effect: effect [
 
-	^ self ffiCall: #(int SDL_StopHapticEffect(SDL_Haptic* haptic, SDL_HapticEffectID effect))
+	^ self ffiCall: #(bool SDL_StopHapticEffect(SDL_Haptic* haptic, SDL_HapticEffectID effect))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> StopHapticEffects: haptic [
 
-	^ self ffiCall: #(int SDL_StopHapticEffects(SDL_Haptic* haptic))
+	^ self ffiCall: #(bool SDL_StopHapticEffects(SDL_Haptic* haptic))
 ]
 
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> StopHapticRumble: haptic [
 
-	^ self ffiCall: #(int SDL_StopHapticRumble(SDL_Haptic* haptic))
+	^ self ffiCall: #(bool SDL_StopHapticRumble(SDL_Haptic* haptic))
 ]
 
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> StopTextInput: window [
 
-	^ self ffiCall: #(int SDL_StopTextInput(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_StopTextInput(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_storage' }
 LibSDL3 >> StorageReady: storage [
 
-	^ self ffiCall: #(int SDL_StorageReady(SDL_Storage* storage))
+	^ self ffiCall: #(bool SDL_StorageReady(SDL_Storage* storage))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> StretchSurfaceSrc: src srcrect: srcrect dst: dst dstrect: dstrect scaleMode: scaleMode [
 
-	^ self ffiCall: #(int SDL_StretchSurface(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect, SDL_ScaleMode scaleMode))
+	^ self ffiCall: #(bool SDL_StretchSurface(SDL_Surface* src, SDL_Rect* srcrect, SDL_Surface* dst, SDL_Rect* dstrect, SDL_ScaleMode scaleMode))
 ]
 
 { #category : 'public - SDL_guid' }
@@ -5869,7 +5869,7 @@ LibSDL3 >> StringToGUID: pchGUID [
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> SubmitGPUCommandBuffer: command_buffer [
 
-	^ self ffiCall: #(int SDL_SubmitGPUCommandBuffer(SDL_GPUCommandBuffer* command_buffer))
+	^ self ffiCall: #(bool SDL_SubmitGPUCommandBuffer(SDL_GPUCommandBuffer* command_buffer))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -5881,19 +5881,19 @@ LibSDL3 >> SubmitGPUCommandBufferAndAcquireFence: command_buffer [
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SurfaceHasAlternateImages: surface [
 
-	^ self ffiCall: #(int SDL_SurfaceHasAlternateImages(SDL_Surface* surface))
+	^ self ffiCall: #(bool SDL_SurfaceHasAlternateImages(SDL_Surface* surface))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SurfaceHasColorKey: surface [
 
-	^ self ffiCall: #(int SDL_SurfaceHasColorKey(SDL_Surface* surface))
+	^ self ffiCall: #(bool SDL_SurfaceHasColorKey(SDL_Surface* surface))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> SurfaceHasRLE: surface [
 
-	^ self ffiCall: #(int SDL_SurfaceHasRLE(SDL_Surface* surface))
+	^ self ffiCall: #(bool SDL_SurfaceHasRLE(SDL_Surface* surface))
 ]
 
 { #category : 'public - SDL_endian' }
@@ -5905,7 +5905,7 @@ LibSDL3 >> SwapFloat: x [
 { #category : 'public - SDL_video' }
 LibSDL3 >> SyncWindow: window [
 
-	^ self ffiCall: #(int SDL_SyncWindow(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_SyncWindow(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_iostream' }
@@ -5917,7 +5917,7 @@ LibSDL3 >> TellIO: context [
 { #category : 'public - SDL_keyboard' }
 LibSDL3 >> TextInputActive: window [
 
-	^ self ffiCall: #(int SDL_TextInputActive(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_TextInputActive(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_time' }
@@ -5929,7 +5929,7 @@ LibSDL3 >> TimeFromWindowsDwLowDateTime: dwLowDateTime dwHighDateTime: dwHighDat
 { #category : 'public - SDL_time' }
 LibSDL3 >> TimeToDateTimeTicks: ticks dt: dt localTime: localTime [
 
-	^ self ffiCall: #(int SDL_TimeToDateTime(SDL_Time ticks, SDL_DateTime* dt, bool localTime))
+	^ self ffiCall: #(bool SDL_TimeToDateTime(SDL_Time ticks, SDL_DateTime* dt, bool localTime))
 ]
 
 { #category : 'public - SDL_time' }
@@ -5941,31 +5941,31 @@ LibSDL3 >> TimeToWindowsTicks: ticks dwLowDateTime: dwLowDateTime dwHighDateTime
 { #category : 'public - SDL_mutex' }
 LibSDL3 >> TryLockMutex: mutex [
 
-	^ self ffiCall: #(int SDL_TryLockMutex(SDL_Mutex* mutex))
+	^ self ffiCall: #(bool SDL_TryLockMutex(SDL_Mutex* mutex))
 ]
 
 { #category : 'public - SDL_mutex' }
 LibSDL3 >> TryLockRWLockForReading: rwlock [
 
-	^ self ffiCall: #(int SDL_TryLockRWLockForReading(SDL_RWLock* rwlock))
+	^ self ffiCall: #(bool SDL_TryLockRWLockForReading(SDL_RWLock* rwlock))
 ]
 
 { #category : 'public - SDL_mutex' }
 LibSDL3 >> TryLockRWLockForWriting: rwlock [
 
-	^ self ffiCall: #(int SDL_TryLockRWLockForWriting(SDL_RWLock* rwlock))
+	^ self ffiCall: #(bool SDL_TryLockRWLockForWriting(SDL_RWLock* rwlock))
 ]
 
 { #category : 'public - SDL_atomic' }
 LibSDL3 >> TryLockSpinlock: lock [
 
-	^ self ffiCall: #(int SDL_TryLockSpinlock(SDL_SpinLock* lock))
+	^ self ffiCall: #(bool SDL_TryLockSpinlock(SDL_SpinLock* lock))
 ]
 
 { #category : 'public - SDL_mutex' }
 LibSDL3 >> TryWaitSemaphore: sem [
 
-	^ self ffiCall: #(int SDL_TryWaitSemaphore(SDL_Semaphore* sem))
+	^ self ffiCall: #(bool SDL_TryWaitSemaphore(SDL_Semaphore* sem))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -5995,7 +5995,7 @@ LibSDL3 >> UnloadObject: handle [
 { #category : 'public - SDL_audio' }
 LibSDL3 >> UnlockAudioStream: stream [
 
-	^ self ffiCall: #(int SDL_UnlockAudioStream(SDL_AudioStream* stream))
+	^ self ffiCall: #(bool SDL_UnlockAudioStream(SDL_AudioStream* stream))
 ]
 
 { #category : 'public - SDL_joystick' }
@@ -6049,7 +6049,7 @@ LibSDL3 >> UnmapGPUTransferBufferDevice: device transfer_buffer: transfer_buffer
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> UnsetEnvironmentVariableEnv: env name: name [
 
-	^ self ffiCall: #(int SDL_UnsetEnvironmentVariable(SDL_Environment* env, const char* name))
+	^ self ffiCall: #(bool SDL_UnsetEnvironmentVariable(SDL_Environment* env, const char* name))
 ]
 
 { #category : 'public - SDL_gamepad' }
@@ -6061,7 +6061,7 @@ LibSDL3 >> UpdateGamepads [
 { #category : 'public - SDL_haptic' }
 LibSDL3 >> UpdateHapticEffectHaptic: haptic effect: effect data: data [
 
-	^ self ffiCall: #(int SDL_UpdateHapticEffect(SDL_Haptic* haptic, SDL_HapticEffectID effect, SDL_HapticEffect* data))
+	^ self ffiCall: #(bool SDL_UpdateHapticEffect(SDL_Haptic* haptic, SDL_HapticEffectID effect, SDL_HapticEffect* data))
 ]
 
 { #category : 'public - SDL_joystick' }
@@ -6073,7 +6073,7 @@ LibSDL3 >> UpdateJoysticks [
 { #category : 'public - SDL_render' }
 LibSDL3 >> UpdateNVTexture: texture rect: rect Yplane: Yplane Ypitch: Ypitch UVplane: UVplane UVpitch: UVpitch [
 
-	^ self ffiCall: #(int SDL_UpdateNVTexture(SDL_Texture* texture, SDL_Rect* rect, const Uint8* Yplane, int Ypitch, const Uint8* UVplane, int UVpitch))
+	^ self ffiCall: #(bool SDL_UpdateNVTexture(SDL_Texture* texture, SDL_Rect* rect, const Uint8* Yplane, int Ypitch, const Uint8* UVplane, int UVpitch))
 ]
 
 { #category : 'public - SDL_sensor' }
@@ -6085,7 +6085,7 @@ LibSDL3 >> UpdateSensors [
 { #category : 'public - SDL_render' }
 LibSDL3 >> UpdateTexture: texture rect: rect pixels: pixels pitch: pitch [
 
-	^ self ffiCall: #(int SDL_UpdateTexture(SDL_Texture* texture, SDL_Rect* rect, const void* pixels, int pitch))
+	^ self ffiCall: #(bool SDL_UpdateTexture(SDL_Texture* texture, SDL_Rect* rect, const void* pixels, int pitch))
 ]
 
 { #category : 'public - SDL_tray' }
@@ -6097,19 +6097,19 @@ LibSDL3 >> UpdateTrays [
 { #category : 'public - SDL_video' }
 LibSDL3 >> UpdateWindowSurface: window [
 
-	^ self ffiCall: #(int SDL_UpdateWindowSurface(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_UpdateWindowSurface(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_video' }
 LibSDL3 >> UpdateWindowSurfaceRectsWindow: window rects: rects numrects: numrects [
 
-	^ self ffiCall: #(int SDL_UpdateWindowSurfaceRects(SDL_Window* window, SDL_Rect* rects, int numrects))
+	^ self ffiCall: #(bool SDL_UpdateWindowSurfaceRects(SDL_Window* window, SDL_Rect* rects, int numrects))
 ]
 
 { #category : 'public - SDL_render' }
 LibSDL3 >> UpdateYUVTexture: texture rect: rect Yplane: Yplane Ypitch: Ypitch Uplane: Uplane Upitch: Upitch Vplane: Vplane Vpitch: Vpitch [
 
-	^ self ffiCall: #(int SDL_UpdateYUVTexture(SDL_Texture* texture, SDL_Rect* rect, const Uint8* Yplane, int Ypitch, const Uint8* Uplane, int Upitch, const Uint8* Vplane, int Vpitch))
+	^ self ffiCall: #(bool SDL_UpdateYUVTexture(SDL_Texture* texture, SDL_Rect* rect, const Uint8* Yplane, int Ypitch, const Uint8* Uplane, int Upitch, const Uint8* Vplane, int Vpitch))
 ]
 
 { #category : 'public - SDL_gpu' }
@@ -6127,13 +6127,13 @@ LibSDL3 >> UploadToGPUTextureCopy_pass: copy_pass source: source destination: de
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> WaitAndAcquireGPUSwapchainTextureCommand_buffer: command_buffer window: window swapchain_texture: swapchain_texture swapchain_texture_width: swapchain_texture_width swapchain_texture_height: swapchain_texture_height [
 
-	^ self ffiCall: #(int SDL_WaitAndAcquireGPUSwapchainTexture(SDL_GPUCommandBuffer* command_buffer, SDL_Window* window, SDL_GPUTexture* swapchain_texture, Uint32* swapchain_texture_width, Uint32* swapchain_texture_height))
+	^ self ffiCall: #(bool SDL_WaitAndAcquireGPUSwapchainTexture(SDL_GPUCommandBuffer* command_buffer, SDL_Window* window, SDL_GPUTexture* swapchain_texture, Uint32* swapchain_texture_width, Uint32* swapchain_texture_height))
 ]
 
 { #category : 'public - SDL_asyncio' }
 LibSDL3 >> WaitAsyncIOResultQueue: queue outcome: outcome timeoutMS: timeoutMS [
 
-	^ self ffiCall: #(int SDL_WaitAsyncIOResult(SDL_AsyncIOQueue* queue, SDL_AsyncIOOutcome* outcome, Sint32 timeoutMS))
+	^ self ffiCall: #(bool SDL_WaitAsyncIOResult(SDL_AsyncIOQueue* queue, SDL_AsyncIOOutcome* outcome, Sint32 timeoutMS))
 ]
 
 { #category : 'public - SDL_mutex' }
@@ -6145,43 +6145,43 @@ LibSDL3 >> WaitConditionCond: cond mutex: mutex [
 { #category : 'public - SDL_mutex' }
 LibSDL3 >> WaitConditionTimeoutCond: cond mutex: mutex timeoutMS: timeoutMS [
 
-	^ self ffiCall: #(int SDL_WaitConditionTimeout(SDL_Condition* cond, SDL_Mutex* mutex, Sint32 timeoutMS))
+	^ self ffiCall: #(bool SDL_WaitConditionTimeout(SDL_Condition* cond, SDL_Mutex* mutex, Sint32 timeoutMS))
 ]
 
 { #category : 'public - SDL_events' }
 LibSDL3 >> WaitEvent: event [
 
-	^ self ffiCall: #(int SDL_WaitEvent(SDL_Event* event))
+	^ self ffiCall: #(bool SDL_WaitEvent(SDL_Event* event))
 ]
 
 { #category : 'public - SDL_events' }
 LibSDL3 >> WaitEventTimeoutEvent: event timeoutMS: timeoutMS [
 
-	^ self ffiCall: #(int SDL_WaitEventTimeout(SDL_Event* event, Sint32 timeoutMS))
+	^ self ffiCall: #(bool SDL_WaitEventTimeout(SDL_Event* event, Sint32 timeoutMS))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> WaitForGPUFencesDevice: device wait_all: wait_all fences: fences num_fences: num_fences [
 
-	^ self ffiCall: #(int SDL_WaitForGPUFences(SDL_GPUDevice* device, bool wait_all, SDL_GPUFence* fences, Uint32 num_fences))
+	^ self ffiCall: #(bool SDL_WaitForGPUFences(SDL_GPUDevice* device, bool wait_all, SDL_GPUFence* fences, Uint32 num_fences))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> WaitForGPUIdle: device [
 
-	^ self ffiCall: #(int SDL_WaitForGPUIdle(SDL_GPUDevice* device))
+	^ self ffiCall: #(bool SDL_WaitForGPUIdle(SDL_GPUDevice* device))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> WaitForGPUSwapchainDevice: device window: window [
 
-	^ self ffiCall: #(int SDL_WaitForGPUSwapchain(SDL_GPUDevice* device, SDL_Window* window))
+	^ self ffiCall: #(bool SDL_WaitForGPUSwapchain(SDL_GPUDevice* device, SDL_Window* window))
 ]
 
 { #category : 'public - SDL_process' }
 LibSDL3 >> WaitProcess: process block: block exitcode: exitcode [
 
-	^ self ffiCall: #(int SDL_WaitProcess(SDL_Process* process, bool block, int* exitcode))
+	^ self ffiCall: #(bool SDL_WaitProcess(SDL_Process* process, bool block, int* exitcode))
 ]
 
 { #category : 'public - SDL_mutex' }
@@ -6193,7 +6193,7 @@ LibSDL3 >> WaitSemaphore: sem [
 { #category : 'public - SDL_mutex' }
 LibSDL3 >> WaitSemaphoreTimeoutSem: sem timeoutMS: timeoutMS [
 
-	^ self ffiCall: #(int SDL_WaitSemaphoreTimeout(SDL_Semaphore* sem, Sint32 timeoutMS))
+	^ self ffiCall: #(bool SDL_WaitSemaphoreTimeout(SDL_Semaphore* sem, Sint32 timeoutMS))
 ]
 
 { #category : 'public - SDL_thread' }
@@ -6205,7 +6205,7 @@ LibSDL3 >> WaitThread: thread status: status [
 { #category : 'public - SDL_mouse' }
 LibSDL3 >> WarpMouseGlobalX: x y: y [
 
-	^ self ffiCall: #(int SDL_WarpMouseGlobal(float x, float y))
+	^ self ffiCall: #(bool SDL_WarpMouseGlobal(float x, float y))
 ]
 
 { #category : 'public - SDL_mouse' }
@@ -6223,25 +6223,25 @@ LibSDL3 >> WasInit: flags [
 { #category : 'public - SDL_video' }
 LibSDL3 >> WindowHasSurface: window [
 
-	^ self ffiCall: #(int SDL_WindowHasSurface(SDL_Window* window))
+	^ self ffiCall: #(bool SDL_WindowHasSurface(SDL_Window* window))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> WindowSupportsGPUPresentModeDevice: device window: window present_mode: present_mode [
 
-	^ self ffiCall: #(int SDL_WindowSupportsGPUPresentMode(SDL_GPUDevice* device, SDL_Window* window, SDL_GPUPresentMode present_mode))
+	^ self ffiCall: #(bool SDL_WindowSupportsGPUPresentMode(SDL_GPUDevice* device, SDL_Window* window, SDL_GPUPresentMode present_mode))
 ]
 
 { #category : 'public - SDL_gpu' }
 LibSDL3 >> WindowSupportsGPUSwapchainCompositionDevice: device window: window swapchain_composition: swapchain_composition [
 
-	^ self ffiCall: #(int SDL_WindowSupportsGPUSwapchainComposition(SDL_GPUDevice* device, SDL_Window* window, SDL_GPUSwapchainComposition swapchain_composition))
+	^ self ffiCall: #(bool SDL_WindowSupportsGPUSwapchainComposition(SDL_GPUDevice* device, SDL_Window* window, SDL_GPUSwapchainComposition swapchain_composition))
 ]
 
 { #category : 'public - SDL_asyncio' }
 LibSDL3 >> WriteAsyncIO: asyncio ptr: ptr offset: offset size: size queue: queue userdata: userdata [
 
-	^ self ffiCall: #(int SDL_WriteAsyncIO(SDL_AsyncIO* asyncio, void* ptr, Uint64 offset, Uint64 size, SDL_AsyncIOQueue* queue, void* userdata))
+	^ self ffiCall: #(bool SDL_WriteAsyncIO(SDL_AsyncIO* asyncio, void* ptr, Uint64 offset, Uint64 size, SDL_AsyncIOQueue* queue, void* userdata))
 ]
 
 { #category : 'public - SDL_iostream' }
@@ -6253,103 +6253,103 @@ LibSDL3 >> WriteIOContext: context ptr: ptr size: size [
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteS16BEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteS16BE(SDL_IOStream* dst, Sint16 value))
+	^ self ffiCall: #(bool SDL_WriteS16BE(SDL_IOStream* dst, Sint16 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteS16LEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteS16LE(SDL_IOStream* dst, Sint16 value))
+	^ self ffiCall: #(bool SDL_WriteS16LE(SDL_IOStream* dst, Sint16 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteS32BEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteS32BE(SDL_IOStream* dst, Sint32 value))
+	^ self ffiCall: #(bool SDL_WriteS32BE(SDL_IOStream* dst, Sint32 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteS32LEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteS32LE(SDL_IOStream* dst, Sint32 value))
+	^ self ffiCall: #(bool SDL_WriteS32LE(SDL_IOStream* dst, Sint32 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteS64BEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteS64BE(SDL_IOStream* dst, Sint64 value))
+	^ self ffiCall: #(bool SDL_WriteS64BE(SDL_IOStream* dst, Sint64 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteS64LEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteS64LE(SDL_IOStream* dst, Sint64 value))
+	^ self ffiCall: #(bool SDL_WriteS64LE(SDL_IOStream* dst, Sint64 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteS8Dst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteS8(SDL_IOStream* dst, Sint8 value))
+	^ self ffiCall: #(bool SDL_WriteS8(SDL_IOStream* dst, Sint8 value))
 ]
 
 { #category : 'public - SDL_storage' }
 LibSDL3 >> WriteStorageFileStorage: storage path: path source: source length: length [
 
-	^ self ffiCall: #(int SDL_WriteStorageFile(SDL_Storage* storage, const char* path, const void* source, Uint64 length))
+	^ self ffiCall: #(bool SDL_WriteStorageFile(SDL_Storage* storage, const char* path, const void* source, Uint64 length))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> WriteSurfacePixelFloatSurface: surface x: x y: y r: r g: g b: b a: a [
 
-	^ self ffiCall: #(int SDL_WriteSurfacePixelFloat(SDL_Surface* surface, int x, int y, float r, float g, float b, float a))
+	^ self ffiCall: #(bool SDL_WriteSurfacePixelFloat(SDL_Surface* surface, int x, int y, float r, float g, float b, float a))
 ]
 
 { #category : 'public - SDL_surface' }
 LibSDL3 >> WriteSurfacePixelSurface: surface x: x y: y r: r g: g b: b a: a [
 
-	^ self ffiCall: #(int SDL_WriteSurfacePixel(SDL_Surface* surface, int x, int y, Uint8 r, Uint8 g, Uint8 b, Uint8 a))
+	^ self ffiCall: #(bool SDL_WriteSurfacePixel(SDL_Surface* surface, int x, int y, Uint8 r, Uint8 g, Uint8 b, Uint8 a))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteU16BEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteU16BE(SDL_IOStream* dst, Uint16 value))
+	^ self ffiCall: #(bool SDL_WriteU16BE(SDL_IOStream* dst, Uint16 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteU16LEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteU16LE(SDL_IOStream* dst, Uint16 value))
+	^ self ffiCall: #(bool SDL_WriteU16LE(SDL_IOStream* dst, Uint16 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteU32BEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteU32BE(SDL_IOStream* dst, Uint32 value))
+	^ self ffiCall: #(bool SDL_WriteU32BE(SDL_IOStream* dst, Uint32 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteU32LEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteU32LE(SDL_IOStream* dst, Uint32 value))
+	^ self ffiCall: #(bool SDL_WriteU32LE(SDL_IOStream* dst, Uint32 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteU64BEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteU64BE(SDL_IOStream* dst, Uint64 value))
+	^ self ffiCall: #(bool SDL_WriteU64BE(SDL_IOStream* dst, Uint64 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteU64LEDst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteU64LE(SDL_IOStream* dst, Uint64 value))
+	^ self ffiCall: #(bool SDL_WriteU64LE(SDL_IOStream* dst, Uint64 value))
 ]
 
 { #category : 'public - SDL_iostream' }
 LibSDL3 >> WriteU8Dst: dst value: value [
 
-	^ self ffiCall: #(int SDL_WriteU8(SDL_IOStream* dst, Uint8 value))
+	^ self ffiCall: #(bool SDL_WriteU8(SDL_IOStream* dst, Uint8 value))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -7055,25 +7055,25 @@ LibSDL3 >> sinf: x [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> size_add_check_overflowA: a b: b ret: ret [
 
-	^ self ffiCall: #(int SDL_size_add_check_overflow(size_t a, size_t b, size_t* ret))
+	^ self ffiCall: #(bool SDL_size_add_check_overflow(size_t a, size_t b, size_t* ret))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> size_add_check_overflow_builtinA: a b: b ret: ret [
 
-	^ self ffiCall: #(int SDL_size_add_check_overflow_builtin(size_t a, size_t b, size_t* ret))
+	^ self ffiCall: #(bool SDL_size_add_check_overflow_builtin(size_t a, size_t b, size_t* ret))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> size_mul_check_overflowA: a b: b ret: ret [
 
-	^ self ffiCall: #(int SDL_size_mul_check_overflow(size_t a, size_t b, size_t* ret))
+	^ self ffiCall: #(bool SDL_size_mul_check_overflow(size_t a, size_t b, size_t* ret))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> size_mul_check_overflow_builtinA: a b: b ret: ret [
 
-	^ self ffiCall: #(int SDL_size_mul_check_overflow_builtin(size_t a, size_t b, size_t* ret))
+	^ self ffiCall: #(bool SDL_size_mul_check_overflow_builtin(size_t a, size_t b, size_t* ret))
 ]
 
 { #category : 'public - SDL_stdinc' }

@@ -25,7 +25,7 @@ S3GamepadButtonEvent class >> fieldsDesc [
 	Uint64 timestamp;
 	SDL_JoystickID which;
 	Uint8 button;
-	int down;
+	bool down;
 	Uint8 padding1;
 	Uint8 padding2
 	)
@@ -46,13 +46,13 @@ S3GamepadButtonEvent >> button: anObject [
 { #category : 'accessing - structure variables' }
 S3GamepadButtonEvent >> down [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_DOWN
+	^handle booleanAt: OFFSET_DOWN
 ]
 
 { #category : 'accessing - structure variables' }
 S3GamepadButtonEvent >> down: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_DOWN put: anObject
+	handle booleanAt: OFFSET_DOWN put: anObject
 ]
 
 { #category : 'accessing - structure variables' }

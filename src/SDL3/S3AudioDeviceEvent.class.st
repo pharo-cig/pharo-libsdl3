@@ -24,7 +24,7 @@ S3AudioDeviceEvent class >> fieldsDesc [
 	Uint32 reserved;
 	Uint64 timestamp;
 	SDL_AudioDeviceID which;
-	int recording;
+	bool recording;
 	Uint8 padding1;
 	Uint8 padding2;
 	Uint8 padding3
@@ -70,13 +70,13 @@ S3AudioDeviceEvent >> padding3: anObject [
 { #category : 'accessing - structure variables' }
 S3AudioDeviceEvent >> recording [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_RECORDING
+	^handle booleanAt: OFFSET_RECORDING
 ]
 
 { #category : 'accessing - structure variables' }
 S3AudioDeviceEvent >> recording: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_RECORDING put: anObject
+	handle booleanAt: OFFSET_RECORDING put: anObject
 ]
 
 { #category : 'accessing - structure variables' }

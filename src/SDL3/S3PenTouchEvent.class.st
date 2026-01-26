@@ -30,33 +30,33 @@ S3PenTouchEvent class >> fieldsDesc [
 	SDL_PenInputFlags pen_state;
 	float x;
 	float y;
-	int eraser;
-	int down
+	bool eraser;
+	bool down
 	)
 ]
 
 { #category : 'accessing - structure variables' }
 S3PenTouchEvent >> down [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_DOWN
+	^handle booleanAt: OFFSET_DOWN
 ]
 
 { #category : 'accessing - structure variables' }
 S3PenTouchEvent >> down: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_DOWN put: anObject
+	handle booleanAt: OFFSET_DOWN put: anObject
 ]
 
 { #category : 'accessing - structure variables' }
 S3PenTouchEvent >> eraser [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_ERASER
+	^handle booleanAt: OFFSET_ERASER
 ]
 
 { #category : 'accessing - structure variables' }
 S3PenTouchEvent >> eraser: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_ERASER put: anObject
+	handle booleanAt: OFFSET_ERASER put: anObject
 ]
 
 { #category : 'accessing - structure variables' }
