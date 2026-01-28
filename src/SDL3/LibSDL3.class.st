@@ -9,10 +9,11 @@ CigCLibraryGenerator new.
     libraryName: 'SDL3';
     cIncludePath: '/usr/include/SDL3';
     importUnit: '
-#import <SDL.h>
+typedef Boolean bool;
+#include <SDL.h>
 ';
-	withNameGenerator: [ :gen | 
-		gen stripPrefix: 'SDL' ];
+	withNameGenerator: [ :gen | gen stripPrefix: 'SDL' ];
+	withElementGenerator: [ :gen | gen makeAllFunctionsReturningStringReturnPointer ];
 	generate.
 ```
 "
