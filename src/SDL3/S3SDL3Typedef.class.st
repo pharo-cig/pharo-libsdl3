@@ -399,8 +399,8 @@ S3SDL3Typedef class >> initialize [
 	uint8_t := #uint8.
 	int32_t := #int32.
 	uint32_t := #uint32.
-	time_t := #int.
 	pid_t := #int.
+	time_t := #int.
 	__float128 := #float128.
 	int8_t := #int8.
 	int16_t := #int16.

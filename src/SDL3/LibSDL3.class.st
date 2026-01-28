@@ -1567,7 +1567,7 @@ LibSDL3 >> GetClipboardMimeTypes: num_mime_types [
 { #category : 'public - SDL_clipboard' }
 LibSDL3 >> GetClipboardText [
 
-	^ self ffiCall: #(char* SDL_GetClipboardText())
+	^ self ffiCall: #(void* SDL_GetClipboardText())
 ]
 
 { #category : 'public - SDL_video' }
@@ -1591,7 +1591,7 @@ LibSDL3 >> GetCurrentCameraDriver [
 { #category : 'public - SDL_filesystem' }
 LibSDL3 >> GetCurrentDirectory [
 
-	^ self ffiCall: #(char* SDL_GetCurrentDirectory())
+	^ self ffiCall: #(void* SDL_GetCurrentDirectory())
 ]
 
 { #category : 'public - SDL_video' }
@@ -1933,19 +1933,19 @@ LibSDL3 >> GetGamepadJoystick: gamepad [
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GetGamepadMapping: gamepad [
 
-	^ self ffiCall: #(char* SDL_GetGamepadMapping(SDL_Gamepad* gamepad))
+	^ self ffiCall: #(void* SDL_GetGamepadMapping(SDL_Gamepad* gamepad))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GetGamepadMappingForGUID: guid [
 
-	^ self ffiCall: #(char* SDL_GetGamepadMappingForGUID(SDL_GUID guid))
+	^ self ffiCall: #(void* SDL_GetGamepadMappingForGUID(SDL_GUID guid))
 ]
 
 { #category : 'public - SDL_gamepad' }
 LibSDL3 >> GetGamepadMappingForID: instance_id [
 
-	^ self ffiCall: #(char* SDL_GetGamepadMappingForID(SDL_JoystickID instance_id))
+	^ self ffiCall: #(void* SDL_GetGamepadMappingForID(SDL_JoystickID instance_id))
 ]
 
 { #category : 'public - SDL_gamepad' }
@@ -2665,7 +2665,7 @@ LibSDL3 >> GetPowerInfoSeconds: seconds percent: percent [
 { #category : 'public - SDL_filesystem' }
 LibSDL3 >> GetPrefPathOrg: org app: app [
 
-	^ self ffiCall: #(char* SDL_GetPrefPath(const char* org, const char* app))
+	^ self ffiCall: #(void* SDL_GetPrefPath(const char* org, const char* app))
 ]
 
 { #category : 'public - SDL_locale' }
@@ -2683,7 +2683,7 @@ LibSDL3 >> GetPrimaryDisplay [
 { #category : 'public - SDL_clipboard' }
 LibSDL3 >> GetPrimarySelectionText [
 
-	^ self ffiCall: #(char* SDL_GetPrimarySelectionText())
+	^ self ffiCall: #(void* SDL_GetPrimarySelectionText())
 ]
 
 { #category : 'public - SDL_process' }
@@ -5971,7 +5971,7 @@ LibSDL3 >> TryWaitSemaphore: sem [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> UCS4ToUTF8Codepoint: codepoint dst: dst [
 
-	^ self ffiCall: #(char* SDL_UCS4ToUTF8(Uint32 codepoint, char* dst))
+	^ self ffiCall: #(void* SDL_UCS4ToUTF8(Uint32 codepoint, char* dst))
 ]
 
 { #category : 'public - SDL_audio' }
@@ -6721,7 +6721,7 @@ LibSDL3 >> iconv_openTocode: tocode fromcode: fromcode [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> iconv_stringTocode: tocode fromcode: fromcode inbuf: inbuf inbytesleft: inbytesleft [
 
-	^ self ffiCall: #(char* SDL_iconv_string(const char* tocode, const char* fromcode, const char* inbuf, size_t inbytesleft))
+	^ self ffiCall: #(void* SDL_iconv_string(const char* tocode, const char* fromcode, const char* inbuf, size_t inbytesleft))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -6823,13 +6823,13 @@ LibSDL3 >> isxdigit: x [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> itoaValue: value str: str radix: radix [
 
-	^ self ffiCall: #(char* SDL_itoa(int value, char* str, int radix))
+	^ self ffiCall: #(void* SDL_itoa(int value, char* str, int radix))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> lltoaValue: value str: str radix: radix [
 
-	^ self ffiCall: #(char* SDL_lltoa(long value, char* str, int radix))
+	^ self ffiCall: #(void* SDL_lltoa(long value, char* str, int radix))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -6871,7 +6871,7 @@ LibSDL3 >> lroundf: x [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> ltoaValue: value str: str radix: radix [
 
-	^ self ffiCall: #(char* SDL_ltoa(long value, char* str, int radix))
+	^ self ffiCall: #(void* SDL_ltoa(long value, char* str, int radix))
 ]
 
 { #category : 'accessing - platform' }
@@ -7103,13 +7103,13 @@ LibSDL3 >> strcasecmpStr1: str1 str2: str2 [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strcasestrHaystack: haystack needle: needle [
 
-	^ self ffiCall: #(char* SDL_strcasestr(const char* haystack, const char* needle))
+	^ self ffiCall: #(void* SDL_strcasestr(const char* haystack, const char* needle))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strchrStr: str c: c [
 
-	^ self ffiCall: #(char* SDL_strchr(const char* str, int c))
+	^ self ffiCall: #(void* SDL_strchr(const char* str, int c))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -7121,7 +7121,7 @@ LibSDL3 >> strcmpStr1: str1 str2: str2 [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strdup: str [
 
-	^ self ffiCall: #(char* SDL_strdup(const char* str))
+	^ self ffiCall: #(void* SDL_strdup(const char* str))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -7145,7 +7145,7 @@ LibSDL3 >> strlen: str [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strlwr: str [
 
-	^ self ffiCall: #(char* SDL_strlwr(char* str))
+	^ self ffiCall: #(void* SDL_strlwr(char* str))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -7163,7 +7163,7 @@ LibSDL3 >> strncmpStr1: str1 str2: str2 maxlen: maxlen [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strndupStr: str maxlen: maxlen [
 
-	^ self ffiCall: #(char* SDL_strndup(const char* str, size_t maxlen))
+	^ self ffiCall: #(void* SDL_strndup(const char* str, size_t maxlen))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -7175,31 +7175,31 @@ LibSDL3 >> strnlenStr: str maxlen: maxlen [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strnstrHaystack: haystack needle: needle maxlen: maxlen [
 
-	^ self ffiCall: #(char* SDL_strnstr(const char* haystack, const char* needle, size_t maxlen))
+	^ self ffiCall: #(void* SDL_strnstr(const char* haystack, const char* needle, size_t maxlen))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strpbrkStr: str breakset: breakset [
 
-	^ self ffiCall: #(char* SDL_strpbrk(const char* str, const char* breakset))
+	^ self ffiCall: #(void* SDL_strpbrk(const char* str, const char* breakset))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strrchrStr: str c: c [
 
-	^ self ffiCall: #(char* SDL_strrchr(const char* str, int c))
+	^ self ffiCall: #(void* SDL_strrchr(const char* str, int c))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strrev: str [
 
-	^ self ffiCall: #(char* SDL_strrev(char* str))
+	^ self ffiCall: #(void* SDL_strrev(char* str))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strstrHaystack: haystack needle: needle [
 
-	^ self ffiCall: #(char* SDL_strstr(const char* haystack, const char* needle))
+	^ self ffiCall: #(void* SDL_strstr(const char* haystack, const char* needle))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -7211,7 +7211,7 @@ LibSDL3 >> strtodStr: str endp: endp [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strtok_rStr: str delim: delim saveptr: saveptr [
 
-	^ self ffiCall: #(char* SDL_strtok_r(char* str, const char* delim, char** saveptr))
+	^ self ffiCall: #(void* SDL_strtok_r(char* str, const char* delim, char** saveptr))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -7241,7 +7241,7 @@ LibSDL3 >> strtoullStr: str endp: endp base: base [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> strupr: str [
 
-	^ self ffiCall: #(char* SDL_strupr(char* str))
+	^ self ffiCall: #(void* SDL_strupr(char* str))
 ]
 
 { #category : 'public - SDL_stdinc' }
@@ -7283,19 +7283,19 @@ LibSDL3 >> truncf: x [
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> uitoaValue: value str: str radix: radix [
 
-	^ self ffiCall: #(char* SDL_uitoa(uint value, char* str, int radix))
+	^ self ffiCall: #(void* SDL_uitoa(uint value, char* str, int radix))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> ulltoaValue: value str: str radix: radix [
 
-	^ self ffiCall: #(char* SDL_ulltoa(ulong value, char* str, int radix))
+	^ self ffiCall: #(void* SDL_ulltoa(ulong value, char* str, int radix))
 ]
 
 { #category : 'public - SDL_stdinc' }
 LibSDL3 >> ultoaValue: value str: str radix: radix [
 
-	^ self ffiCall: #(char* SDL_ultoa(ulong value, char* str, int radix))
+	^ self ffiCall: #(void* SDL_ultoa(ulong value, char* str, int radix))
 ]
 
 { #category : 'accessing - platform' }
