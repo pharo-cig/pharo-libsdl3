@@ -13,3 +13,6 @@ Metacello new
 	load
 ```
 and make SDL3 shared library findable by either `macLibraryName`, `unix64LibraryName` or `win32LibraryName` methods in [LibSDL3](https://github.com/pharo-cig/pharo-libsdl3/blob/main/src/SDL3/LibSDL3.class.st) class.
+
+Note: Pharo 13 requires previous installation of updated 
+https://github.com/pharo-cig/UnifiedFFI
