@@ -67,7 +67,6 @@ Class {
 		'SDLK_EXCLAIM',
 		'SDLK_EXECUTE',
 		'SDLK_EXSEL',
-		'SDLK_EXTENDED_MASK',
 		'SDLK_F',
 		'SDLK_F1',
 		'SDLK_F10',
@@ -231,7 +230,6 @@ Class {
 		'SDLK_RMETA',
 		'SDLK_RSHIFT',
 		'SDLK_S',
-		'SDLK_SCANCODE_MASK',
 		'SDLK_SCROLLLOCK',
 		'SDLK_SELECT',
 		'SDLK_SEMICOLON',
@@ -265,12 +263,6 @@ Class {
 		'SDL_ALPHA_TRANSPARENT',
 		'SDL_ALPHA_TRANSPARENT_FLOAT',
 		'SDL_ASSERT_LEVEL',
-		'SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK',
-		'SDL_AUDIO_DEVICE_DEFAULT_RECORDING',
-		'SDL_AUDIO_MASK_BIG_ENDIAN',
-		'SDL_AUDIO_MASK_BITSIZE',
-		'SDL_AUDIO_MASK_FLOAT',
-		'SDL_AUDIO_MASK_SIGNED',
 		'SDL_BIG_ENDIAN',
 		'SDL_BLENDMODE_ADD',
 		'SDL_BLENDMODE_ADD_PREMULTIPLIED',
@@ -281,16 +273,10 @@ Class {
 		'SDL_BLENDMODE_MUL',
 		'SDL_BLENDMODE_NONE',
 		'SDL_BUTTON_LEFT',
-		'SDL_BUTTON_LMASK',
 		'SDL_BUTTON_MIDDLE',
-		'SDL_BUTTON_MMASK',
 		'SDL_BUTTON_RIGHT',
-		'SDL_BUTTON_RMASK',
 		'SDL_BUTTON_X1',
-		'SDL_BUTTON_X1MASK',
 		'SDL_BUTTON_X2',
-		'SDL_BUTTON_X2MASK',
-		'SDL_BYTEORDER',
 		'SDL_CACHELINE_SIZE',
 		'SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE',
 		'SDL_ELF_NOTE_DLOPEN_PRIORITY_RECOMMENDED',
@@ -298,9 +284,7 @@ Class {
 		'SDL_ELF_NOTE_DLOPEN_PRIORITY_SUGGESTED',
 		'SDL_ELF_NOTE_DLOPEN_TYPE',
 		'SDL_ELF_NOTE_DLOPEN_VENDOR',
-		'SDL_FLOATWORDORDER',
 		'SDL_FLT_EPSILON',
-		'SDL_GLOB_CASEINSENSITIVE',
 		'SDL_GL_CONTEXT_DEBUG_FLAG',
 		'SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG',
 		'SDL_GL_CONTEXT_PROFILE_COMPATIBILITY',
@@ -312,64 +296,17 @@ Class {
 		'SDL_GL_CONTEXT_RESET_LOSE_CONTEXT',
 		'SDL_GL_CONTEXT_RESET_NO_NOTIFICATION',
 		'SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG',
-		'SDL_GPU_BUFFERUSAGE_COMPUTE_STORAGE_READ',
-		'SDL_GPU_BUFFERUSAGE_COMPUTE_STORAGE_WRITE',
-		'SDL_GPU_BUFFERUSAGE_GRAPHICS_STORAGE_READ',
-		'SDL_GPU_BUFFERUSAGE_INDEX',
-		'SDL_GPU_BUFFERUSAGE_INDIRECT',
-		'SDL_GPU_BUFFERUSAGE_VERTEX',
-		'SDL_GPU_COLORCOMPONENT_A',
-		'SDL_GPU_COLORCOMPONENT_B',
-		'SDL_GPU_COLORCOMPONENT_G',
-		'SDL_GPU_COLORCOMPONENT_R',
 		'SDL_GPU_RENDERER',
-		'SDL_GPU_SHADERFORMAT_DXBC',
-		'SDL_GPU_SHADERFORMAT_DXIL',
 		'SDL_GPU_SHADERFORMAT_INVALID',
-		'SDL_GPU_SHADERFORMAT_METALLIB',
-		'SDL_GPU_SHADERFORMAT_MSL',
-		'SDL_GPU_SHADERFORMAT_PRIVATE',
-		'SDL_GPU_SHADERFORMAT_SPIRV',
-		'SDL_GPU_TEXTUREUSAGE_COLOR_TARGET',
-		'SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_READ',
-		'SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_SIMULTANEOUS_READ_WRITE',
-		'SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_WRITE',
-		'SDL_GPU_TEXTUREUSAGE_DEPTH_STENCIL_TARGET',
-		'SDL_GPU_TEXTUREUSAGE_GRAPHICS_STORAGE_READ',
-		'SDL_GPU_TEXTUREUSAGE_SAMPLER',
-		'SDL_HAPTIC_AUTOCENTER',
 		'SDL_HAPTIC_CARTESIAN',
-		'SDL_HAPTIC_CONSTANT',
-		'SDL_HAPTIC_CUSTOM',
-		'SDL_HAPTIC_DAMPER',
-		'SDL_HAPTIC_FRICTION',
-		'SDL_HAPTIC_GAIN',
-		'SDL_HAPTIC_INERTIA',
 		'SDL_HAPTIC_INFINITY',
-		'SDL_HAPTIC_LEFTRIGHT',
-		'SDL_HAPTIC_PAUSE',
 		'SDL_HAPTIC_POLAR',
-		'SDL_HAPTIC_RAMP',
-		'SDL_HAPTIC_RESERVED1',
-		'SDL_HAPTIC_RESERVED2',
-		'SDL_HAPTIC_RESERVED3',
-		'SDL_HAPTIC_SAWTOOTHDOWN',
-		'SDL_HAPTIC_SAWTOOTHUP',
-		'SDL_HAPTIC_SINE',
 		'SDL_HAPTIC_SPHERICAL',
-		'SDL_HAPTIC_SPRING',
-		'SDL_HAPTIC_SQUARE',
-		'SDL_HAPTIC_STATUS',
 		'SDL_HAPTIC_STEERING_AXIS',
-		'SDL_HAPTIC_TRIANGLE',
 		'SDL_HAT_CENTERED',
 		'SDL_HAT_DOWN',
 		'SDL_HAT_LEFT',
-		'SDL_HAT_LEFTDOWN',
-		'SDL_HAT_LEFTUP',
 		'SDL_HAT_RIGHT',
-		'SDL_HAT_RIGHTDOWN',
-		'SDL_HAT_RIGHTUP',
 		'SDL_HAT_UP',
 		'SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED',
 		'SDL_HINT_ANDROID_ALLOW_RECREATE_ACTIVITY',
@@ -631,10 +568,6 @@ Class {
 		'SDL_HINT_X11_WINDOW_TYPE',
 		'SDL_HINT_X11_XCB_LIBRARY',
 		'SDL_HINT_XINPUT_ENABLED',
-		'SDL_ICONV_E2BIG',
-		'SDL_ICONV_EILSEQ',
-		'SDL_ICONV_EINVAL',
-		'SDL_ICONV_ERROR',
 		'SDL_INIT_AUDIO',
 		'SDL_INIT_CAMERA',
 		'SDL_INIT_EVENTS',
@@ -645,11 +578,7 @@ Class {
 		'SDL_INIT_VIDEO',
 		'SDL_INVALID_UNICODE_CODEPOINT',
 		'SDL_JOYSTICK_AXIS_MAX',
-		'SDL_JOYSTICK_AXIS_MIN',
-		'SDL_KMOD_ALT',
 		'SDL_KMOD_CAPS',
-		'SDL_KMOD_CTRL',
-		'SDL_KMOD_GUI',
 		'SDL_KMOD_LALT',
 		'SDL_KMOD_LCTRL',
 		'SDL_KMOD_LEVEL5',
@@ -663,19 +592,8 @@ Class {
 		'SDL_KMOD_RGUI',
 		'SDL_KMOD_RSHIFT',
 		'SDL_KMOD_SCROLL',
-		'SDL_KMOD_SHIFT',
 		'SDL_LIL_ENDIAN',
-		'SDL_LINE',
 		'SDL_MAJOR_VERSION',
-		'SDL_MAX_SINT16',
-		'SDL_MAX_SINT32',
-		'SDL_MAX_SINT64',
-		'SDL_MAX_SINT8',
-		'SDL_MAX_TIME',
-		'SDL_MAX_UINT16',
-		'SDL_MAX_UINT32',
-		'SDL_MAX_UINT64',
-		'SDL_MAX_UINT8',
 		'SDL_MESSAGEBOX_BUTTONS_LEFT_TO_RIGHT',
 		'SDL_MESSAGEBOX_BUTTONS_RIGHT_TO_LEFT',
 		'SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT',
@@ -685,31 +603,10 @@ Class {
 		'SDL_MESSAGEBOX_WARNING',
 		'SDL_MICRO_VERSION',
 		'SDL_MINOR_VERSION',
-		'SDL_MIN_SINT16',
-		'SDL_MIN_SINT32',
-		'SDL_MIN_SINT64',
-		'SDL_MIN_SINT8',
-		'SDL_MIN_TIME',
-		'SDL_MIN_UINT16',
-		'SDL_MIN_UINT32',
-		'SDL_MIN_UINT64',
-		'SDL_MIN_UINT8',
-		'SDL_MOUSE_TOUCHID',
 		'SDL_MS_PER_SECOND',
 		'SDL_NS_PER_MS',
 		'SDL_NS_PER_SECOND',
 		'SDL_NS_PER_US',
-		'SDL_NULL_WHILE_LOOP_CONDITION',
-		'SDL_PEN_INPUT_BUTTON_1',
-		'SDL_PEN_INPUT_BUTTON_2',
-		'SDL_PEN_INPUT_BUTTON_3',
-		'SDL_PEN_INPUT_BUTTON_4',
-		'SDL_PEN_INPUT_BUTTON_5',
-		'SDL_PEN_INPUT_DOWN',
-		'SDL_PEN_INPUT_ERASER_TIP',
-		'SDL_PEN_INPUT_IN_PROXIMITY',
-		'SDL_PEN_MOUSEID',
-		'SDL_PEN_TOUCHID',
 		'SDL_PI_D',
 		'SDL_PI_F',
 		'SDL_PLATFORM_LINUX',
@@ -993,55 +890,22 @@ Class {
 		'SDL_PROP_WINDOW_X11_DISPLAY_POINTER',
 		'SDL_PROP_WINDOW_X11_SCREEN_NUMBER',
 		'SDL_PROP_WINDOW_X11_WINDOW_NUMBER',
-		'SDL_RENDERER_VSYNC_ADAPTIVE',
 		'SDL_RENDERER_VSYNC_DISABLED',
-		'SDL_SIZE_MAX',
 		'SDL_SOFTWARE_RENDERER',
 		'SDL_STANDARD_GRAVITY',
 		'SDL_SURFACE_LOCKED',
 		'SDL_SURFACE_LOCK_NEEDED',
 		'SDL_SURFACE_PREALLOCATED',
 		'SDL_SURFACE_SIMD_ALIGNED',
-		'SDL_TOUCH_MOUSEID',
 		'SDL_TRAYENTRY_BUTTON',
 		'SDL_TRAYENTRY_CHECKBOX',
 		'SDL_TRAYENTRY_CHECKED',
 		'SDL_TRAYENTRY_DISABLED',
 		'SDL_TRAYENTRY_SUBMENU',
 		'SDL_US_PER_SECOND',
-		'SDL_VERSION',
-		'SDL_WINDOWPOS_CENTERED',
 		'SDL_WINDOWPOS_CENTERED_MASK',
-		'SDL_WINDOWPOS_UNDEFINED',
 		'SDL_WINDOWPOS_UNDEFINED_MASK',
-		'SDL_WINDOW_ALWAYS_ON_TOP',
-		'SDL_WINDOW_BORDERLESS',
-		'SDL_WINDOW_EXTERNAL',
-		'SDL_WINDOW_FILL_DOCUMENT',
-		'SDL_WINDOW_FULLSCREEN',
-		'SDL_WINDOW_HIDDEN',
-		'SDL_WINDOW_HIGH_PIXEL_DENSITY',
-		'SDL_WINDOW_INPUT_FOCUS',
-		'SDL_WINDOW_KEYBOARD_GRABBED',
-		'SDL_WINDOW_MAXIMIZED',
-		'SDL_WINDOW_METAL',
-		'SDL_WINDOW_MINIMIZED',
-		'SDL_WINDOW_MODAL',
-		'SDL_WINDOW_MOUSE_CAPTURE',
-		'SDL_WINDOW_MOUSE_FOCUS',
-		'SDL_WINDOW_MOUSE_GRABBED',
-		'SDL_WINDOW_MOUSE_RELATIVE_MODE',
-		'SDL_WINDOW_NOT_FOCUSABLE',
-		'SDL_WINDOW_OCCLUDED',
-		'SDL_WINDOW_OPENGL',
-		'SDL_WINDOW_POPUP_MENU',
-		'SDL_WINDOW_RESIZABLE',
-		'SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE',
-		'SDL_WINDOW_SURFACE_VSYNC_DISABLED',
-		'SDL_WINDOW_TOOLTIP',
-		'SDL_WINDOW_TRANSPARENT',
-		'SDL_WINDOW_UTILITY',
-		'SDL_WINDOW_VULKAN'
+		'SDL_WINDOW_SURFACE_VSYNC_DISABLED'
 	],
 	#category : 'SDL3-Library',
 	#package : 'SDL3',
@@ -1436,12 +1300,6 @@ S3SDL3Constants class >> SDLK_EXECUTE [
 S3SDL3Constants class >> SDLK_EXSEL [
 
 	^ SDLK_EXSEL
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDLK_EXTENDED_MASK [
-
-	^ SDLK_EXTENDED_MASK
 ]
 
 { #category : 'accessing - constants' }
@@ -2423,12 +2281,6 @@ S3SDL3Constants class >> SDLK_S [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDLK_SCANCODE_MASK [
-
-	^ SDLK_SCANCODE_MASK
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDLK_SCROLLLOCK [
 
 	^ SDLK_SCROLLLOCK
@@ -2627,42 +2479,6 @@ S3SDL3Constants class >> SDL_ASSERT_LEVEL [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK [
-
-	^ SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_AUDIO_DEVICE_DEFAULT_RECORDING [
-
-	^ SDL_AUDIO_DEVICE_DEFAULT_RECORDING
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_AUDIO_MASK_BIG_ENDIAN [
-
-	^ SDL_AUDIO_MASK_BIG_ENDIAN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_AUDIO_MASK_BITSIZE [
-
-	^ SDL_AUDIO_MASK_BITSIZE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_AUDIO_MASK_FLOAT [
-
-	^ SDL_AUDIO_MASK_FLOAT
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_AUDIO_MASK_SIGNED [
-
-	^ SDL_AUDIO_MASK_SIGNED
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_BIG_ENDIAN [
 
 	^ SDL_BIG_ENDIAN
@@ -2723,21 +2539,9 @@ S3SDL3Constants class >> SDL_BUTTON_LEFT [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_BUTTON_LMASK [
-
-	^ SDL_BUTTON_LMASK
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_BUTTON_MIDDLE [
 
 	^ SDL_BUTTON_MIDDLE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_BUTTON_MMASK [
-
-	^ SDL_BUTTON_MMASK
 ]
 
 { #category : 'accessing - constants' }
@@ -2747,39 +2551,15 @@ S3SDL3Constants class >> SDL_BUTTON_RIGHT [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_BUTTON_RMASK [
-
-	^ SDL_BUTTON_RMASK
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_BUTTON_X1 [
 
 	^ SDL_BUTTON_X1
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_BUTTON_X1MASK [
-
-	^ SDL_BUTTON_X1MASK
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_BUTTON_X2 [
 
 	^ SDL_BUTTON_X2
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_BUTTON_X2MASK [
-
-	^ SDL_BUTTON_X2MASK
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_BYTEORDER [
-
-	^ SDL_BYTEORDER
 ]
 
 { #category : 'accessing - constants' }
@@ -2825,21 +2605,9 @@ S3SDL3Constants class >> SDL_ELF_NOTE_DLOPEN_VENDOR [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_FLOATWORDORDER [
-
-	^ SDL_FLOATWORDORDER
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_FLT_EPSILON [
 
 	^ SDL_FLT_EPSILON
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GLOB_CASEINSENSITIVE [
-
-	^ SDL_GLOB_CASEINSENSITIVE
 ]
 
 { #category : 'accessing - constants' }
@@ -2909,81 +2677,9 @@ S3SDL3Constants class >> SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_BUFFERUSAGE_COMPUTE_STORAGE_READ [
-
-	^ SDL_GPU_BUFFERUSAGE_COMPUTE_STORAGE_READ
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_BUFFERUSAGE_COMPUTE_STORAGE_WRITE [
-
-	^ SDL_GPU_BUFFERUSAGE_COMPUTE_STORAGE_WRITE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_BUFFERUSAGE_GRAPHICS_STORAGE_READ [
-
-	^ SDL_GPU_BUFFERUSAGE_GRAPHICS_STORAGE_READ
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_BUFFERUSAGE_INDEX [
-
-	^ SDL_GPU_BUFFERUSAGE_INDEX
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_BUFFERUSAGE_INDIRECT [
-
-	^ SDL_GPU_BUFFERUSAGE_INDIRECT
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_BUFFERUSAGE_VERTEX [
-
-	^ SDL_GPU_BUFFERUSAGE_VERTEX
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_COLORCOMPONENT_A [
-
-	^ SDL_GPU_COLORCOMPONENT_A
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_COLORCOMPONENT_B [
-
-	^ SDL_GPU_COLORCOMPONENT_B
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_COLORCOMPONENT_G [
-
-	^ SDL_GPU_COLORCOMPONENT_G
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_COLORCOMPONENT_R [
-
-	^ SDL_GPU_COLORCOMPONENT_R
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_GPU_RENDERER [
 
 	^ SDL_GPU_RENDERER
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_SHADERFORMAT_DXBC [
-
-	^ SDL_GPU_SHADERFORMAT_DXBC
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_SHADERFORMAT_DXIL [
-
-	^ SDL_GPU_SHADERFORMAT_DXIL
 ]
 
 { #category : 'accessing - constants' }
@@ -2993,117 +2689,9 @@ S3SDL3Constants class >> SDL_GPU_SHADERFORMAT_INVALID [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_SHADERFORMAT_METALLIB [
-
-	^ SDL_GPU_SHADERFORMAT_METALLIB
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_SHADERFORMAT_MSL [
-
-	^ SDL_GPU_SHADERFORMAT_MSL
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_SHADERFORMAT_PRIVATE [
-
-	^ SDL_GPU_SHADERFORMAT_PRIVATE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_SHADERFORMAT_SPIRV [
-
-	^ SDL_GPU_SHADERFORMAT_SPIRV
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_TEXTUREUSAGE_COLOR_TARGET [
-
-	^ SDL_GPU_TEXTUREUSAGE_COLOR_TARGET
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_READ [
-
-	^ SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_READ
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_SIMULTANEOUS_READ_WRITE [
-
-	^ SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_SIMULTANEOUS_READ_WRITE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_WRITE [
-
-	^ SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_WRITE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_TEXTUREUSAGE_DEPTH_STENCIL_TARGET [
-
-	^ SDL_GPU_TEXTUREUSAGE_DEPTH_STENCIL_TARGET
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_TEXTUREUSAGE_GRAPHICS_STORAGE_READ [
-
-	^ SDL_GPU_TEXTUREUSAGE_GRAPHICS_STORAGE_READ
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_GPU_TEXTUREUSAGE_SAMPLER [
-
-	^ SDL_GPU_TEXTUREUSAGE_SAMPLER
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_AUTOCENTER [
-
-	^ SDL_HAPTIC_AUTOCENTER
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_HAPTIC_CARTESIAN [
 
 	^ SDL_HAPTIC_CARTESIAN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_CONSTANT [
-
-	^ SDL_HAPTIC_CONSTANT
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_CUSTOM [
-
-	^ SDL_HAPTIC_CUSTOM
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_DAMPER [
-
-	^ SDL_HAPTIC_DAMPER
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_FRICTION [
-
-	^ SDL_HAPTIC_FRICTION
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_GAIN [
-
-	^ SDL_HAPTIC_GAIN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_INERTIA [
-
-	^ SDL_HAPTIC_INERTIA
 ]
 
 { #category : 'accessing - constants' }
@@ -3113,63 +2701,9 @@ S3SDL3Constants class >> SDL_HAPTIC_INFINITY [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_LEFTRIGHT [
-
-	^ SDL_HAPTIC_LEFTRIGHT
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_PAUSE [
-
-	^ SDL_HAPTIC_PAUSE
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_HAPTIC_POLAR [
 
 	^ SDL_HAPTIC_POLAR
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_RAMP [
-
-	^ SDL_HAPTIC_RAMP
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_RESERVED1 [
-
-	^ SDL_HAPTIC_RESERVED1
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_RESERVED2 [
-
-	^ SDL_HAPTIC_RESERVED2
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_RESERVED3 [
-
-	^ SDL_HAPTIC_RESERVED3
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_SAWTOOTHDOWN [
-
-	^ SDL_HAPTIC_SAWTOOTHDOWN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_SAWTOOTHUP [
-
-	^ SDL_HAPTIC_SAWTOOTHUP
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_SINE [
-
-	^ SDL_HAPTIC_SINE
 ]
 
 { #category : 'accessing - constants' }
@@ -3179,33 +2713,9 @@ S3SDL3Constants class >> SDL_HAPTIC_SPHERICAL [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_SPRING [
-
-	^ SDL_HAPTIC_SPRING
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_SQUARE [
-
-	^ SDL_HAPTIC_SQUARE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_STATUS [
-
-	^ SDL_HAPTIC_STATUS
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_HAPTIC_STEERING_AXIS [
 
 	^ SDL_HAPTIC_STEERING_AXIS
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAPTIC_TRIANGLE [
-
-	^ SDL_HAPTIC_TRIANGLE
 ]
 
 { #category : 'accessing - constants' }
@@ -3227,33 +2737,9 @@ S3SDL3Constants class >> SDL_HAT_LEFT [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAT_LEFTDOWN [
-
-	^ SDL_HAT_LEFTDOWN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAT_LEFTUP [
-
-	^ SDL_HAT_LEFTUP
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_HAT_RIGHT [
 
 	^ SDL_HAT_RIGHT
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAT_RIGHTDOWN [
-
-	^ SDL_HAT_RIGHTDOWN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_HAT_RIGHTUP [
-
-	^ SDL_HAT_RIGHTUP
 ]
 
 { #category : 'accessing - constants' }
@@ -4823,30 +4309,6 @@ S3SDL3Constants class >> SDL_HINT_XINPUT_ENABLED [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_ICONV_E2BIG [
-
-	^ SDL_ICONV_E2BIG
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_ICONV_EILSEQ [
-
-	^ SDL_ICONV_EILSEQ
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_ICONV_EINVAL [
-
-	^ SDL_ICONV_EINVAL
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_ICONV_ERROR [
-
-	^ SDL_ICONV_ERROR
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_INIT_AUDIO [
 
 	^ SDL_INIT_AUDIO
@@ -4907,33 +4369,9 @@ S3SDL3Constants class >> SDL_JOYSTICK_AXIS_MAX [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_JOYSTICK_AXIS_MIN [
-
-	^ SDL_JOYSTICK_AXIS_MIN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_KMOD_ALT [
-
-	^ SDL_KMOD_ALT
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_KMOD_CAPS [
 
 	^ SDL_KMOD_CAPS
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_KMOD_CTRL [
-
-	^ SDL_KMOD_CTRL
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_KMOD_GUI [
-
-	^ SDL_KMOD_GUI
 ]
 
 { #category : 'accessing - constants' }
@@ -5015,81 +4453,15 @@ S3SDL3Constants class >> SDL_KMOD_SCROLL [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_KMOD_SHIFT [
-
-	^ SDL_KMOD_SHIFT
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_LIL_ENDIAN [
 
 	^ SDL_LIL_ENDIAN
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_LINE [
-
-	^ SDL_LINE
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_MAJOR_VERSION [
 
 	^ SDL_MAJOR_VERSION
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MAX_SINT16 [
-
-	^ SDL_MAX_SINT16
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MAX_SINT32 [
-
-	^ SDL_MAX_SINT32
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MAX_SINT64 [
-
-	^ SDL_MAX_SINT64
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MAX_SINT8 [
-
-	^ SDL_MAX_SINT8
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MAX_TIME [
-
-	^ SDL_MAX_TIME
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MAX_UINT16 [
-
-	^ SDL_MAX_UINT16
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MAX_UINT32 [
-
-	^ SDL_MAX_UINT32
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MAX_UINT64 [
-
-	^ SDL_MAX_UINT64
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MAX_UINT8 [
-
-	^ SDL_MAX_UINT8
 ]
 
 { #category : 'accessing - constants' }
@@ -5147,66 +4519,6 @@ S3SDL3Constants class >> SDL_MINOR_VERSION [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MIN_SINT16 [
-
-	^ SDL_MIN_SINT16
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MIN_SINT32 [
-
-	^ SDL_MIN_SINT32
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MIN_SINT64 [
-
-	^ SDL_MIN_SINT64
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MIN_SINT8 [
-
-	^ SDL_MIN_SINT8
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MIN_TIME [
-
-	^ SDL_MIN_TIME
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MIN_UINT16 [
-
-	^ SDL_MIN_UINT16
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MIN_UINT32 [
-
-	^ SDL_MIN_UINT32
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MIN_UINT64 [
-
-	^ SDL_MIN_UINT64
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MIN_UINT8 [
-
-	^ SDL_MIN_UINT8
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_MOUSE_TOUCHID [
-
-	^ SDL_MOUSE_TOUCHID
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_MS_PER_SECOND [
 
 	^ SDL_MS_PER_SECOND
@@ -5228,72 +4540,6 @@ S3SDL3Constants class >> SDL_NS_PER_SECOND [
 S3SDL3Constants class >> SDL_NS_PER_US [
 
 	^ SDL_NS_PER_US
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_NULL_WHILE_LOOP_CONDITION [
-
-	^ SDL_NULL_WHILE_LOOP_CONDITION
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_INPUT_BUTTON_1 [
-
-	^ SDL_PEN_INPUT_BUTTON_1
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_INPUT_BUTTON_2 [
-
-	^ SDL_PEN_INPUT_BUTTON_2
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_INPUT_BUTTON_3 [
-
-	^ SDL_PEN_INPUT_BUTTON_3
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_INPUT_BUTTON_4 [
-
-	^ SDL_PEN_INPUT_BUTTON_4
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_INPUT_BUTTON_5 [
-
-	^ SDL_PEN_INPUT_BUTTON_5
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_INPUT_DOWN [
-
-	^ SDL_PEN_INPUT_DOWN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_INPUT_ERASER_TIP [
-
-	^ SDL_PEN_INPUT_ERASER_TIP
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_INPUT_IN_PROXIMITY [
-
-	^ SDL_PEN_INPUT_IN_PROXIMITY
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_MOUSEID [
-
-	^ SDL_PEN_MOUSEID
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_PEN_TOUCHID [
-
-	^ SDL_PEN_TOUCHID
 ]
 
 { #category : 'accessing - constants' }
@@ -6995,21 +6241,9 @@ S3SDL3Constants class >> SDL_PROP_WINDOW_X11_WINDOW_NUMBER [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_RENDERER_VSYNC_ADAPTIVE [
-
-	^ SDL_RENDERER_VSYNC_ADAPTIVE
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_RENDERER_VSYNC_DISABLED [
 
 	^ SDL_RENDERER_VSYNC_DISABLED
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_SIZE_MAX [
-
-	^ SDL_SIZE_MAX
 ]
 
 { #category : 'accessing - constants' }
@@ -7049,12 +6283,6 @@ S3SDL3Constants class >> SDL_SURFACE_SIMD_ALIGNED [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_TOUCH_MOUSEID [
-
-	^ SDL_TOUCH_MOUSEID
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_TRAYENTRY_BUTTON [
 
 	^ SDL_TRAYENTRY_BUTTON
@@ -7091,27 +6319,9 @@ S3SDL3Constants class >> SDL_US_PER_SECOND [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_VERSION [
-
-	^ SDL_VERSION
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOWPOS_CENTERED [
-
-	^ SDL_WINDOWPOS_CENTERED
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_WINDOWPOS_CENTERED_MASK [
 
 	^ SDL_WINDOWPOS_CENTERED_MASK
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOWPOS_UNDEFINED [
-
-	^ SDL_WINDOWPOS_UNDEFINED
 ]
 
 { #category : 'accessing - constants' }
@@ -7121,171 +6331,9 @@ S3SDL3Constants class >> SDL_WINDOWPOS_UNDEFINED_MASK [
 ]
 
 { #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_ALWAYS_ON_TOP [
-
-	^ SDL_WINDOW_ALWAYS_ON_TOP
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_BORDERLESS [
-
-	^ SDL_WINDOW_BORDERLESS
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_EXTERNAL [
-
-	^ SDL_WINDOW_EXTERNAL
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_FILL_DOCUMENT [
-
-	^ SDL_WINDOW_FILL_DOCUMENT
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_FULLSCREEN [
-
-	^ SDL_WINDOW_FULLSCREEN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_HIDDEN [
-
-	^ SDL_WINDOW_HIDDEN
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_HIGH_PIXEL_DENSITY [
-
-	^ SDL_WINDOW_HIGH_PIXEL_DENSITY
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_INPUT_FOCUS [
-
-	^ SDL_WINDOW_INPUT_FOCUS
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_KEYBOARD_GRABBED [
-
-	^ SDL_WINDOW_KEYBOARD_GRABBED
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_MAXIMIZED [
-
-	^ SDL_WINDOW_MAXIMIZED
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_METAL [
-
-	^ SDL_WINDOW_METAL
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_MINIMIZED [
-
-	^ SDL_WINDOW_MINIMIZED
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_MODAL [
-
-	^ SDL_WINDOW_MODAL
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_MOUSE_CAPTURE [
-
-	^ SDL_WINDOW_MOUSE_CAPTURE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_MOUSE_FOCUS [
-
-	^ SDL_WINDOW_MOUSE_FOCUS
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_MOUSE_GRABBED [
-
-	^ SDL_WINDOW_MOUSE_GRABBED
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_MOUSE_RELATIVE_MODE [
-
-	^ SDL_WINDOW_MOUSE_RELATIVE_MODE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_NOT_FOCUSABLE [
-
-	^ SDL_WINDOW_NOT_FOCUSABLE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_OCCLUDED [
-
-	^ SDL_WINDOW_OCCLUDED
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_OPENGL [
-
-	^ SDL_WINDOW_OPENGL
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_POPUP_MENU [
-
-	^ SDL_WINDOW_POPUP_MENU
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_RESIZABLE [
-
-	^ SDL_WINDOW_RESIZABLE
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE [
-
-	^ SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE
-]
-
-{ #category : 'accessing - constants' }
 S3SDL3Constants class >> SDL_WINDOW_SURFACE_VSYNC_DISABLED [
 
 	^ SDL_WINDOW_SURFACE_VSYNC_DISABLED
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_TOOLTIP [
-
-	^ SDL_WINDOW_TOOLTIP
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_TRANSPARENT [
-
-	^ SDL_WINDOW_TRANSPARENT
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_UTILITY [
-
-	^ SDL_WINDOW_UTILITY
-]
-
-{ #category : 'accessing - constants' }
-S3SDL3Constants class >> SDL_WINDOW_VULKAN [
-
-	^ SDL_WINDOW_VULKAN
 ]
 
 { #category : 'class initialization' }
@@ -7293,41 +6341,14 @@ S3SDL3Constants class >> initialize [
 
 	SDL_PLATFORM_LINUX := 1.
 	SDL_PLATFORM_UNIX := 1.
-	SDL_SIZE_MAX := 16rFFFFFFFFFFFFFFFF	 "SIZE_MAX".
-	SDL_MAX_SINT8 := 16r7F	 "((Sint8)0x7F)".
-	SDL_MIN_SINT8 := -16r80	 "((Sint8)(~0x7F))".
-	SDL_MAX_UINT8 := 16rFF	 "((Uint8)0xFF)".
-	SDL_MIN_UINT8 := 0	 "((Uint8)0x00)".
-	SDL_MAX_SINT16 := 16r7FFF	 "((Sint16)0x7FFF)".
-	SDL_MIN_SINT16 := -16r8000	 "((Sint16)(~0x7FFF))".
-	SDL_MAX_UINT16 := 16rFFFF	 "((Uint16)0xFFFF)".
-	SDL_MIN_UINT16 := 0	 "((Uint16)0x0000)".
-	SDL_MAX_SINT32 := 16r7FFFFFFF	 "((Sint32)0x7FFFFFFF)".
-	SDL_MIN_SINT32 := -16r80000000	 "((Sint32)(~0x7FFFFFFF))".
-	SDL_MAX_UINT32 := 16rFFFFFFFF	 "((Uint32)0xFFFFFFFFu)".
-	SDL_MIN_UINT32 := 0	 "((Uint32)0x00000000)".
-	SDL_MAX_SINT64 := 16r7FFFFFFFFFFFFFFF	 "SDL_SINT64_C(0x7FFFFFFFFFFFFFFF)".
-	SDL_MIN_SINT64 := -16r8000000000000000	 "~SDL_SINT64_C(0x7FFFFFFFFFFFFFFF)".
-	SDL_MAX_UINT64 := 16rFFFFFFFFFFFFFFFF	 "SDL_UINT64_C(0xFFFFFFFFFFFFFFFF)".
-	SDL_MIN_UINT64 := 0	 "SDL_UINT64_C(0x0000000000000000)".
-	SDL_MAX_TIME := 16r7FFFFFFFFFFFFFFF	 "SDL_MAX_SINT64".
-	SDL_MIN_TIME := -16r8000000000000000	 "SDL_MIN_SINT64".
 	SDL_FLT_EPSILON := 1.1920928955078125e-07.
 	SDL_PRILL_PREFIX := 'll'.
 	SDL_INVALID_UNICODE_CODEPOINT := 16rFFFD.
 	SDL_PI_D := 3.141592653589793238462643383279502884.
 	SDL_PI_F := 3.141592653589793238462643383279502884.
-	SDL_ICONV_ERROR := 16rFFFFFFFFFFFFFFFF	 "(size_t)-1".
-	SDL_ICONV_E2BIG := 16rFFFFFFFFFFFFFFFE	 "(size_t)-2".
-	SDL_ICONV_EILSEQ := 16rFFFFFFFFFFFFFFFD	 "(size_t)-3".
-	SDL_ICONV_EINVAL := 16rFFFFFFFFFFFFFFFC	 "(size_t)-4".
 	SDL_ASSERT_LEVEL := 2.
-	SDL_LINE := 16r21	 "__LINE__".
-	SDL_NULL_WHILE_LOOP_CONDITION := 0	 "(0)".
 	SDL_LIL_ENDIAN := 16r4D2.
 	SDL_BIG_ENDIAN := 16r10E1.
-	SDL_BYTEORDER := 16r4D2	 "__BYTE_ORDER".
-	SDL_FLOATWORDORDER := 16r4D2	 "SDL_BYTEORDER".
 	SDL_PROP_NAME_STRING := 'SDL.name'.
 	SDL_PROP_THREAD_CREATE_ENTRY_FUNCTION_POINTER := 'SDL.thread.create.entry_function'.
 	SDL_PROP_THREAD_CREATE_NAME_STRING := 'SDL.thread.create.name'.
@@ -7342,12 +6363,6 @@ S3SDL3Constants class >> initialize [
 	SDL_PROP_IOSTREAM_MEMORY_FREE_FUNC_POINTER := 'SDL.iostream.memory.free'.
 	SDL_PROP_IOSTREAM_DYNAMIC_MEMORY_POINTER := 'SDL.iostream.dynamic.memory'.
 	SDL_PROP_IOSTREAM_DYNAMIC_CHUNKSIZE_NUMBER := 'SDL.iostream.dynamic.chunksize'.
-	SDL_AUDIO_MASK_BITSIZE := 16rFF	 "(0xFFu)".
-	SDL_AUDIO_MASK_FLOAT := 16r100	 "(1u<<8)".
-	SDL_AUDIO_MASK_BIG_ENDIAN := 16r1000	 "(1u<<12)".
-	SDL_AUDIO_MASK_SIGNED := 16r8000	 "(1u<<15)".
-	SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK := 16rFFFFFFFF	 "((SDL_AudioDeviceID) 0xFFFFFFFFu)".
-	SDL_AUDIO_DEVICE_DEFAULT_RECORDING := 16rFFFFFFFE	 "((SDL_AudioDeviceID) 0xFFFFFFFEu)".
 	SDL_PROP_AUDIOSTREAM_AUTO_CLEANUP_BOOLEAN := 'SDL.audiostream.auto_cleanup'.
 	SDL_BLENDMODE_NONE := 16r00000000.
 	SDL_BLENDMODE_BLEND := 16r00000001.
@@ -7373,36 +6388,8 @@ S3SDL3Constants class >> initialize [
 	SDL_PROP_SURFACE_ROTATION_FLOAT := 'SDL.surface.rotation'.
 	SDL_CACHELINE_SIZE := 16r80.
 	SDL_PROP_GLOBAL_VIDEO_WAYLAND_WL_DISPLAY_POINTER := 'SDL.video.wayland.wl_display'.
-	SDL_WINDOW_FULLSCREEN := 1	 "SDL_UINT64_C(0x0000000000000001)".
-	SDL_WINDOW_OPENGL := 2	 "SDL_UINT64_C(0x0000000000000002)".
-	SDL_WINDOW_OCCLUDED := 4	 "SDL_UINT64_C(0x0000000000000004)".
-	SDL_WINDOW_HIDDEN := 8	 "SDL_UINT64_C(0x0000000000000008)".
-	SDL_WINDOW_BORDERLESS := 16r10	 "SDL_UINT64_C(0x0000000000000010)".
-	SDL_WINDOW_RESIZABLE := 16r20	 "SDL_UINT64_C(0x0000000000000020)".
-	SDL_WINDOW_MINIMIZED := 16r40	 "SDL_UINT64_C(0x0000000000000040)".
-	SDL_WINDOW_MAXIMIZED := 16r80	 "SDL_UINT64_C(0x0000000000000080)".
-	SDL_WINDOW_MOUSE_GRABBED := 16r100	 "SDL_UINT64_C(0x0000000000000100)".
-	SDL_WINDOW_INPUT_FOCUS := 16r200	 "SDL_UINT64_C(0x0000000000000200)".
-	SDL_WINDOW_MOUSE_FOCUS := 16r400	 "SDL_UINT64_C(0x0000000000000400)".
-	SDL_WINDOW_EXTERNAL := 16r800	 "SDL_UINT64_C(0x0000000000000800)".
-	SDL_WINDOW_MODAL := 16r1000	 "SDL_UINT64_C(0x0000000000001000)".
-	SDL_WINDOW_HIGH_PIXEL_DENSITY := 16r2000	 "SDL_UINT64_C(0x0000000000002000)".
-	SDL_WINDOW_MOUSE_CAPTURE := 16r4000	 "SDL_UINT64_C(0x0000000000004000)".
-	SDL_WINDOW_MOUSE_RELATIVE_MODE := 16r8000	 "SDL_UINT64_C(0x0000000000008000)".
-	SDL_WINDOW_ALWAYS_ON_TOP := 16r10000	 "SDL_UINT64_C(0x0000000000010000)".
-	SDL_WINDOW_UTILITY := 16r20000	 "SDL_UINT64_C(0x0000000000020000)".
-	SDL_WINDOW_TOOLTIP := 16r40000	 "SDL_UINT64_C(0x0000000000040000)".
-	SDL_WINDOW_POPUP_MENU := 16r80000	 "SDL_UINT64_C(0x0000000000080000)".
-	SDL_WINDOW_KEYBOARD_GRABBED := 16r100000	 "SDL_UINT64_C(0x0000000000100000)".
-	SDL_WINDOW_FILL_DOCUMENT := 16r200000	 "SDL_UINT64_C(0x0000000000200000)".
-	SDL_WINDOW_VULKAN := 16r10000000	 "SDL_UINT64_C(0x0000000010000000)".
-	SDL_WINDOW_METAL := 16r20000000	 "SDL_UINT64_C(0x0000000020000000)".
-	SDL_WINDOW_TRANSPARENT := 16r40000000	 "SDL_UINT64_C(0x0000000040000000)".
-	SDL_WINDOW_NOT_FOCUSABLE := 16r80000000	 "SDL_UINT64_C(0x0000000080000000)".
 	SDL_WINDOWPOS_UNDEFINED_MASK := 16r1FFF0000.
-	SDL_WINDOWPOS_UNDEFINED := 16r1FFF0000	 "SDL_WINDOWPOS_UNDEFINED_DISPLAY(0)".
 	SDL_WINDOWPOS_CENTERED_MASK := 16r2FFF0000.
-	SDL_WINDOWPOS_CENTERED := 16r2FFF0000	 "SDL_WINDOWPOS_CENTERED_DISPLAY(0)".
 	SDL_GL_CONTEXT_PROFILE_CORE := 16r0001.
 	SDL_GL_CONTEXT_PROFILE_COMPATIBILITY := 16r0002.
 	SDL_GL_CONTEXT_PROFILE_ES := 16r0004.
@@ -7494,7 +6481,6 @@ S3SDL3Constants class >> initialize [
 	SDL_PROP_WINDOW_EMSCRIPTEN_CANVAS_ID_STRING := 'SDL.window.emscripten.canvas_id'.
 	SDL_PROP_WINDOW_EMSCRIPTEN_KEYBOARD_ELEMENT_STRING := 'SDL.window.emscripten.keyboard_element'.
 	SDL_WINDOW_SURFACE_VSYNC_DISABLED := 0.
-	SDL_WINDOW_SURFACE_VSYNC_ADAPTIVE := -1	 "(-1)".
 	SDL_PROP_FILE_DIALOG_FILTERS_POINTER := 'SDL.filedialog.filters'.
 	SDL_PROP_FILE_DIALOG_NFILTERS_NUMBER := 'SDL.filedialog.nfilters'.
 	SDL_PROP_FILE_DIALOG_WINDOW_POINTER := 'SDL.filedialog.window'.
@@ -7510,7 +6496,6 @@ S3SDL3Constants class >> initialize [
 	SDL_ELF_NOTE_DLOPEN_TYPE := 16r407c0c0a.
 	SDL_STANDARD_GRAVITY := 9.80665.
 	SDL_JOYSTICK_AXIS_MAX := 16r7FFF.
-	SDL_JOYSTICK_AXIS_MIN := -16r8000.
 	SDL_PROP_JOYSTICK_CAP_MONO_LED_BOOLEAN := 'SDL.joystick.cap.mono_led'.
 	SDL_PROP_JOYSTICK_CAP_RGB_LED_BOOLEAN := 'SDL.joystick.cap.rgb_led'.
 	SDL_PROP_JOYSTICK_CAP_PLAYER_LED_BOOLEAN := 'SDL.joystick.cap.player_led'.
@@ -7521,12 +6506,6 @@ S3SDL3Constants class >> initialize [
 	SDL_HAT_RIGHT := 16r02.
 	SDL_HAT_DOWN := 16r04.
 	SDL_HAT_LEFT := 16r08.
-	SDL_HAT_RIGHTUP := 3	 "(SDL_HAT_RIGHT|SDL_HAT_UP)".
-	SDL_HAT_RIGHTDOWN := 6	 "(SDL_HAT_RIGHT|SDL_HAT_DOWN)".
-	SDL_HAT_LEFTUP := 9	 "(SDL_HAT_LEFT|SDL_HAT_UP)".
-	SDL_HAT_LEFTDOWN := 12	 "(SDL_HAT_LEFT|SDL_HAT_DOWN)".
-	SDLK_EXTENDED_MASK := 16r20000000	 "(1u << 29)".
-	SDLK_SCANCODE_MASK := 16r40000000	 "(1u << 30)".
 	SDLK_UNKNOWN := 16r00000000.
 	SDLK_RETURN := 16r0000000d.
 	SDLK_ESCAPE := 16r0000001b.
@@ -7797,10 +6776,6 @@ S3SDL3Constants class >> initialize [
 	SDL_KMOD_CAPS := 16r2000.
 	SDL_KMOD_MODE := 16r4000.
 	SDL_KMOD_SCROLL := 16r8000.
-	SDL_KMOD_CTRL := 16rC0	 "(SDL_KMOD_LCTRL | SDL_KMOD_RCTRL)".
-	SDL_KMOD_SHIFT := 3	 "(SDL_KMOD_LSHIFT | SDL_KMOD_RSHIFT)".
-	SDL_KMOD_ALT := 16r300	 "(SDL_KMOD_LALT | SDL_KMOD_RALT)".
-	SDL_KMOD_GUI := 16rC00	 "(SDL_KMOD_LGUI | SDL_KMOD_RGUI)".
 	SDL_PROP_TEXTINPUT_TYPE_NUMBER := 'SDL.textinput.type'.
 	SDL_PROP_TEXTINPUT_CAPITALIZATION_NUMBER := 'SDL.textinput.capitalization'.
 	SDL_PROP_TEXTINPUT_AUTOCORRECT_BOOLEAN := 'SDL.textinput.autocorrect'.
@@ -7811,48 +6786,7 @@ S3SDL3Constants class >> initialize [
 	SDL_BUTTON_RIGHT := 3.
 	SDL_BUTTON_X1 := 4.
 	SDL_BUTTON_X2 := 5.
-	SDL_BUTTON_LMASK := 1	 "SDL_BUTTON_MASK(SDL_BUTTON_LEFT)".
-	SDL_BUTTON_MMASK := 2	 "SDL_BUTTON_MASK(SDL_BUTTON_MIDDLE)".
-	SDL_BUTTON_RMASK := 4	 "SDL_BUTTON_MASK(SDL_BUTTON_RIGHT)".
-	SDL_BUTTON_X1MASK := 8	 "SDL_BUTTON_MASK(SDL_BUTTON_X1)".
-	SDL_BUTTON_X2MASK := 16r10	 "SDL_BUTTON_MASK(SDL_BUTTON_X2)".
-	SDL_TOUCH_MOUSEID := 16rFFFFFFFF	 "((SDL_MouseID)-1)".
-	SDL_MOUSE_TOUCHID := 16rFFFFFFFFFFFFFFFF	 "((SDL_TouchID)-1)".
-	SDL_PEN_MOUSEID := 16rFFFFFFFE	 "((SDL_MouseID)-2)".
-	SDL_PEN_TOUCHID := 16rFFFFFFFFFFFFFFFE	 "((SDL_TouchID)-2)".
-	SDL_PEN_INPUT_DOWN := 1	 "(1u << 0)".
-	SDL_PEN_INPUT_BUTTON_1 := 2	 "(1u << 1)".
-	SDL_PEN_INPUT_BUTTON_2 := 4	 "(1u << 2)".
-	SDL_PEN_INPUT_BUTTON_3 := 8	 "(1u << 3)".
-	SDL_PEN_INPUT_BUTTON_4 := 16r10	 "(1u << 4)".
-	SDL_PEN_INPUT_BUTTON_5 := 16r20	 "(1u << 5)".
-	SDL_PEN_INPUT_ERASER_TIP := 16r40000000	 "(1u << 30)".
-	SDL_PEN_INPUT_IN_PROXIMITY := 16r80000000	 "(1u << 31)".
-	SDL_GLOB_CASEINSENSITIVE := 1	 "(1u << 0)".
-	SDL_GPU_TEXTUREUSAGE_SAMPLER := 1	 "(1u << 0)".
-	SDL_GPU_TEXTUREUSAGE_COLOR_TARGET := 2	 "(1u << 1)".
-	SDL_GPU_TEXTUREUSAGE_DEPTH_STENCIL_TARGET := 4	 "(1u << 2)".
-	SDL_GPU_TEXTUREUSAGE_GRAPHICS_STORAGE_READ := 8	 "(1u << 3)".
-	SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_READ := 16r10	 "(1u << 4)".
-	SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_WRITE := 16r20	 "(1u << 5)".
-	SDL_GPU_TEXTUREUSAGE_COMPUTE_STORAGE_SIMULTANEOUS_READ_WRITE := 16r40	 "(1u << 6)".
-	SDL_GPU_BUFFERUSAGE_VERTEX := 1	 "(1u << 0)".
-	SDL_GPU_BUFFERUSAGE_INDEX := 2	 "(1u << 1)".
-	SDL_GPU_BUFFERUSAGE_INDIRECT := 4	 "(1u << 2)".
-	SDL_GPU_BUFFERUSAGE_GRAPHICS_STORAGE_READ := 8	 "(1u << 3)".
-	SDL_GPU_BUFFERUSAGE_COMPUTE_STORAGE_READ := 16r10	 "(1u << 4)".
-	SDL_GPU_BUFFERUSAGE_COMPUTE_STORAGE_WRITE := 16r20	 "(1u << 5)".
 	SDL_GPU_SHADERFORMAT_INVALID := 0.
-	SDL_GPU_SHADERFORMAT_PRIVATE := 1	 "(1u << 0)".
-	SDL_GPU_SHADERFORMAT_SPIRV := 2	 "(1u << 1)".
-	SDL_GPU_SHADERFORMAT_DXBC := 4	 "(1u << 2)".
-	SDL_GPU_SHADERFORMAT_DXIL := 8	 "(1u << 3)".
-	SDL_GPU_SHADERFORMAT_MSL := 16r10	 "(1u << 4)".
-	SDL_GPU_SHADERFORMAT_METALLIB := 16r20	 "(1u << 5)".
-	SDL_GPU_COLORCOMPONENT_R := 1	 "(1u << 0)".
-	SDL_GPU_COLORCOMPONENT_G := 2	 "(1u << 1)".
-	SDL_GPU_COLORCOMPONENT_B := 4	 "(1u << 2)".
-	SDL_GPU_COLORCOMPONENT_A := 8	 "(1u << 3)".
 	SDL_PROP_GPU_DEVICE_CREATE_DEBUGMODE_BOOLEAN := 'SDL.gpu.device.create.debugmode'.
 	SDL_PROP_GPU_DEVICE_CREATE_PREFERLOWPOWER_BOOLEAN := 'SDL.gpu.device.create.preferlowpower'.
 	SDL_PROP_GPU_DEVICE_CREATE_VERBOSE_BOOLEAN := 'SDL.gpu.device.create.verbose'.
@@ -7889,26 +6823,6 @@ S3SDL3Constants class >> initialize [
 	SDL_PROP_GPU_BUFFER_CREATE_NAME_STRING := 'SDL.gpu.buffer.create.name'.
 	SDL_PROP_GPU_TRANSFERBUFFER_CREATE_NAME_STRING := 'SDL.gpu.transferbuffer.create.name'.
 	SDL_HAPTIC_INFINITY := 16rFFFFFFFF.
-	SDL_HAPTIC_CONSTANT := 1	 "(1u<<0)".
-	SDL_HAPTIC_SINE := 2	 "(1u<<1)".
-	SDL_HAPTIC_SQUARE := 4	 "(1u<<2)".
-	SDL_HAPTIC_TRIANGLE := 8	 "(1u<<3)".
-	SDL_HAPTIC_SAWTOOTHUP := 16r10	 "(1u<<4)".
-	SDL_HAPTIC_SAWTOOTHDOWN := 16r20	 "(1u<<5)".
-	SDL_HAPTIC_RAMP := 16r40	 "(1u<<6)".
-	SDL_HAPTIC_SPRING := 16r80	 "(1u<<7)".
-	SDL_HAPTIC_DAMPER := 16r100	 "(1u<<8)".
-	SDL_HAPTIC_INERTIA := 16r200	 "(1u<<9)".
-	SDL_HAPTIC_FRICTION := 16r400	 "(1u<<10)".
-	SDL_HAPTIC_LEFTRIGHT := 16r800	 "(1u<<11)".
-	SDL_HAPTIC_RESERVED1 := 16r1000	 "(1u<<12)".
-	SDL_HAPTIC_RESERVED2 := 16r2000	 "(1u<<13)".
-	SDL_HAPTIC_RESERVED3 := 16r4000	 "(1u<<14)".
-	SDL_HAPTIC_CUSTOM := 16r8000	 "(1u<<15)".
-	SDL_HAPTIC_GAIN := 16r10000	 "(1u<<16)".
-	SDL_HAPTIC_AUTOCENTER := 16r20000	 "(1u<<17)".
-	SDL_HAPTIC_STATUS := 16r40000	 "(1u<<18)".
-	SDL_HAPTIC_PAUSE := 16r80000	 "(1u<<19)".
 	SDL_HAPTIC_POLAR := 0.
 	SDL_HAPTIC_CARTESIAN := 1.
 	SDL_HAPTIC_SPHERICAL := 2.
@@ -8315,7 +7229,6 @@ S3SDL3Constants class >> initialize [
 	SDL_PROP_TEXTURE_GPU_TEXTURE_U_POINTER := 'SDL.texture.gpu.texture_u'.
 	SDL_PROP_TEXTURE_GPU_TEXTURE_V_POINTER := 'SDL.texture.gpu.texture_v'.
 	SDL_RENDERER_VSYNC_DISABLED := 0.
-	SDL_RENDERER_VSYNC_ADAPTIVE := -1	 "(-1)".
 	SDL_DEBUG_TEXT_FONT_CHARACTER_SIZE := 8.
 	SDL_MS_PER_SECOND := 16r3E8.
 	SDL_US_PER_SECOND := 16rF4240.
@@ -8329,7 +7242,5 @@ S3SDL3Constants class >> initialize [
 	SDL_TRAYENTRY_CHECKED := 16r40000000.
 	SDL_MAJOR_VERSION := 3.
 	SDL_MINOR_VERSION := 4.
-	SDL_MICRO_VERSION := 0.
-	SDL_VERSION := 16r2DD660	 "\
-    SDL_VERSIONNUM(SDL_MAJOR_VERSION, SDL_MINOR_VERSION, SDL_MICRO_VERSION)"
+	SDL_MICRO_VERSION := 0
 ]
