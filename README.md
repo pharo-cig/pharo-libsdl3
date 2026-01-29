@@ -2,3 +2,12 @@
 Pharo bindings for https://www.libsdl.org/
 
 The generation recipe can be found at the class comment of [LibSDL3 class](https://github.com/pharo-cig/pharo-libsdl3/blob/main/src/SDL3/LibSDL3.class.st).
+
+## Install
+
+```smalltalk
+Metacello new
+	baseline: 'SDL3';
+	repository: 'github://pharo-cig/pharo-libsdl3:main';
+	load
+```
